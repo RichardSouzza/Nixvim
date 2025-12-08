@@ -24,7 +24,6 @@
     combinePlugins = {
       enable = true;
       standalonePlugins = with pkgs.vimPlugins; [
-        blink-cmp
         nvim-treesitter
       ];
     };

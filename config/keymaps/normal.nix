@@ -1,6 +1,43 @@
 {
   keymaps = [
     {
+      action = ":edit <cfile><CR>";
+      key = "gF";
+      mode = "n";
+      options = {
+        desc = "Go to file under cursor";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<home>";
+      action.__raw = ''
+        function()
+          local col = vim.fn.col('.')
+          local first_non_blank = vim.fn.indent('.')
+          if col - 1 == first_non_blank then
+            vim.cmd('normal! 0')
+          else
+            vim.cmd('normal! ^')
+          end
+        end
+      '';
+      options = {
+        desc = "Switches between line ^ and 0";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<insert>";
+      action = "a";
+      options = {
+        desc = "Append as default insertion mode";
+        silent = true;
+      };
+    }
+    {
       mode = "n";
       key = "<C-q>";
       action = ":qa<CR>";
@@ -83,7 +120,7 @@
     }
     {
       mode = "n";
-      key = "<S-A-up>";
+      key = "<A-S-up>";
       action = "<CMD>t. -1<CR>";
       options = {
         desc = "Duplicate line up";
@@ -92,7 +129,7 @@
     }
     {
       mode = "n";
-      key = "<S-A-down>";
+      key = "<A-S-down>";
       action = "<CMD>t.<CR>";
       options = {
         desc = "Duplicate line down";
@@ -105,34 +142,6 @@
       action = ":q<CR>";
       options = {
         desc = "Close buffer";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<home>";
-      action.__raw = ''
-        function()
-          local col = vim.fn.col('.')
-          local first_non_blank = vim.fn.indent('.')
-          if col - 1 == first_non_blank then
-            vim.cmd('normal! 0')
-          else
-            vim.cmd('normal! ^')
-          end
-        end
-      '';
-      options = {
-        desc = "Switches between line ^ and 0";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<insert>";
-      action = "a";
-      options = {
-        desc = "Append as default insertion mode";
         silent = true;
       };
     }

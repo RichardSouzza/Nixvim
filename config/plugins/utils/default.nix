@@ -40,7 +40,8 @@ in
 
   extraPlugins = [
     (buildVimPlugin {
-      name = "vim-cool";
+      pname = "vim-cool";
+      version = "2025-02-19";
       src = fetchFromGitHub {
         owner = "romainl";
         repo = "vim-cool";
@@ -49,7 +50,4 @@ in
       };
     })
   ];
-
-  # xdg.homeFile.".wakatime/wakatime-cli".source =
-  #   (mkIf isWakatimeInstalled "${pkgs.wakatime}/bin/wakatime-cli");
 }

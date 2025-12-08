@@ -10,7 +10,8 @@ in
 {
   extraPlugins = [
     (buildVimPlugin {
-      name = "duplicate";
+      pname = "duplicate";
+      version = "v1.1.0";
       src = fetchFromGitHub {
         owner = "hinell";
         repo = "duplicate.nvim";

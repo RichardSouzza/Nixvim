@@ -48,6 +48,4 @@
       };
     }
   ];
-
-  # xdg.homeFile.".sqlfluff".source = ./sqlfluff.toml;
 }

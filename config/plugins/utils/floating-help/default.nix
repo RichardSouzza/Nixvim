@@ -10,7 +10,8 @@ in
 {
   extraPlugins = [
     (buildVimPlugin {
-      name = "floating-help";
+      pname = "floating-help";
+      version = "2025-10-06";
       src = fetchFromGitHub {
         owner = "Tyler-Barham";
         repo = "floating-help.nvim";

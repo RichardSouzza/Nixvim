@@ -48,7 +48,8 @@ in
 
   extraPlugins = [
     (buildVimPlugin {
-      name = "visual-surround";
+      pname = "visual-surround";
+      version = "v1.0.1";
       src = fetchFromGitHub {
         owner = "NStefan002";
         repo = "visual-surround.nvim";
