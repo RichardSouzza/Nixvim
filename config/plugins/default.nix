@@ -10,7 +10,7 @@
     ./interface/bufferline.nix
     ./interface/interface.nix
     ./interface/lualine.nix
-    ./interface/neo-tree.nix
+    ./interface/neo-tree
     ./interface/terminal.nix
     ./lsp
     ./utils

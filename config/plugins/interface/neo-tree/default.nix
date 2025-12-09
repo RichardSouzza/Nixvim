@@ -11,6 +11,8 @@ in
         filesystem = {
           enable_refresh_on_write = true;
           follow_current_file.enabled = true;
+          sort_case_insensitive = true;
+          sort_function.__raw = builtins.readFile ./natural_sort.lua;
           window.mappings = {
             "c".__raw    = luaCmd "Snacks.picker.grep({ regex = false })";
             "e".__raw    = vimCmd "wincmd l";
