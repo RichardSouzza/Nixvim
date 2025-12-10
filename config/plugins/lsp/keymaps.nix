@@ -2,7 +2,7 @@
   keymaps = [
     {
       mode = "n";
-      key = "gr";
+      key = "gR";
       action.__raw = "function() vim.lsp.buf.rename() end";
       options = {
         desc = "LSP rename";

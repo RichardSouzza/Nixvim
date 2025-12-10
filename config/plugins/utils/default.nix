@@ -1,14 +1,10 @@
-{ lib, pkgs, ... }:
-
-with lib;
+{ pkgs, ... }:
 
 let
   inherit
     (pkgs) fetchFromGitHub;
   inherit
     (pkgs.vimUtils) buildVimPlugin;
-
-  isWakatimeInstalled = pkgs.wakatime-cli != null;
 
 in
 {

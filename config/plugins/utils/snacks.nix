@@ -4,6 +4,7 @@
       enable = true;
       settings = {
         health.enabled = true;
+        indent.enabled = true;
         input.enabled = true;
         lazygit.enabled = true;
         notifier.enabled = true;

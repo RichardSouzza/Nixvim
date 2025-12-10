@@ -11,7 +11,7 @@ in
   extraPlugins = [
     (buildVimPlugin {
       pname = "duplicate";
-      version = "v1.1.0";
+      version = "1.1.0";
       src = fetchFromGitHub {
         owner = "hinell";
         repo = "duplicate.nvim";

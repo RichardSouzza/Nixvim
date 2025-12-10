@@ -22,6 +22,10 @@ in
   };
 
   plugins = {
+    colorful-menu = {
+      enable = true;
+    };
+
     gitsigns.enable = true;
 
     noice = {
@@ -32,12 +36,6 @@ in
             pattern = [ "^:%s*he?l?p?%s+" "^:%s*FloatingHelp%s+" ];
           };
         };
-      };
-    };
-
-    snacks = {
-      settings = {
-        indent.enabled = true;
       };
     };
 
