@@ -24,6 +24,8 @@
                 in plugin.overrideAttrs (old: {
                   postInstall = (old.postInstall or "") + ''
                     find $out/doc -type f -name "*.md" -delete || true
+                    find $out/doc -type f -name "*.txt" -delete || true
+                    rm -f $out/doc/tags || true
                   '';
                 });
             };
@@ -54,6 +56,7 @@
         };
 
         packages.default = nvim;
+        homeModules.nixvim = import ./wrappers/home-manager.nix;
       }
     );
 }
