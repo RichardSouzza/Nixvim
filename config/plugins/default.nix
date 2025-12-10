@@ -3,6 +3,7 @@
     ./coding/blink-cmp.nix
     ./coding/duplicate.nix
     ./coding/edition.nix
+    ./coding/leap
     ./coding/spider.nix
     ./coding/visual-multi.nix
     ./formatting/conform.nix
