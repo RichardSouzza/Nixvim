@@ -13,14 +13,15 @@
   };
 
   outputs = { self, nixpkgs, nixvim, flake-utils }@inputs:
-    flake-utils.lib.eachDefaultSystem (
-      system:
+    flake-utils.lib.eachDefaultSystem ( system:
       let
         pkgs = import nixpkgs {
           inherit system;
           overlays = import ./overlays;
           config.allowUnfree = true;
         };
+
+        lib = pkgs.lib;
 
         nixvim' = nixvim.legacyPackages.${system};
 
@@ -33,6 +34,8 @@
 
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
 
+        homeModule = import ./wrappers/home-manager.nix { inherit lib nvim; };
+
       in
       {
         checks = {
@@ -40,7 +43,7 @@
         };
 
         packages.default = nvim;
-        homeModules.nixvim = import ./wrappers/home-manager.nix;
+        homeModules.nixvim = homeModule;
       }
     );
 }

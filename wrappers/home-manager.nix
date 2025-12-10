@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, nvim }: { config, ... }:
 
 let
   inherit (lib) mkEnableOption mkMerge mkOption mkIf types;
@@ -13,12 +13,7 @@ in
         {
           options = {
             enable = mkEnableOption "Whether to enable Neovim.";
-          };
-
-          defaultEditor = mkOption {
-            type = types.bool;
-            default = false;
-            description = "Whether to configure Noevim as the default editor using the EDITOR environment variable.";
+            defaultEditor = mkEnableOption  "Whether to configure Noevim as the default editor using the EDITOR environment variable.";
           };
         }
       ];
@@ -27,7 +22,10 @@ in
 
   config = mkIf cfg.enable (
     mkMerge [
-      {
+      { 
+        home.packages = [ nvim ]; 
+      }
+      { 
         home.sessionVariables = mkIf cfg.defaultEditor { EDITOR = "nvim"; };
       }
     ]
