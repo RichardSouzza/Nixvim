@@ -14,6 +14,14 @@ in
   ];
 
   plugins = {
+    # No yank on delete
+    cutlass-nvim = {
+      enable = true;
+      settings = {
+        exclude = [ "nx" "nX" "nxx" "nX" "vx" "vX" "xx" "xX" ];
+      };
+    };
+
     lazy.enable = true;
 
     markdown-preview.enable = true;
@@ -36,6 +44,7 @@ in
 
   extraPlugins = [
     (buildVimPlugin {
+      # noh on move after search
       pname = "vim-cool";
       version = "2025-02-19";
       src = fetchFromGitHub {

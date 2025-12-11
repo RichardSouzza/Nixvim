@@ -11,6 +11,15 @@
     }
     {
       mode = "v";
+      key = "<C-i>";
+      action = "<C-a>";
+      options = {
+        desc = "Increments all numbers in the selection";
+        silent = true;
+      };
+    }
+    {
+      mode = "v";
       key = "<C-s>";
       action = "<Esc>:w<CR>";
       options = {

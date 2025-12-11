@@ -39,6 +39,15 @@
     }
     {
       mode = "n";
+      key = "<C-i>";
+      action = "<C-a>";
+      options = {
+        desc = "Increment number under the cursor";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
       key = "<C-q>";
       action = ":qa<CR>";
       options = {
