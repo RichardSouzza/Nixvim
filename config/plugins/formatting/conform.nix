@@ -34,6 +34,8 @@
     };
   };
 
+  extraConfigLua = builtins.readFile ./toggle_format_on_save.lua;
+
   keymaps = [
     {
       mode = [ "n" "v" ];
