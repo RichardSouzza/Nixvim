@@ -1,4 +1,11 @@
+{ pkgs, ... }:
+
 let
+  inherit
+    (pkgs) fetchFromGitHub;
+  inherit
+    (pkgs.vimUtils) buildVimPlugin;
+
   buffers = [
     "all"
     "Float"
@@ -28,6 +35,17 @@ in
 
     gitsigns.enable = true;
 
+    helpview = {
+      enable = true;
+      settings = {
+        code_blocks = {
+          enable = true;
+          border_hl = "MarkviewCode";
+          info_hl = "MarkviewCodeInfo";
+        };
+      };
+    };
+
     noice = {
       enable = true;
       settings = {
@@ -35,6 +53,28 @@ in
           help = {
             pattern = [ "^:%s*he?l?p?%s+" "^:%s*FloatingHelp%s+" ];
           };
+        };
+      };
+    };
+
+    render-markdown = {
+      enable = true;
+      settings = {
+        anti_conceal = {
+          disabled_modes = [ "n" "c" "v" ];
+        };
+        heading = {
+          width = "block";
+          min_width = 80;
+          right_pad = 0;
+        };
+        code = {
+          width = "block";
+          min_width = 80;
+          left_pad = 2;
+          right_pad = 2;
+          language_pad = 1;
+          border = "thin";
         };
       };
     };

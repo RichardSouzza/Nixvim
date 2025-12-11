@@ -24,8 +24,6 @@ in
 
     lazy.enable = true;
 
-    markdown-preview.enable = true;
-
     no-neck-pain.enable = true;
 
     refactoring = {
