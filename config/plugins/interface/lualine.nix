@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 let
   breadcrumbs = {
     __raw = ''
@@ -26,6 +28,12 @@ in
   plugins = {
     lualine = {
       enable = true;
+      package = pkgs.vimPlugins.lualine-nvim.overrideAttrs (old: {
+        postInstall = ''
+          rm -f $out/lua/lualine/themes/ayu.lua
+          rm -f $out/lua/lualine/themes/onedark.lua
+        '';
+      });
 
       settings = {
         sections = {

@@ -18,20 +18,10 @@ let
 
 in
 {
-  colorschemes = {
-    nightfox = {
-      enable = true;
-      flavor = "carbonfox";
-      settings = {
-        options.transparent = true;
-      };
-    };
-  };
-
   plugins = {
-    colorful-menu = {
-      enable = true;
-    };
+    colorful-menu.enable = true;
+
+    colorizer.enable = true;
 
     gitsigns.enable = true;
 

@@ -7,8 +7,9 @@
     ./coding/spider.nix
     ./coding/visual-multi.nix
     ./formatting/conform.nix
-    ./interface/dashboard
     ./interface/bufferline.nix
+    ./interface/colorschemes.nix
+    ./interface/dashboard
     ./interface/interface.nix
     ./interface/lualine.nix
     ./interface/neo-tree

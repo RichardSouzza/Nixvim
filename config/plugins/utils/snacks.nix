@@ -19,7 +19,7 @@
   keymaps = [
     {
       action = "<CMD>lua Snacks.picker.lines({ layout = { preset = 'select' } })<CR>";
-      key = "/";
+      key = "gl";
       mode = "n";
       options = {
         desc = "Search line";
@@ -37,10 +37,19 @@
     }
     {
       action = "<CMD>lua Snacks.picker.files({ hidden = true })<CR>";
-      key = "gf";
+      key = "/";
       mode = "n";
       options = {
         desc = "Search file";
+        silent = true;
+      };
+    }
+    {
+      action = "<CMD>lua Snacks.picker.colorschemes({ layout = { preset = 'vertical' } })<CR>";
+      key = "gkt";
+      mode = "n";
+      options = {
+        desc = "Search colorschemes";
         silent = true;
       };
     }
