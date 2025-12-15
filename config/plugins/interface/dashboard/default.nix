@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   plugins = {
     snacks.settings.dashboard = {
@@ -5,6 +7,17 @@
       pane_gap = 8;
 
       preset = {
+        header = lib.concatStringsSep "\n" [
+          "                                                                   "
+          "      ████ ██████           █████      ██                    "
+          "     ███████████             █████                            "
+          "     █████████ ███████████████████ ███   ███████████  "
+          "    █████████  ███    █████████████ █████ ██████████████  "
+          "   █████████ ██████████ █████████ █████ █████ ████ █████  "
+          " ███████████ ███    ███ █████████ █████ █████ ████ █████ "
+          "██████  █████████████████████ ████ █████ █████ ████ ██████"
+        ];
+
         keys = [
           { icon = " "; key = "n"; desc = "New Scratch";     action.__raw = builtins.readFile ./new_scratch_action.lua; }
           { icon = " "; key = "f"; desc = "Find File";       action  = ":lua Snacks.dashboard.pick('files')";           }
@@ -24,39 +37,33 @@
           icon = " ";
           title = "Projects";
           section = "projects";
+          limit = 5;
           indent = 2;
           padding = 1;
+        }
+        {
+          title = " ";
+          pane = 2;
+          padding = 3;
         }
         {
           section = "terminal";
           cmd = "krabby name blastoise --no-title; sleep .1";
           pane = 2;
-          indent = 16;
-          height = 24;
+          height = 22;
+          indent = 15;
         }
         {
           icon = " ";
           title = "Recent Files";
           section = "recent_files";
+          limit = 5;
+          pane = 2;
           indent = 2;
           padding = 1;
-          pane = 2;
         }
         { key = "/"; action = ":lua Snacks.dashboard.pick('files')"; }
       ];
-    };
-
-    persistence = {
-      enable = true;
-      luaConfig.post = ''
-        -- https://github.com/folke/persistence.nvim/issues/27#issuecomment-3144573536
-        local group = vim.api.nvim_create_augroup('PersistenceSession', { clear = true })
-        vim.api.nvim_create_autocmd("User", {
-            group = group,
-            pattern = "PersistenceSavePre",
-            callback = function() vim.cmd("Neotree close") end
-            })
-      '';
     };
   };
 }
