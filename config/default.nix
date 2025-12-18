@@ -4,6 +4,7 @@
   imports = [
     ./keymaps
     ./plugins
+    ./auto_cmds.nix
     ./settings.nix
   ];
 
