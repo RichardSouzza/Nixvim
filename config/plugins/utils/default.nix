@@ -9,7 +9,6 @@ let
 in
 {
   imports = [
-    ./floating-help
     ./snacks.nix
   ];
 
