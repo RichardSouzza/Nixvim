@@ -23,7 +23,6 @@ in
 
     colorizer.enable = true;
 
-    gitsigns.enable = true;
 
     helpview = {
       enable = true;

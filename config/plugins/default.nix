@@ -10,6 +10,7 @@
     ./interface/bufferline.nix
     ./interface/colorschemes.nix
     ./interface/dashboard
+    ./interface/gitsigns.nix
     ./interface/floating-help
     ./interface/interface.nix
     ./interface/lualine.nix
