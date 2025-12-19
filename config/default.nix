@@ -10,6 +10,7 @@
 
   extraPackages = with pkgs; [
   # Dependecy    # Required by
+    emmylua-ls   # LSP
     fzf          # Blink
     gcc          # TreeSitter
     krabby       # Snacks.dashboard

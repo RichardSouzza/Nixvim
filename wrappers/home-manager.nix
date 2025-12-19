@@ -22,11 +22,20 @@ in
 
   config = mkIf cfg.enable (
     mkMerge [
-      { 
-        home.packages = [ nvim ]; 
+      {
+        home.packages = [ nvim ];
       }
-      { 
-        home.sessionVariables = mkIf cfg.defaultEditor { EDITOR = "nvim"; };
+      {
+        home.sessionVariables = mkIf cfg.defaultEditor {
+          EDITOR = "nvim";
+          VISUAL = "nvim";
+        };
+      }
+      {
+        home.file = {
+          ".sqlfluff".source = ../config/plugins/formatting/rules/sqlfluff.toml;
+          ".stylua.toml".source = ../config/plugins/formatting/rules/stylua.toml;
+        };
       }
     ]
   );

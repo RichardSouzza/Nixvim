@@ -48,7 +48,7 @@ in
           ];
 
           lualine_c = [
-            { __unkeyed-1 = "branch";   cond = isNeoTree;    }
+            { __unkeyed-1 = "branch";    cond = isNeoTree;    }
             { __unkeyed-1 = breadcrumbs; cond = isNotNeoTree; }
           ];
 

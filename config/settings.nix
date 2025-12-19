@@ -35,10 +35,13 @@
     scrolloff = 1000;      # Centers the cursor in the buffer during navigation
     showmode = false;      # Disables in favor of Lualine
     shiftwidth = 2;        # Number of columns used for autoindent
+    smartcase = true;      # Ignore case only when the search pattern contains uppercase characters
     smartindent = true;    # Do smart autoindenting when starting a new line
     smoothscroll = true;   # Smooth scroll
     swapfile = false;      # Disable swapfiles
     tabstop = 4;           # Width of a tab character
+    termguicolors = true;  # Enables support for 24-bit RGB color
+    winborder = "rounded"; # Default border style of floating windows
     wrap = false;          # Do not wrap the text
   };
 }

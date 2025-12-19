@@ -26,10 +26,6 @@ in
 
     no-neck-pain.enable = true;
 
-    refactoring = {
-      enable = true;
-    };
-
     wakatime.enable = true;
 
     which-key = {
@@ -40,7 +36,24 @@ in
     };
   };
 
+  extraConfigLua = ''
+    require("scrollEOF").setup({
+      insert_mode = false
+    })
+  '';
+
   extraPlugins = [
+    (buildVimPlugin {
+      # cursor always in the middle
+      pname = "scrollEOF";
+      version = "2025-09-14";
+      src = fetchFromGitHub {
+        owner = "Aasim-A";
+        repo = "scrollEOF.nvim";
+        rev = "master";
+        hash = "sha256-y7yOCRSGTtQcFyWVkGe3xQqstHZMQKayxtqkOVlZ4PM=";
+      };
+    })
     (buildVimPlugin {
       # noh on move after search
       pname = "vim-cool";

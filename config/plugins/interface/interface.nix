@@ -21,8 +21,12 @@ in
   plugins = {
     colorful-menu.enable = true;
 
-    colorizer.enable = true;
-
+    colorizer = {
+      enable = true;
+      settings = {
+        user_default_options.names = false;
+      };
+    };
 
     helpview = {
       enable = true;
@@ -95,4 +99,23 @@ in
       };
     };
   };
+
+  extraConfigLua = ''
+    require("satellite").setup({
+      show_always = true
+    })
+  '';
+
+  extraPlugins = [
+    (buildVimPlugin {
+      pname = "satellite";
+      version = "2025-12-19";
+      src = fetchFromGitHub {
+        owner = "RichardSouzza";
+        repo = "satellite.nvim";
+        rev = "main";
+        hash = "sha256-8HJ/FfyfXIOjAUXNKuGF+21PTsbVnh8fvBoqpOeyxkQ=";
+      };
+    })
+  ];
 }

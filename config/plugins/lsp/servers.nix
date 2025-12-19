@@ -13,20 +13,37 @@
 
       dockerls.enable = true;    # Docker
 
+      emmylua_ls = {
+        enable = true;
+      };
+
       gopls.enable = true;       # Go
 
       html.enable = true;        # HTML
 
       jsonls.enable = true;      # JavaScript
 
-      lua_ls = {
-        enable = true;           # Lua
-        settings.Lua = {
-          diagnostics.globals = [ "bufnr" "client" "event" "require" "vim" ];
-          runtime.version = "LuaJIT";
-          telemetry.enable = false;
-        };
-      };
+      # lua_ls = {                 # Lua
+      #   enable = true;
+      #
+      #   settings.Lua = {
+      #     diagnostics = {
+      #       globals = [ "vim" "bufnr" "client" "event" ];
+      #       disable = [ "missing-fields" "missing-name" "undefined-global" ];
+      #     };
+      #
+      #     runtime.version = "LuaJIT";
+      #
+      #     workspace = {
+      #       checkThirdParty = false;
+      #       library = [
+      #         "${pkgs.neovim}/share/nvim/runtime"
+      #       ];
+      #     };
+      #
+      #     telemetry.enable = false;
+      #   };
+      # };
 
       nixd = {                   # Nix
         enable = true;

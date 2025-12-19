@@ -5,11 +5,22 @@
 
       settings = {
         completion = {
+          documentation.auto_show = true;
+
+          keyword.range = "full";
+
           list = {
             selection = {
               preselect = false;
             };
           };
+
+          menu.draw.columns = [
+            { __raw = "{ 'kind_icon', 'label', 'label_description', gap = 1 }"; }
+            { __raw = "{ 'source_name' }"; }
+          ];
+
+          trigger.show_on_trigger_character = true;
         };
 
         keymap = {
@@ -37,10 +48,11 @@
 
           providers = {
             buffer = {
-              score_offset = 3;
+              score_offset = 2;
             };
 
             dictionary = {
+              async = true;
               name = "Dict";
               module = "blink-cmp-dictionary";
               score_offset = 4;
@@ -57,20 +69,20 @@
 
             lsp = {
               fallbacks = [ ];
-              score_offset = 1;
+              score_offset = 3;
             };
 
             path = {
-              score_offset = 2;
+              score_offset = 1;
             };
 
             ripgrep = {
               async = true;
               name = "Ripgrep";
               module = "blink-ripgrep";
-              score_offset = 3;
+              score_offset = 5;
               opts = {
-                prefix_min_len = 3;
+                prefix_min_len = 2;
                 backend = {
                   context_size = 5;
                   max_filesize = "2M";
@@ -83,6 +95,7 @@
       };
     };
 
+    # blink-cmp-copilot.enable = true;
     blink-cmp-dictionary.enable = true;
     blink-emoji.enable = true;
     blink-ripgrep.enable = true;
