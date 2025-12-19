@@ -17,6 +17,7 @@ in
     cutlass-nvim = {
       enable = true;
       settings = {
+        override_del = true;
         exclude = [ "nx" "nX" "nxx" "nX" "vx" "vX" "xx" "xX" ];
       };
     };

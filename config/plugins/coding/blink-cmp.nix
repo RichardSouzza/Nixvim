@@ -14,8 +14,10 @@
 
         keymap = {
           preset = "none";
-          "<A-Left>" = [ "select_prev" "fallback" ];
+          "<A-Left>"  = [ "select_prev" "fallback" ];
           "<A-Right>" = [ "select_next" "fallback" ];
+          "<C-k>"     = [ "show_signature" "hide_signature" ];
+          "<C-Space>" = [ "show" ];
         };
 
         signature = {

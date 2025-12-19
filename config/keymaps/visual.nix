@@ -1,6 +1,16 @@
 {
   keymaps = [
     {
+      action = "-";
+      key = "<BS>";
+      mode = "v";
+      options = {
+        desc = "Go up";
+        remap = true;
+        silent = true;
+      };
+    }
+    {
       mode = "v";
       key = "<C-c>";
       action = "\"+y";
@@ -42,15 +52,6 @@
       action = ":m '>+1<CR>gv=gv";
       options = {
         desc = "Move selected lines down";
-        silent = true;
-      };
-    }
-    {
-      mode = "v";
-      key = "<A-/>";
-      action = "gc";
-      options = {
-        desc = "Comment line";
         silent = true;
       };
     }

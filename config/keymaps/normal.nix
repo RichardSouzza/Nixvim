@@ -10,6 +10,44 @@
       };
     }
     {
+      action = ":NoNeckPain<CR>";
+      key = "gkz";
+      mode = "n";
+      options = {
+        desc = "Center buffer";
+        silent = true;
+      };
+    }
+    {
+      action = "gx";
+      key = "go";
+      mode = "n";
+      options = {
+        desc = "Opens filepath or URI under cursor with the system handler";
+        remap = true;
+        silent = true;
+      };
+    }
+    {
+      action = "<S-n>";
+      key = "n";
+      mode = "n";
+      options = {
+        desc = "Next";
+        silent = true;
+      };
+    }
+    {
+      action = "-";
+      key = "<BS>";
+      mode = "n";
+      options = {
+        desc = "Go up";
+        remap = true;
+        silent = true;
+      };
+    }
+    {
       mode = "n";
       key = "<home>";
       action.__raw = ''
@@ -34,6 +72,15 @@
       action = "a";
       options = {
         desc = "Append as default insertion mode";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-a>";
+      action = "ggVG";
+      options = {
+        desc = "Select all";
         silent = true;
       };
     }
@@ -142,6 +189,15 @@
       action = "<CMD>t.<CR>";
       options = {
         desc = "Duplicate line down";
+        silent = true;
+      };
+    }
+    {
+      action = "n";
+      key = "<S-n>";
+      mode = "n";
+      options = {
+        desc = "Previous";
         silent = true;
       };
     }
