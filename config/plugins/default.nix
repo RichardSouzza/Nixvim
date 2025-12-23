@@ -6,7 +6,6 @@
     ./coding/leap
     ./coding/spider.nix
     ./coding/visual-multi.nix
-    ./formatting/conform.nix
     ./interface/bufferline.nix
     ./interface/colorschemes.nix
     ./interface/dashboard
@@ -16,6 +15,7 @@
     ./interface/lualine.nix
     ./interface/neo-tree
     ./interface/terminal.nix
+    ./formatting
     ./lsp
     ./utils
   ];

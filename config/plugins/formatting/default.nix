@@ -7,7 +7,7 @@
           lsp_format = "fallback";
         };
 
-        format_on_save = builtins.readFile ./format_on_save.lua;
+        format_on_save = builtins.readFile ./scripts/format_on_save.lua;
 
         format_after_save = {
           lsp_format = "fallback";
@@ -34,7 +34,7 @@
     };
   };
 
-  extraConfigLua = builtins.readFile ./toggle_format_on_save.lua;
+  extraConfigLua = builtins.readFile ./scripts/extra_config.lua;
 
   keymaps = [
     {
