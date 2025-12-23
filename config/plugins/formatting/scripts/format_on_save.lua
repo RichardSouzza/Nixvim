@@ -9,21 +9,16 @@ function(bufnr)
     local function to_pascal_case(str)
       local words = {}
       for w in str:gmatch("[A-Za-z0-9]+") do
-        table.insert(words, w:sub(1,1):upper() .. w:sub(2):lower())
+        table.insert(words, w:sub(1, 1):upper() .. w:sub(2):lower())
       end
       return table.concat(words, "")
     end
 
     for i, line in ipairs(lines) do
-      lines[i] = vim.fn.substitute(
-        line,
-        [[\$P{\(\w\+\)}]],
-        function()
-          local raw = vim.fn.submatch(1)
-          return "@" .. to_pascal_case(raw)
-        end,
-        "g"
-      )
+      lines[i] = vim.fn.substitute(line, [[\$P{\(\w\+\)}]], function()
+        local raw = vim.fn.submatch(1)
+        return "@" .. to_pascal_case(raw)
+      end, "g")
     end
 
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
