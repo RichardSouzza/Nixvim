@@ -65,6 +65,24 @@
     }
     {
       mode = "i";
+      key = "<A-left>";
+      action = "<Esc><C-o>a";
+      options = {
+        desc = "Jump back";
+        silent = true;
+      };
+    }
+    {
+      mode = "i";
+      key = "<A-right>";
+      action = "<Esc><C-i>a";
+      options = {
+        desc = "Jump forward";
+        silent = true;
+      };
+    }
+    {
+      mode = "i";
       key = "<home>";
       action.__raw = ''
         function()
@@ -80,7 +98,7 @@
         end
       '';
       options = {
-        desc = "Switches between line ^ and 0";
+        desc = "Switches the cursor position between ^ and 0";
         silent = true;
       };
     }

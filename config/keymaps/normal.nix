@@ -1,3 +1,7 @@
+let
+  smart_jump = (import ./_shared.nix).smart_jump;
+
+in
 {
   keymaps = [
     {
@@ -38,12 +42,20 @@
       };
     }
     {
-      action = "-";
-      key = "<BS>";
       mode = "n";
+      key = "<BS>";
+      action.__raw = smart_jump "-";
       options = {
         desc = "Go up";
-        remap = true;
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<CR>";
+      action.__raw = smart_jump "+";
+      options = {
+        desc = "Go up";
         silent = true;
       };
     }
@@ -62,7 +74,7 @@
         end
       '';
       options = {
-        desc = "Switches between line ^ and 0";
+        desc = "Switches the cursor position between ^ and 0";
         silent = true;
       };
     }
@@ -159,7 +171,7 @@
     {
       mode = "n";
       key = "<A-up>";
-      action = ":m .-2<CR>==";
+      action = ":silent! m .-2<CR>==";
       options = {
         desc = "Move line up";
         silent = true;
@@ -168,9 +180,27 @@
     {
       mode = "n";
       key = "<A-down>";
-      action = ":m .+1<CR>==";
+      action = ":silent! m .+1<CR>==";
       options = {
         desc = "Move line down";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<A-left>";
+      action = "<C-o>";
+      options = {
+        desc = "Jump back";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<A-right>";
+      action = "<C-i>";
+      options = {
+        desc = "Jump forward";
         silent = true;
       };
     }
