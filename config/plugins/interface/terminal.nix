@@ -18,51 +18,51 @@
 
   keymaps = [
     {
-      action = "<CMD>ToggleTerm direction=horizontal<CR>";
-      key = "<A-;>";
       mode = "n";
+      key = "<A-;>";
+      action = "<CMD>ToggleTerm direction=horizontal<CR>";
       options = {
         desc = "Toggle terminal";
       };
     }
     {
-      action = "<CMD>ToggleTerm direction=float<CR>";
-      key = "<A-j>";
       mode = "n";
+      key = "<A-j>";
+      action = "<CMD>ToggleTerm direction=float<CR>";
       options = {
         desc = "Toggle float terminal";
       };
     }
     {
-      action = "<CMD>TermNew<CR>";
-      key = "<A-:>";
       mode = "n";
+      key = "<A-:>";
+      action = "<CMD>TermNew<CR>";
       options = {
         desc = "Open new terminal";
       };
     }
     {
-      action = "<CMD>TermSelect<CR>";
-      key = ";";
       mode = "n";
+      key = ";";
+      action = "<CMD>TermSelect<CR>";
       options = {
         desc = "Switch terminal";
       };
     }
     {
-      action = ''<C-\><C-n><C-w><C-p>'';
-      key = "<C-q>";
       mode = "t";
+      key = "<A-;>";
+      action = ''<C-\><C-n><C-w><C-p>'';
       options = {
         desc = "Exit terminal mode and go to the previous buffer";
       };
     }
     {
-      action = ''<C-\><C-n><C-w><C-p>'';
-      key = "<A-;>";
       mode = "t";
+      key = "<A-:>";
+      action = "<CMD>TermNew<CR>";
       options = {
-        desc = "Exit terminal mode and go to the previous buffer";
+        desc = "Open new terminal";
       };
     }
   ];

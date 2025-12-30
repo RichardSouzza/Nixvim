@@ -5,27 +5,27 @@ in
 {
   keymaps = [
     {
-      action = ":edit <cfile><CR>";
-      key = "gF";
       mode = "n";
+      key = "gF";
+      action = ":edit <cfile><CR>";
       options = {
         desc = "Go to file under cursor";
         silent = true;
       };
     }
     {
-      action = ":NoNeckPain<CR>";
-      key = "gkz";
       mode = "n";
+      key = "gkz";
+      action = ":NoNeckPain<CR>";
       options = {
         desc = "Center buffer";
         silent = true;
       };
     }
     {
-      action = "gx";
-      key = "go";
       mode = "n";
+      key = "go";
+      action = "gx";
       options = {
         desc = "Opens filepath or URI under cursor with the system handler";
         remap = true;
@@ -33,9 +33,9 @@ in
       };
     }
     {
-      action = "<S-n>";
-      key = "n";
       mode = "n";
+      key = "n";
+      action = "<S-n>";
       options = {
         desc = "Next";
         silent = true;
@@ -98,10 +98,28 @@ in
     }
     {
       mode = "n";
+      key = "<C-c>";
+      action = "\"+yy";
+      options = {
+        desc = "Copy line to clipboard";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
       key = "<C-i>";
       action = "<C-a>";
       options = {
         desc = "Increment number under the cursor";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-k>";
+      action = "<C-x>";
+      options = {
+        desc = "Decrement number under the cursor";
         silent = true;
       };
     }
@@ -120,15 +138,6 @@ in
       action = ":w<CR>";
       options = {
         desc = "Save file";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-c>";
-      action = "\"+yy";
-      options = {
-        desc = "Copy line to clipboard";
         silent = true;
       };
     }
@@ -228,15 +237,6 @@ in
       mode = "n";
       options = {
         desc = "Previous";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<S-q>";
-      action = ":q<CR>";
-      options = {
-        desc = "Close buffer";
         silent = true;
       };
     }

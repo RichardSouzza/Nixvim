@@ -1,9 +1,9 @@
 {
   keymaps = [
     {
-      action = "-";
-      key = "<BS>";
       mode = "v";
+      key = "<BS>";
+      action = "-";
       options = {
         desc = "Go up";
         remap = true;
@@ -21,10 +21,19 @@
     }
     {
       mode = "v";
-      key = "<C-i>";
-      action = "<C-a>";
+      key = "<Tab>"; # <C-i>
+      action = '':s/\d\+/\=submatch(0)+1/g<CR>'';
       options = {
-        desc = "Increments all numbers in the selection";
+        desc = "Increment all numbers in the selection";
+        silent = true;
+      };
+    }
+    {
+      mode = "v";
+      key = "<C-k>";
+      action = '':s/\d\+/\=submatch(0)-1/g<CR>'';
+      options = {
+        desc = "Decrement all numbers in the selection";
         silent = true;
       };
     }

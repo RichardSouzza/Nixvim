@@ -11,7 +11,6 @@ in
   plugins = {
     guess-indent.enable = true;
 
-
     nvim-autopairs = {
       enable = true;
       settings = {
@@ -38,5 +37,4 @@ in
       };
     })
   ];
-
 }
