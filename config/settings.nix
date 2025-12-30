@@ -30,15 +30,34 @@
   };
 
   opts = {
-    expandtab = true;      # Use the appropriate number of spaces to insert a tab
-    relativenumber = true; # Side relative numbers
-    scrolloff = 1000;      # Centers the cursor in the buffer during navigation
-    showmode = false;      # Disables in favor of Lualine
-    shiftwidth = 2;        # Number of columns used for autoindent
-    smartindent = true;    # Do smart autoindenting when starting a new line
-    smoothscroll = true;   # Smooth scroll
-    swapfile = false;      # Disable swapfiles
-    tabstop = 4;           # Width of a tab character
-    wrap = false;          # Do not wrap the text
+    autoindent = true;        # Basic automatic indentation
+    confirm = true;           # Ask for confirmation instead of failing
+    cursorline = true;        # Highlight the current line
+    cursorlineopt = "number"; # Highlight the line number of the cursor
+    expandtab = true;         # Use spaces instead of tabs
+    foldmethod = "indent";    # Creates folds based on indentation
+    foldlevelstart = 99;      # No closed folds when starting the buffer
+    ignorecase = true;        # Case-insensitive search by default
+    relativenumber = true;    # Side relative numbers
+    scrolloff = 1000;         # Keep cursor vertically centered
+    shiftwidth = 2;           # Size of an indent step
+    showmode = false;         # Disables in favor of Lualine
+    sidescrolloff = 1000;     # Keep cursor vertically centered while scrolling
+    signcolumn = "yes";       # Always show sign column
+    smartcase = true;         # Override ignorecase if the search pattern contains uppercase
+    smoothscroll = true;      # Smooth scroll
+    softtabstop = 2;          # Number of spaces inserted when pressing <Tab>
+    splitbelow = true;        # Horizontal splits open below
+    splitright = true;        # Vertical splits open to the right
+    swapfile = false;         # Disable swapfiles
+    tabstop = 2;              # Width of a tab character
+    termguicolors = true;     # Enables support for 24-bit RGB color
+    undofile = true;          # Persistent undo
+    virtualedit = "block";    # Allow virtual editing in Visual block mode
+    winborder = "rounded";    # Default border style of floating windows
+    wrap = false;             # Do not wrap the text
+    fillchars = {
+      eob = " ";
+    };
   };
 }
