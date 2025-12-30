@@ -23,5 +23,11 @@
         end
       '';
     }
+    {
+      desc = "Set markdown specific keymaps";
+      event = [ "FileType" ];
+      pattern = [ "markdown" ];
+      callback.__raw = builtins.readFile ./scripts/markdown_keymaps.lua;
+    }
   ];
 }
