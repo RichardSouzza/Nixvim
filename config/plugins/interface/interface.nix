@@ -21,8 +21,12 @@ in
   plugins = {
     colorful-menu.enable = true;
 
-    colorizer.enable = true;
-
+    colorizer = {
+      enable = true;
+      settings = {
+        user_default_options.names = false; # No highlight for color names
+      };
+    };
 
     helpview = {
       enable = true;
@@ -68,6 +72,8 @@ in
       };
     };
 
+    smear-cursor.enable = true;
+
     transparent = {
       enable = true;
       settings = {
@@ -91,8 +97,47 @@ in
           # "markdown_inline" "razor"
         ];
         highlight.enable = true;
-        indent.enable = true;
       };
     };
   };
+
+  extraConfigLua = ''
+    require("satellite").setup({
+      show_always = true,
+      excluded_buftypes = {
+       "nofile",
+       "popup",
+       "prompt",
+       "scratch",
+       "terminal"
+      }
+    })
+
+    require("scrollEOF").setup({
+      insert_mode = false
+    })
+  '';
+
+  extraPlugins = [
+    (buildVimPlugin {
+      pname = "satellite";
+      version = "2025-12-19";
+      src = fetchFromGitHub {
+        owner = "RichardSouzza";
+        repo = "satellite.nvim";
+        rev = "main";
+        hash = "sha256-8HJ/FfyfXIOjAUXNKuGF+21PTsbVnh8fvBoqpOeyxkQ=";
+      };
+    })
+    (buildVimPlugin {
+      pname = "scrollEOF";
+      version = "2025-09-14";
+      src = fetchFromGitHub {
+        owner = "Aasim-A";
+        repo = "scrollEOF.nvim";
+        rev = "master";
+        hash = "sha256-y7yOCRSGTtQcFyWVkGe3xQqstHZMQKayxtqkOVlZ4PM=";
+      };
+    })
+  ];
 }
