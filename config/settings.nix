@@ -58,6 +58,7 @@
     wrap = false;             # Do not wrap the text
     fillchars = {
       eob = " ";
+      fold = " ";
     };
   };
 }
