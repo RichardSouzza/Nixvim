@@ -1,7 +1,17 @@
+{ pkgs, ... }:
+
 {
   plugins = {
     snacks = {
       enable = true;
+
+      package = pkgs.vimPlugins.snacks-nvim.overrideAttrs (old: {
+        postInstall = (old.postInstall or "") + ''
+          mkdir $out/after
+          mv $out/{queries,after/queries}
+        '';
+      });
+
       settings = {
         health.enabled = true;
         indent.enabled = true;

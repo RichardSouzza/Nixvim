@@ -23,9 +23,6 @@
 
     combinePlugins = {
       enable = true;
-      standalonePlugins = with pkgs.vimPlugins; [
-        nvim-treesitter
-      ];
     };
   };
 
