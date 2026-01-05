@@ -33,6 +33,7 @@ in
       }
       {
         home.file = {
+          ".config/emmylua_ls/.emmyrc.json".source = ../config/plugins/lsp/configs/emmyrc.json;
           ".sqlfluff".source = ../config/plugins/formatting/rules/sqlfluff.toml;
           ".stylua.toml".source = ../config/plugins/formatting/rules/stylua.toml;
         };

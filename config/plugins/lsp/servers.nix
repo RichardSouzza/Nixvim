@@ -13,20 +13,13 @@
 
       dockerls.enable = true;    # Docker
 
+      emmylua_ls.enable = true;  # Lua
+
       gopls.enable = true;       # Go
 
       html.enable = true;        # HTML
 
       jsonls.enable = true;      # JavaScript
-
-      lua_ls = {
-        enable = true;           # Lua
-        settings.Lua = {
-          diagnostics.globals = [ "bufnr" "client" "event" "require" "vim" ];
-          runtime.version = "LuaJIT";
-          telemetry.enable = false;
-        };
-      };
 
       nixd = {                   # Nix
         enable = true;
