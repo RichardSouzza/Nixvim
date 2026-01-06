@@ -15,6 +15,7 @@
     ./interface/lualine.nix
     ./interface/neo-tree
     ./interface/terminal.nix
+    ./interface/treesitter
     ./formatting
     ./lsp
     ./utils

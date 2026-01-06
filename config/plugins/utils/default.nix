@@ -1,10 +1,8 @@
 { pkgs, ... }:
 
 let
-  inherit
-    (pkgs) fetchFromGitHub;
-  inherit
-    (pkgs.vimUtils) buildVimPlugin;
+  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs.vimUtils) buildVimPlugin;
 
 in
 {
@@ -13,7 +11,13 @@ in
   ];
 
   plugins = {
-    # No yank on delete
+    # codesnap = {
+    #   enable = true;
+    #   settings = {
+    #     save_path = "~/.local/share/nvim/codesnap";
+    #   };
+    # };
+
     cutlass-nvim = {
       enable = true;
       settings = {
@@ -25,10 +29,6 @@ in
     lazy.enable = true;
 
     no-neck-pain.enable = true;
-
-    refactoring = {
-      enable = true;
-    };
 
     wakatime.enable = true;
 

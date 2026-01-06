@@ -21,6 +21,7 @@
         notify.enable = true;
         picker.enabled = true;
         scratch.enabled = true;
+        words.enabled = true;
       };
     };
   };
@@ -28,8 +29,8 @@
   keymaps = [
     {
       action = "<CMD>lua Snacks.picker.lines({ layout = { preset = 'vertical' } })<CR>";
-      key = "/";
       mode = "n";
+      key = "/";
       options = {
         desc = "Search line";
       };
@@ -67,11 +68,43 @@
       };
     }
     {
-      action = "<CMD>lua Snacks.picker.colorschemes({ layout = { preset = 'dropdown' } })<CR>";
-      key = "gkt";
+      action = "<CMD>lua Snacks.picker.diagnostics_buffer()<CR>";
+      key = "gpd";
       mode = "n";
       options = {
-        desc = "Search colorschemes";
+        desc = "Show buffer diagnostics";
+      };
+    }
+    {
+      action = "<CMD>lua Snacks.picker.diagnostics()<CR>";
+      key = "gpD";
+      mode = "n";
+      options = {
+        desc = "Show diagnostics";
+      };
+    }
+    {
+      action = "<CMD>lua Snacks.picker.keymaps()<CR>";
+      key = "gpk";
+      mode = "n";
+      options = {
+        desc = "Show keymaps";
+      };
+    }
+    {
+      action = "<CMD>lua Snacks.picker.colorschemes({ layout = { preset = 'dropdown' } })<CR>";
+      key = "gpt";
+      mode = "n";
+      options = {
+        desc = "Show colorschemes";
+      };
+    }
+    {
+      action = "<CMD>lua Snacks.picker.undo()<CR>";
+      key = "gpu";
+      mode = "n";
+      options = {
+        desc = "Show undo history";
       };
     }
   ];

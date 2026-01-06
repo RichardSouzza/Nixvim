@@ -59,7 +59,7 @@ do
       return orig(msg)
     end
 
-    if msg:match("satellite") and msg:match("Buffer with this name already exists") then
+    if msg:match("satellite") then
       return
     end
 

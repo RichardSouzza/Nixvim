@@ -18,6 +18,7 @@ in
             "e".__raw    = vimCmd "wincmd l";
             "f".__raw    = luaCmd "Snacks.picker.files({ hidden = true })";
             "/".__raw    = luaCmd "Snacks.picker.files({ hidden = true })";
+            "F"          = "filter_on_submit";
             "<A-up>"     = "close_node";
             "<A-S-up>"   = "close_all_nodes";
             "<A-down>"   = "expand_all_subnodes";

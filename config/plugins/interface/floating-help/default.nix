@@ -1,10 +1,8 @@
 { pkgs, ... }:
 
 let
-  inherit
-    (pkgs) fetchFromGitHub;
-  inherit
-    (pkgs.vimUtils) buildVimPlugin;
+  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs.vimUtils) buildVimPlugin;
 
 in
 {

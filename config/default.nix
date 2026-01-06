@@ -17,6 +17,6 @@
     stylua       # Lua formatter
     sqlfluff     # SQL formatter
     wakatime-cli # Wakatime
-    wordnet      # Blink
+    wordnet      # blink-cmp-dictionary
   ];
 }

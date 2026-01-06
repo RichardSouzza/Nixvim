@@ -1,18 +1,10 @@
 { pkgs, ... }:
 
 let
-  inherit
-    (pkgs) fetchFromGitHub;
-  inherit
-    (pkgs.vimUtils) buildVimPlugin;
+  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs.vimUtils) buildVimPlugin;
 
-  buffers = [
-    "all"
-    "Float"
-    "FloatBorder"
-    "NormalFloat"
-    "Pmenu"
-  ];
+  buffers = [ "all" "Float" "FloatBorder" "NormalFloat" "Pmenu" ];
   lualine = [ "lualine" ];
   neotree = [ "CursorLine" ];
 
@@ -54,6 +46,7 @@ in
       enable = true;
       settings = {
         anti_conceal = {
+          enabled = false;
           disabled_modes = [ "n" "c" "v" ];
         };
         heading = {
@@ -74,6 +67,8 @@ in
 
     smear-cursor.enable = true;
 
+    tiny-glimmer.enable = true;
+
     transparent = {
       enable = true;
       settings = {
@@ -81,27 +76,22 @@ in
         extra_groups = buffers ++ lualine;
       };
     };
-
-    treesitter = {
-      enable = true;
-      settings = {
-        auto_install = false;
-        ensure_installed = [
-          "astro" "bash" "c_sharp" "css" "csv"
-          "html" "hyprlang" "ini" "java" "javascript"
-          "jinja" "jinja_inline" "json" "nix" "python"
-          "scss" "sql" "toml" "typescript"
-          "tsx" "xml" "yaml"
-          # Failed to build:
-          # "dockerfile" "lua" "markdown"
-          # "markdown_inline" "razor"
-        ];
-        highlight.enable = true;
-      };
-    };
   };
 
   extraConfigLua = ''
+    require("cinnamon").setup({
+      keymaps = {
+          basic = true,
+          extra = false,
+      },
+      options = {
+        mode = "cursor",
+        max_delta = {
+         time = 250
+        },
+      },
+    })
+
     require("satellite").setup({
       show_always = true,
       excluded_buftypes = {
@@ -119,6 +109,26 @@ in
   '';
 
   extraPlugins = [
+    # (buildVimPlugin {
+    #   pname = "hover";
+    #   version = "2025-12-12";
+    #   src = fetchFromGitHub {
+    #     owner = "lewis6991";
+    #     repo = "hover.nvim";
+    #     rev = "main";
+    #     hash = "sha256-TrBzF/jj4Q014Lhi/B9Bev+oTXTnh37lFltbdosNQ64=";
+    #   };
+    # })
+    (buildVimPlugin {
+      pname = "cinnamon";
+      version = "2024-08-06";
+      src = fetchFromGitHub {
+        owner = "declancm";
+        repo = "cinnamon.nvim";
+        rev = "master";
+        hash = "sha256-kccQ4iFMSQ8kvE7hYz90hBrsDLo7VohFj/6lEZZiAO8=";
+      };
+    })
     (buildVimPlugin {
       pname = "satellite";
       version = "2025-12-19";

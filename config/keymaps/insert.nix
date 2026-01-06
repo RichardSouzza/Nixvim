@@ -83,22 +83,19 @@
     }
     {
       mode = "i";
-      key = "<home>";
-      action.__raw = ''
-        function()
-          vim.schedule(function()
-            local col = vim.fn.col('.')
-            local first_non_blank = vim.fn.indent('.') + 1
-            if col == first_non_blank then
-              vim.cmd('normal! 0')
-            else
-              vim.cmd('normal! ^')
-            end
-          end)
-        end
-      '';
+      key = "<A-S-up>";
+      action = "<CMD>t. -1<CR>";
       options = {
-        desc = "Switches the cursor position between ^ and 0";
+        desc = "Duplicate line up";
+        silent = true;
+      };
+    }
+    {
+      mode = "i";
+      key = "<A-S-down>";
+      action = "<CMD>t.<CR>";
+      options = {
+        desc = "Duplicate line down";
         silent = true;
       };
     }

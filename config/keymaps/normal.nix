@@ -61,29 +61,19 @@ in
     }
     {
       mode = "n";
-      key = "<home>";
-      action.__raw = ''
-        function()
-          local col = vim.fn.col('.')
-          local first_non_blank = vim.fn.indent('.')
-          if col - 1 == first_non_blank then
-            vim.cmd('normal! 0')
-          else
-            vim.cmd('normal! ^')
-          end
-        end
-      '';
+      key = "<insert>";
+      action = "a";
       options = {
-        desc = "Switches the cursor position between ^ and 0";
+        desc = "Append as default insertion mode";
         silent = true;
       };
     }
     {
       mode = "n";
-      key = "<insert>";
-      action = "a";
+      key = "<space>";
+      action = "a <Esc>";
       options = {
-        desc = "Append as default insertion mode";
+        desc = "Add spaces in normal mode";
         silent = true;
       };
     }

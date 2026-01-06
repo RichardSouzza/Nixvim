@@ -12,6 +12,8 @@
       inlayHints = true;
     };
 
+    lsp-lines.enable = true;
+
     lspsaga = {
       enable = true;
       settings = {

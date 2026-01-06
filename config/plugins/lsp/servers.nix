@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   globals = {
@@ -33,6 +33,22 @@
           enable_roslyn_analyzers = true;
           organize_imports_on_format = true;
         };
+      };
+
+      roslyn_ls = {              # C#
+        enable = true;
+        settings = {
+        cmd = [
+          "${lib.getExe' pkgs.roslyn-ls "Microsoft.CodeAnalysis.LanguageServer"}"
+          "--logLevel"
+          "Information"
+          "--extensionLogDirectory"
+        ] ++ [
+          (lib.nixvim.mkRaw ''vim.fn.stdpath("cache") .. "/roslyn_ls/logs"'')
+        ] ++ [
+          "--stdio"
+        ];
+      };
       };
 
       ruff.enable = true;        # Python
