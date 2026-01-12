@@ -35,6 +35,10 @@
         };
       };
 
+      roslyn_ls = {              # C#
+        enable = false;
+      };
+
       ruff.enable = true;        # Python
 
       sqlls = {                  # SQL
@@ -54,29 +58,63 @@
           javascript = {
             format.enable = false;
             inlayHints = {
+              enumMemberValues.enabled = true;
+              functionLikeReturnTypes.enabled = true;
               parameterNames.enabled = "all";
               parameterTypes.enabled = true;
-              variableTypes.enabled = true;
               propertyDeclarationTypes.enabled = true;
-              functionLikeReturnTypes.enabled = true;
-              enumMemberValues.enabled = true;
+              variableTypes.enabled = true;
             };
           };
 
           typescript = {
             inlayHints = {
+              enumMemberValues.enabled = true;
+              functionLikeReturnTypes.enabled = true;
               parameterNames.enabled = "all";
               parameterTypes.enabled = true;
-              variableTypes.enabled = true;
               propertyDeclarationTypes.enabled = true;
-              functionLikeReturnTypes.enabled = true;
-              enumMemberValues.enabled = true;
+              variableTypes.enabled = true;
             };
+            suggest = {
+              completeFunctionCalls = true;
+            };
+            updateImportsOnFileMove = { enabled = "always"; };
           };
         };
       };
 
-      yamlls.enable = true;    # Yaml
+      yamlls.enable = true; # Yaml
     };
+
+    easy-dotnet = {         # C#
+      enable = true;
+      settings = {
+        get_sdk_path.__raw = ''
+          function()
+            local sdk_version = vim.trim(vim.fn.system("dotnet --version"))
+            local sdk_list = vim.trim(vim.fn.system("dotnet --list-sdks"))
+            local base = nil
+            for line in sdk_list:gmatch("[^\n]+") do
+              if line:find(sdk_version, 1, true) then
+                base = vim.fs.normalize(line:match("%[(.-)%]"))
+                break
+              end
+            end
+            local sdk_path = polyfills.fs.joinpath(base, sdk_version):gsub("Program Files", '"Program Files"')
+            return sdk_path
+          end
+        '';
+        lsp = {
+          enabled = true;
+          roslynator_enabled = true;
+        };
+        picker = "snacks";
+      };
+    };
+
+    # roslyn.enable = true;
+
+    # rzls.enable = true;
   };
 }

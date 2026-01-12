@@ -1,21 +1,4 @@
 {
-  plugins = {
-    toggleterm = {
-      enable = true;
-      settings = {
-        size = ''
-          function(term)
-            if term.direction == "horizontal" then
-              return 16
-            elseif term.direction == "vertical" then
-              return vim.o.columns * 0.4
-            end
-          end
-        '';
-      };
-    };
-  };
-
   keymaps = [
     {
       mode = "n";
@@ -51,6 +34,14 @@
     }
     {
       mode = "t";
+      key = "<A-j>";
+      action = ''<C-\><C-n><C-w><C-p>'';
+      options = {
+        desc = "Exit terminal mode and go to the previous buffer";
+      };
+    }
+    {
+      mode = "t";
       key = "<A-;>";
       action = ''<C-\><C-n><C-w><C-p>'';
       options = {
@@ -63,6 +54,14 @@
       action = "<CMD>TermNew<CR>";
       options = {
         desc = "Open new terminal";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>s";
+      action.__raw = "function() Scooter() end";
+      options = {
+        desc = "Open Scooter";
       };
     }
   ];

@@ -9,14 +9,14 @@
   ];
 
   extraPackages = with pkgs; [
-  # Dependecy    # Required by
-    fzf          # Blink
+  # Dependecy    # Required for:
+    fzf          # blink-cmp
     gcc          # TreeSitter
     krabby       # Snacks.dashboard
-    ripgrep      # Blink and Snacks.picker
-    stylua       # Lua formatter
-    sqlfluff     # SQL formatter
+    ripgrep      # blink-ripgrep and Snacks.picker
+    stylua       # Conform Lua formatter
+    sqlfluff     # Conform SQL formatter
     wakatime-cli # Wakatime
-    wordnet      # Blink
+    wordnet      # blink-cmp-dictionary
   ];
 }

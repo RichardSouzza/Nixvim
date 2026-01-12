@@ -9,6 +9,13 @@ in
   plugins = {
     guess-indent.enable = true;
 
+    # mini-surround = {
+    #   enable = true;
+    #   settings = {
+    #     mappings = {};
+    #   };
+    # };
+
     nvim-autopairs = {
       enable = true;
       settings = {

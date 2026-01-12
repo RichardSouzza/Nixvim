@@ -82,6 +82,14 @@
       };
     }
     {
+      action = ":Gitsigns toggle_current_line_blame<CR>";
+      key = "ghtb";
+      mode = "n";
+      options = {
+        desc = "Toggle current line blame";
+      };
+    }
+    {
       action = ":Gitsigns toggle_word_diff<CR>";
       key = "ghw";
       mode = "n";

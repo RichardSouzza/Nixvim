@@ -2,7 +2,7 @@
   keymaps = [
     {
       mode = "n";
-      key = "gR";
+      key = "<leader>lR";
       action.__raw = "function() vim.lsp.buf.rename() end";
       options = {
         desc = "LSP rename";
@@ -11,7 +11,7 @@
     }
     {
       mode = "n";
-      key = "gd";
+      key = "<leader>ld";
       action.__raw = "function() Snacks.picker.lsp_definitions() end";
       options = {
         desc = "Go to definition";
@@ -20,7 +20,7 @@
     }
     {
       mode = "n";
-      key = "gD";
+      key = "<leader>lD";
       action.__raw = "function() Snacks.picker.lsp_declarations() end";
       options = {
         desc = "Go to declaration";
@@ -29,7 +29,7 @@
     }
     {
       mode = "n";
-      key = "gi";
+      key = "<leader>li";
       action.__raw = "function() Snacks.picker.lsp_implementations() end";
       options = {
         desc = "Go to declaration";
@@ -38,7 +38,7 @@
     }
     {
       mode = "n";
-      key = "gr";
+      key = "<leader>lr";
       action.__raw = "function() Snacks.picker.lsp_references() end";
       options = {
         desc = "Go to type definition";
@@ -47,7 +47,7 @@
     }
     {
       mode = "n";
-      key = "gt";
+      key = "<leader>lt";
       action.__raw = "function() Snacks.picker.lsp_type_definitions() end";
       options = {
         desc = "Go to type definition";
@@ -56,7 +56,7 @@
     }
     {
       mode = "n";
-      key = ".";
+      key = "<leader>l.";
       action = "<CMD>Lspsaga code_action<CR>";
       options = {
         desc = "Show code actions";

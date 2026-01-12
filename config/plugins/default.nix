@@ -9,14 +9,16 @@
     ./interface/bufferline.nix
     ./interface/colorschemes.nix
     ./interface/dashboard
-    ./interface/gitsigns.nix
     ./interface/floating-help
+    ./interface/gitsigns.nix
     ./interface/interface.nix
     ./interface/lualine.nix
     ./interface/neo-tree
-    ./interface/terminal.nix
+    ./interface/treesitter
     ./formatting
     ./lsp
     ./utils
+    ./utils/snacks
+    ./utils/toggleterm
   ];
 }

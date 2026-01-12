@@ -15,7 +15,7 @@ in
     }
     {
       mode = "n";
-      key = "gkz";
+      key = "<leader>z";
       action = ":NoNeckPain<CR>";
       options = {
         desc = "Center buffer";
@@ -25,9 +25,9 @@ in
     {
       mode = "n";
       key = "go";
-      action = "gx";
+      action = ":vertical wincmd f";
       options = {
-        desc = "Opens filepath or URI under cursor with the system handler";
+        desc = "Opens filepath or URI under cursor in a new buffer";
         remap = true;
         silent = true;
       };
@@ -35,7 +35,7 @@ in
     {
       mode = "n";
       key = "n";
-      action = "<S-n>";
+      action = "<CMD>normal! <S-n><CR>";
       options = {
         desc = "Next";
         silent = true;
@@ -61,29 +61,19 @@ in
     }
     {
       mode = "n";
-      key = "<home>";
-      action.__raw = ''
-        function()
-          local col = vim.fn.col('.')
-          local first_non_blank = vim.fn.indent('.')
-          if col - 1 == first_non_blank then
-            vim.cmd('normal! 0')
-          else
-            vim.cmd('normal! ^')
-          end
-        end
-      '';
+      key = "<Insert>";
+      action = "a";
       options = {
-        desc = "Switches the cursor position between ^ and 0";
+        desc = "Append as default insertion mode";
         silent = true;
       };
     }
     {
       mode = "n";
-      key = "<insert>";
-      action = "a";
+      key = "<Space>";
+      action = "a <Esc>";
       options = {
-        desc = "Append as default insertion mode";
+        desc = "Add spaces in normal mode";
         silent = true;
       };
     }
@@ -98,17 +88,8 @@ in
     }
     {
       mode = "n";
-      key = "<C-c>";
-      action = "\"+yy";
-      options = {
-        desc = "Copy line to clipboard";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-i>";
-      action = "<C-a>";
+      key = "<Tab>"; # <C-i>
+      action = "<CMD>normal! <C-a><CR>";
       options = {
         desc = "Increment number under the cursor";
         silent = true;
@@ -232,11 +213,33 @@ in
       };
     }
     {
-      action = "n";
-      key = "<S-n>";
       mode = "n";
+      key = "<S-n>";
+      action = "<CMD>normal! n<CR>";
       options = {
         desc = "Previous";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><CR>";
+      action = "a<CR>";
+      options = {
+        desc = "Break line";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>d<Space>";
+      action.__raw = ''
+        function()
+          vim.cmd([[silent keeppatterns %s/\(\S\)\s\{2,}/\1 /ge]])
+        end
+      '';
+      options = {
+        desc = "Remove duplicate spaces";
         silent = true;
       };
     }

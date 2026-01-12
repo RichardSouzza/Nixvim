@@ -46,6 +46,7 @@ in
       enable = true;
       settings = {
         anti_conceal = {
+          enabled = false;
           disabled_modes = [ "n" "c" "v" ];
         };
         heading = {
@@ -66,6 +67,8 @@ in
 
     smear-cursor.enable = true;
 
+    tiny-glimmer.enable = true;
+
     transparent = {
       enable = true;
       settings = {
@@ -73,42 +76,9 @@ in
         extra_groups = buffers ++ lualine;
       };
     };
-
-    treesitter = {
-      enable = true;
-      settings = {
-        auto_install = false;
-        ensure_installed = [
-          "astro" "bash" "c_sharp" "css" "csv"
-          "html" "hyprlang" "ini" "java" "javascript"
-          "jinja" "jinja_inline" "json" "nix" "python"
-          "scss" "sql" "toml" "typescript"
-          "tsx" "xml" "yaml"
-          # Failed to build:
-          # "dockerfile" "lua" "markdown"
-          # "markdown_inline" "razor"
-        ];
-        highlight.enable = true;
-      };
-    };
   };
 
-  extraConfigLua = ''
-    require("satellite").setup({
-      show_always = true,
-      excluded_buftypes = {
-       "nofile",
-       "popup",
-       "prompt",
-       "scratch",
-       "terminal"
-      }
-    })
-
-    require("scrollEOF").setup({
-      insert_mode = false
-    })
-  '';
+  extraConfigLua = builtins.readFile ./extra_config.lua;
 
   extraPlugins = [
     (buildVimPlugin {

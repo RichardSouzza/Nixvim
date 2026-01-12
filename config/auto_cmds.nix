@@ -1,5 +1,22 @@
 {
   autoCmd = [
+    # {
+    #   desc = "Automatically close buffers in empty splits";
+    #   event = "BufDelete";
+    #   callback.__raw = ''
+    #     function()
+    #       local buf_id = args.buf
+    #       -- Check if the buffer being deleted is currently open in any window
+    #       for _, win in ipairs(vim.api.nvim_list_wins()) do
+    #         if vim.api.nvim_win_get_buf(win) == buf_id then
+    #           -- If it is, close the window.
+    #           vim.api.nvim_win_close(win, true)
+    #           return -- Only need to close one window showing it
+    #         end
+    #       end
+    #     end
+    #   '';
+    # }
     {
       desc = "Clear jump list on startup";
       event = "VimEnter";
