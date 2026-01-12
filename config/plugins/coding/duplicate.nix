@@ -1,16 +1,14 @@
 { pkgs, ... }:
 
 let
-  inherit
-    (pkgs) fetchFromGitHub;
-  inherit
-    (pkgs.vimUtils) buildVimPlugin;
+  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs.vimUtils) buildVimPlugin;
 
 in
 {
   extraPlugins = [
     (buildVimPlugin {
-      pname = "duplicate";
+      pname = "duplicate.nvim";
       version = "1.1.0";
       src = fetchFromGitHub {
         owner = "hinell";
@@ -18,6 +16,7 @@ in
         rev = "v1.1.0";
         hash = "sha256-k3Q7mk04dd2yql4NK5Lrm/AEy3lWp0xV2qvxqVly3lg=";
       };
+      meta.homepage = "https://github.com/hinell/duplicate.nvim";
     })
   ];
 

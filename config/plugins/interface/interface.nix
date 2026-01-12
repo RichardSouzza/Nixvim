@@ -1,18 +1,10 @@
 { pkgs, ... }:
 
 let
-  inherit
-    (pkgs) fetchFromGitHub;
-  inherit
-    (pkgs.vimUtils) buildVimPlugin;
+  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs.vimUtils) buildVimPlugin;
 
-  buffers = [
-    "all"
-    "Float"
-    "FloatBorder"
-    "NormalFloat"
-    "Pmenu"
-  ];
+  buffers = [ "all" "Float" "FloatBorder" "NormalFloat" "Pmenu" ];
   lualine = [ "lualine" ];
   neotree = [ "CursorLine" ];
 
@@ -120,24 +112,48 @@ in
 
   extraPlugins = [
     (buildVimPlugin {
-      pname = "satellite";
-      version = "2025-12-19";
+      pname = "cinnamon.nvim";
+      version = "0-unstable-2024-08-06";
+      src = fetchFromGitHub {
+        owner = "declancm";
+        repo = "cinnamon.nvim";
+        rev = "450cb3247765fed7871b41ef4ce5fa492d834215";
+        hash = "sha256-kccQ4iFMSQ8kvE7hYz90hBrsDLo7VohFj/6lEZZiAO8=";
+      };
+      meta.homepage = "https://github.com/declancm/cinnamon.nvim";
+    })
+    (buildVimPlugin {
+      pname = "satellite.nvim";
+      version = "0-unstable-2025-12-19";
       src = fetchFromGitHub {
         owner = "RichardSouzza";
         repo = "satellite.nvim";
-        rev = "main";
+        rev = "aadd417547665c48f43c9d7413fedf803532b816";
         hash = "sha256-8HJ/FfyfXIOjAUXNKuGF+21PTsbVnh8fvBoqpOeyxkQ=";
       };
+      meta.homepage = "https://github.com/RichardSouzza/satellite.nvim";
     })
     (buildVimPlugin {
-      pname = "scrollEOF";
-      version = "2025-09-14";
+      pname = "sunglasses.nvim";
+      version = "0-unstable-2025-01-13";
+      src = fetchFromGitHub {
+        owner = "miversen33";
+        repo = "sunglasses.nvim";
+        rev = "1e4c4ea4d6b46124090df1d35426a705cb3b99cf";
+        hash = "sha256-opkdp6kGGQa2BY/zPhDgrnk0nVMDCJXk79U5Pi7Dnh8=";
+      };
+      meta.homepage = "https://github.com/miversen33/sunglasses.nvim";
+    })
+    (buildVimPlugin {
+      pname = "scrollEOF.nvim";
+      version = "0-unstable-2025-09-14";
       src = fetchFromGitHub {
         owner = "Aasim-A";
         repo = "scrollEOF.nvim";
-        rev = "master";
+        rev = "e462b9a07b8166c3e8011f1dcbc6bf68b67cd8d7";
         hash = "sha256-y7yOCRSGTtQcFyWVkGe3xQqstHZMQKayxtqkOVlZ4PM=";
       };
+      meta.homepage = "https://github.com/Aasim-A/scrollEOF.nvim";
     })
   ];
 }

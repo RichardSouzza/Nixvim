@@ -1,10 +1,8 @@
 { pkgs, ... }:
 
 let
-  inherit
-    (pkgs) fetchFromGitHub;
-  inherit
-    (pkgs.vimUtils) buildVimPlugin;
+  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs.vimUtils) buildVimPlugin;
 
 in
 {
@@ -44,13 +42,14 @@ in
     (buildVimPlugin {
       # noh on move after search
       pname = "vim-cool";
-      version = "2025-02-19";
+      version = "0-unstable-2025-02-19";
       src = fetchFromGitHub {
         owner = "romainl";
         repo = "vim-cool";
-        rev = "master";
+        rev = "9ea940c0d537e55de0de4c0298c04b976960fb12";
         hash = "sha256-mKlQkFH1665b290clIpx0BylrmOOmey/FX9XbSfC41s=";
       };
+      meta.homepage = "https://github.com/romainl/vim-cool";
     })
   ];
 }
