@@ -22,6 +22,25 @@ let
       end
     '';
   };
+  linesSelected = {
+    __raw = ''
+      -- https://github.com/sirfz/dotvim/blob/db6f47c37a5286ddd878edd32ad060fea5584201/lua/plugins/lualine.lua#L60-L66
+      function()
+        local starts = vim.fn.line("v")
+        local ends = vim.fn.line(".")
+        local count = starts <= ends and ends - starts + 1 or starts - ends + 1
+        local wc = vim.fn.wordcount()
+        return count .. ":" .. wc["visual_chars"]
+      end
+    '';
+  };
+  linesSelectedCond = {
+    __raw = ''
+      function()
+        return vim.bo.filetype ~= 'neo-tree' and vim.fn.mode():find("[Vv]") ~= nil
+      end
+    '';
+  };
 
 in
 {
@@ -58,8 +77,9 @@ in
           ];
 
           lualine_y = [
-            { __unkeyed-1 = "filetype";   cond = isNotNeoTree; }
-            { __unkeyed-1 = "lsp_status"; cond = isNotNeoTree; }
+            { __unkeyed-1 = "filetype";    cond = isNotNeoTree;      }
+            { __unkeyed-1 = "lsp_status";  cond = isNotNeoTree;      }
+            { __unkeyed-1 = linesSelected; cond = linesSelectedCond; }
           ];
 
           lualine_z = [
