@@ -1,8 +1,8 @@
 -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#command-to-toggle-format-on-save
 
 vim.api.nvim_create_user_command("FormatDisable", function(args)
+  -- FormatDisable! will disable formatting just for this buffer
   if args.bang then
-    -- FormatDisable! will disable formatting just for this buffer
     vim.b.disable_autoformat = true
   else
     vim.g.disable_autoformat = true

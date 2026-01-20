@@ -17,9 +17,7 @@ in
 
         format_on_save = builtins.readFile ./scripts/format_on_save.lua;
 
-        format_after_save = {
-          lsp_format = "fallback";
-        };
+        format_after_save = "function() end";
 
         formatters_by_ft = {
           "*"  = [ "trim_newlines" "trim_whitespace" ];
@@ -63,7 +61,12 @@ in
     };
   };
 
-  extraConfigLua = builtins.readFile ./scripts/extra_config.lua;
+  extraConfigLua = concatStrings [
+    (builtins.readFile ./scripts/align_tables.lua)
+    (builtins.readFile ./scripts/commands.lua)
+    (builtins.readFile ./scripts/replace_parameters.lua)
+  ];
+
   extraPlugins = [
     (buildVimPlugin {
       pname = "vim-easy-align";
