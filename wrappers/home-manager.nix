@@ -1,4 +1,4 @@
-{ lib, nvim }: { config, ... }:
+{ lib, nvim }: { config, pkgs, ... }:
 
 let
   inherit (lib) mkEnableOption mkMerge mkOption mkIf types;
@@ -34,8 +34,11 @@ in
       {
         home.file = {
           ".config/emmylua_ls/.emmyrc.json".source = ../config/plugins/lsp/configs/emmyrc.json;
-          ".sqlfluff".source = ../config/plugins/formatting/rules/sqlfluff.toml;
+          ".config/markdownlint/.markdownlint.yaml".source = ../config/plugins/formatting/rules/markdownlint.yaml;
+          ".config/sqlfluff/.sqlfluff".source = ../config/plugins/formatting/rules/sqlfluff.ini;
+          ".config/yamlfmt/.yamlfmt.yaml".source = ../config/plugins/formatting/rules/yamlfmt.yaml;
           ".stylua.toml".source = ../config/plugins/formatting/rules/stylua.toml;
+          ".wakatime/wakatime-cli".source = "${pkgs.wakatime-cli}/bin/wakatime-cli";
         };
       }
     ]

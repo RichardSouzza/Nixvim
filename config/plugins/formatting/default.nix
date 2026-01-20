@@ -1,3 +1,11 @@
+{ lib, pkgs, ... }:
+
+let
+  inherit (lib) concatStrings getExe;
+  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs.vimUtils) buildVimPlugin;
+
+in
 {
   plugins = {
     conform-nvim = {
@@ -14,17 +22,38 @@
         };
 
         formatters_by_ft = {
-          "*" = [ "trim_newlines" "trim_whitespace" ];
-          "_" = [ "trim_newlines" "trim_whitespace" ];
-          lua = [ "stylua" ];
-          sql = [ "sqlfluff" ];
+          "*"  = [ "trim_newlines" "trim_whitespace" ];
+          "_"  = [ "trim_newlines" "trim_whitespace" ];
+          bash = [ "shfmt" ];
+          lua  = [ "stylua" ];
+          markdown = [ "injected"  ];
+          sh   = [ "shfmt" ];
+          sql  = [ "sqlfluff" ]; # sqls -> sqlfluff
+          toml = [ "taplo"    ];
+          yaml = [ "yamlfmt"  ];
         };
 
         formatters = {
+          shfmt = {
+            command = getExe pkgs.shfmt;
+          };
+
           sqlfluff = {
-            command = "sqlfluff";
+            command = getExe pkgs.sqlfluff;
             args = [ "fix" "-" ];
-            stdin = true;
+            require_cwd = false;
+          };
+
+          stylua = {
+            command = getExe pkgs.stylua;
+          };
+
+          toml = {
+            command = getExe pkgs.taplo;
+          };
+
+          yaml = {
+            command = getExe pkgs.yamlfmt;
           };
         };
 
@@ -35,6 +64,19 @@
   };
 
   extraConfigLua = builtins.readFile ./scripts/extra_config.lua;
+  extraPlugins = [
+    (buildVimPlugin {
+      pname = "vim-easy-align";
+      version = "2.10.0-unstable-2024-04-13";
+      src = fetchFromGitHub {
+        owner = "junegunn";
+        repo = "vim-easy-align";
+        rev = "9815a55dbcd817784458df7a18acacc6f82b1241";
+        hash = "sha256-9CfWi83DCzWBARNG6AA0MQllEfQ/3UtYtYPDWLdmDwk=";
+      };
+      meta.homepage = "https://github.com/junegunn/vim-easy-align";
+    })
+  ];
 
   keymaps = [
     {
