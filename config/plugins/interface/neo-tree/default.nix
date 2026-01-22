@@ -17,6 +17,33 @@ in
           diff_files.__raw = builtins.readFile ./functions/diff_files.lua;
         };
 
+        default_component_configs = {
+          container = {
+            right_padding = 1;
+          };
+          diagnostics = {
+            symbols = {
+              error = "E";
+              hint  = "";
+              info  = "";
+              warn  = "";
+            };
+          };
+          git_status = {
+            symbols = {
+              added     = " ";
+              modified  = " ";
+              deleted   = "󰅖";
+              renamed   = "󰁕";
+              untracked = "?";
+              ignored   = "";
+              unstaged  = "󰄱";
+              staged    = "";
+              conflict  = "";
+            };
+          };
+        };
+
         filesystem = {
           components = {
             name = {
