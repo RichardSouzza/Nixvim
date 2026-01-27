@@ -4,6 +4,7 @@
     ./coding/duplicate.nix
     ./coding/edition.nix
     ./coding/leap
+    ./coding/text-case
     ./coding/spider.nix
     ./coding/visual-multi.nix
     ./interface/bufferline.nix
