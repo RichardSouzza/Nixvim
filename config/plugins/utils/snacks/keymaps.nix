@@ -30,7 +30,7 @@ in
     }
     {
       action = "<CMD>lua Snacks.picker.grep({ regex = false })<CR>";
-      key = "gb";
+      key = "gB";
       mode = "n";
       options = {
         desc = "Search code";

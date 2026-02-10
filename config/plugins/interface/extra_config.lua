@@ -20,6 +20,9 @@ require("satellite").setup({
     "scratch",
     "terminal",
   },
+  excluded_filetypes = {
+    "neo-tree",
+  },
   handlers = {
     marks = {
       enable = false, -- Very unstable
@@ -53,5 +56,5 @@ require("sunglasses").setup({
 vim.cmd("SunglassesDisable")
 
 require("scrollEOF").setup({
-  insert_mode = false,
+  insert_mode = true,
 })

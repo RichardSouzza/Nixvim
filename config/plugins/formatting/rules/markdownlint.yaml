@@ -9,6 +9,10 @@ MD013:
 MD024:
   enabled: false
 
+# MD029/ol-prefix : Ordered list item prefix : https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md029.md
+MD029:
+  enabled: false
+
 # MD033/no-inline-html : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md033.md
 MD033:
   enabled: false

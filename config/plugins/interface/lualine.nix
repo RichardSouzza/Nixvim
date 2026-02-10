@@ -4,7 +4,18 @@ let
   breadcrumbs = {
     __raw = ''
       function()
-        return require('lspsaga.symbol.winbar').get_bar()
+        local ok, saga = pcall(require, "lspsaga.symbol.winbar")
+        if not ok then
+          return vim.fn.expand("%:t")
+        end
+
+        local bar = saga.get_bar()
+
+        if bar == nil or bar == "" then
+          return vim.fn.expand("%:t")
+        end
+
+        return bar
       end
     '';
   };
@@ -77,8 +88,8 @@ in
           ];
 
           lualine_y = [
-            { __unkeyed-1 = "filetype";    cond = isNotNeoTree;      }
             { __unkeyed-1 = "lsp_status";  cond = isNotNeoTree;      }
+            { __unkeyed-1 = "searchcount"; cond = isNotNeoTree;      }
             { __unkeyed-1 = linesSelected; cond = linesSelectedCond; }
           ];
 

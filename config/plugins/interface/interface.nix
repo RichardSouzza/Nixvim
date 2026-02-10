@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   inherit (pkgs) fetchFromGitHub;
@@ -39,6 +39,34 @@ in
             pattern = [ "^:%s*he?l?p?%s+" "^:%s*FloatingHelp%s+" ];
           };
         };
+
+        lsp = {
+          override = {
+            "vim.lsp.util.convert_input_to_markdown_lines" = true;
+            "vim.lsp.util.stylize_markdown" = true;
+            "cmp.entry.get_documentation" = true;
+          };
+        };
+
+        presets = {
+          command_palette = false;
+        };
+
+        routes = [
+          {
+            filter = {
+              event = "msg_show";
+              any = [
+                { find = "%d+L, %d+B";     }
+                { find = "%d fewer lines"; }
+                { find = "%d more lines";  }
+                { find = "; after #%d+";   }
+                { find = "; before #%d+";  }
+              ];
+            };
+            view = "mini";
+          }
+        ];
       };
     };
 
@@ -46,6 +74,7 @@ in
       enable = true;
       settings = {
         anti_conceal = {
+          enabled = false;
           disabled_modes = [ "n" "c" "v" ];
         };
         heading = {
@@ -66,6 +95,8 @@ in
 
     smear-cursor.enable = true;
 
+    tiny-glimmer.enable = true;
+
     transparent = {
       enable = true;
       settings = {
@@ -74,41 +105,40 @@ in
       };
     };
 
-    treesitter = {
+    web-devicons = {
       enable = true;
       settings = {
-        auto_install = false;
-        ensure_installed = [
-          "astro" "bash" "c_sharp" "css" "csv"
-          "html" "hyprlang" "ini" "java" "javascript"
-          "jinja" "jinja_inline" "json" "nix" "python"
-          "scss" "sql" "toml" "typescript"
-          "tsx" "xml" "yaml"
-          # Failed to build:
-          # "dockerfile" "lua" "markdown"
-          # "markdown_inline" "razor"
-        ];
-        highlight.enable = true;
+        override = {
+          license = {
+            icon = "󰄤";
+            color = "#d0bf41";
+            name = "License";
+          };
+        };
+        override_by_extension = {
+          "kv" = {
+            icon = "";
+            color = "#fbf7f7";
+            name = "Kivy";
+          };
+          "spec" = {
+            icon = "";
+            color = "#6d8086";
+            name = "Specification";
+          };
+        };
+        override_by_filename = {
+          "LICENSE" = {
+            icon = "󰄤";
+            color = "#d0bf41";
+            name = "License";
+          };
+        };
       };
     };
   };
 
-  extraConfigLua = ''
-    require("satellite").setup({
-      show_always = true,
-      excluded_buftypes = {
-       "nofile",
-       "popup",
-       "prompt",
-       "scratch",
-       "terminal"
-      }
-    })
-
-    require("scrollEOF").setup({
-      insert_mode = false
-    })
-  '';
+  extraConfigLua = builtins.readFile ./extra_config.lua;
 
   extraPlugins = [
     (buildVimPlugin {
@@ -120,18 +150,24 @@ in
         rev = "450cb3247765fed7871b41ef4ce5fa492d834215";
         hash = "sha256-kccQ4iFMSQ8kvE7hYz90hBrsDLo7VohFj/6lEZZiAO8=";
       };
-      meta.homepage = "https://github.com/declancm/cinnamon.nvim";
+      meta = {
+        homepage = "https://github.com/declancm/cinnamon.nvim";
+        license = lib.licenses.mit;
+      };
     })
     (buildVimPlugin {
       pname = "satellite.nvim";
-      version = "0-unstable-2025-12-19";
+      version = "0-unstable-2026-02-02";
       src = fetchFromGitHub {
         owner = "RichardSouzza";
         repo = "satellite.nvim";
-        rev = "aadd417547665c48f43c9d7413fedf803532b816";
-        hash = "sha256-8HJ/FfyfXIOjAUXNKuGF+21PTsbVnh8fvBoqpOeyxkQ=";
+        rev = "3b4ca5faeda69cdde033842bd30ccdb12faae902";
+        hash = "sha256-4eI+RpvLAR8l/taibIUuWNi4vQTTw0KfLO0ZfWBN2Do=";
       };
-      meta.homepage = "https://github.com/RichardSouzza/satellite.nvim";
+      meta = {
+        homepage = "https://github.com/RichardSouzza/satellite.nvim";
+        license = lib.licenses.mit;
+      };
     })
     (buildVimPlugin {
       pname = "sunglasses.nvim";
@@ -142,7 +178,10 @@ in
         rev = "1e4c4ea4d6b46124090df1d35426a705cb3b99cf";
         hash = "sha256-opkdp6kGGQa2BY/zPhDgrnk0nVMDCJXk79U5Pi7Dnh8=";
       };
-      meta.homepage = "https://github.com/miversen33/sunglasses.nvim";
+      meta = {
+        homepage = "https://github.com/miversen33/sunglasses.nvim";
+        license = lib.licenses.gpl3Only;
+      };
     })
     (buildVimPlugin {
       pname = "scrollEOF.nvim";
@@ -153,7 +192,10 @@ in
         rev = "e462b9a07b8166c3e8011f1dcbc6bf68b67cd8d7";
         hash = "sha256-y7yOCRSGTtQcFyWVkGe3xQqstHZMQKayxtqkOVlZ4PM=";
       };
-      meta.homepage = "https://github.com/Aasim-A/scrollEOF.nvim";
+      meta = {
+        homepage = "https://github.com/Aasim-A/scrollEOF.nvim";
+        license = lib.licenses.mit;
+      };
     })
   ];
 }

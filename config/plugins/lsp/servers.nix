@@ -1,5 +1,10 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
+let
+  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs.vimUtils) buildVimPlugin;
+
+in
 {
   globals = {
     OmniSharp_server_use_mono = 1;
@@ -19,12 +24,12 @@
 
       html.enable = true;        # HTML
 
-      jsonls.enable = true;      # JavaScript
-
       nixd = {                   # Nix
         enable = true;
         cmd = [ "nixd" "--inlay-hints=false" "--semantic-tokens" ];
       };
+
+      pyright.enable = true;     # Python
 
       omnisharp = {              # C#
         enable = false;
@@ -35,16 +40,21 @@
         };
       };
 
-      ruff.enable = true;        # Python
+      roslyn_ls = {              # C#
+        enable = false;
+      };
 
-      sqlls = {                  # SQL
-        enable = true;
-        package = pkgs.sqls;
+      # ruff.enable = true;        # Python
+
+      sqls = {                   # SQL
+        enable = false;
       };
 
       tailwindcss.enable = true; # Tailwind CSS
 
-      ts_ls = {                  # TypeScript
+      taplo.enable = true;       # TOML
+
+      ts_ls = {                  # JavaScript / TypeScript
         enable = true;
         settings = {
           completions = {
@@ -54,29 +64,99 @@
           javascript = {
             format.enable = false;
             inlayHints = {
+              enumMemberValues.enabled = true;
+              functionLikeReturnTypes.enabled = true;
               parameterNames.enabled = "all";
               parameterTypes.enabled = true;
-              variableTypes.enabled = true;
               propertyDeclarationTypes.enabled = true;
-              functionLikeReturnTypes.enabled = true;
-              enumMemberValues.enabled = true;
+              variableTypes.enabled = true;
             };
           };
 
           typescript = {
             inlayHints = {
+              enumMemberValues.enabled = true;
+              functionLikeReturnTypes.enabled = true;
               parameterNames.enabled = "all";
               parameterTypes.enabled = true;
-              variableTypes.enabled = true;
               propertyDeclarationTypes.enabled = true;
-              functionLikeReturnTypes.enabled = true;
-              enumMemberValues.enabled = true;
+              variableTypes.enabled = true;
             };
+            suggest = {
+              completeFunctionCalls = true;
+            };
+            updateImportsOnFileMove = { enabled = "always"; };
           };
         };
       };
 
-      yamlls.enable = true;    # Yaml
+      vale_ls = {           # Spell
+        enable = true;
+      };
+
+      yamlls.enable = true; # Yaml
     };
+
+    easy-dotnet = {         # C#
+      enable = false;
+      settings = {
+        get_sdk_path.__raw = ''
+          function()
+            local sdk_version = vim.trim(vim.fn.system("dotnet --version"))
+            local sdk_list = vim.trim(vim.fn.system("dotnet --list-sdks"))
+            local base = nil
+            for line in sdk_list:gmatch("[^\n]+") do
+              if line:find(sdk_version, 1, true) then
+                base = vim.fs.normalize(line:match("%[(.-)%]"))
+                break
+              end
+            end
+            local sdk_path = polyfills.fs.joinpath(base, sdk_version):gsub("Program Files", '"Program Files"')
+            return sdk_path
+          end
+        '';
+        lsp = {
+          enabled = true;
+          roslynator_enabled = true;
+        };
+        picker = "snacks";
+      };
+    };
+
+    flutter-tools = {
+      enable = true;
+    };
+
+    roslyn.enable = true;
+
+    # rzls.enable = true;
   };
+
+  extraPlugins = [
+    (buildVimPlugin {
+      pname = "mssql.nvim";
+      version = "0-unstable-2025-10-23";
+      src = fetchFromGitHub {
+        owner = "Kurren123";
+        repo = "mssql.nvim";
+        rev = "d3d3078b42988ae90b9d0a17d7bdb44b1b6d18e3";
+        hash = "sha256-/jG3xSfvWqK8KbpnCOz4xvZc1+dkyJzMFQFl30VKwYk=";
+      };
+      nvimSkipModule = [
+        "mssql"
+        "mssql.default_opts"
+        "mssql.display_query_results"
+        "mssql.find_object"
+        "mssql.interface"
+        "mssql.query_manager"
+        "mssql.tools_downloader"
+        "mssql.utils"
+        "runtests"
+      ];
+      meta = {
+        homepage = "https://github.com/Kurren123/mssql.nvim";
+        license = lib.licenses.unlicense;
+      };
+    })
+  ];
 }

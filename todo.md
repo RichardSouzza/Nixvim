@@ -14,15 +14,18 @@
 - [x] jumplist navigation
 - [x] markdown specific keymaps
 - [ ] improve markdown keymaps: numbered list creation and code blocks `````` <C-C>
-- [ ] c# autocmd affect only his buffer
+- [ ] c# fold autocmd affect only his buffer
 - [x] neo-tree focus no change source
 - [x] <Shift> half jump
 
+test list creation:
 a
 b
 c
 d
 e
+
+create a ten item checklist bellow:
 
 ## P2
 
@@ -38,7 +41,6 @@ e
 
 ## P3
 
-- [ ] razor treesitter
 - [ ] c# inner queries highlight
 - [ ] Cascade side bar
 - [ ] <C-w><S-t> to restore buffer
@@ -58,7 +60,7 @@ e
 - [x] colorscheme
 - [x] empty lines in EOF
 - [x] scroll animation
-- [ ] web-devicons custom sets from lazyvim (consider mini.icons)
+- [ ] web-devicons custom sets from lazyvim (consider mini.icons for overlay by filename)
 - [ ] which-key keymap icons
 - [ ] c# lsp
 - [ ] persistence buffer
@@ -70,6 +72,7 @@ e
 ## Consider
 
 - [ ] refresh neo-tree periodically
+- [ ] neo-tree <S-number> to select file
 - [ ] ci" lookbehind
 - [ ] better scratchs management
 - [ ] dim bufferline while in scooter

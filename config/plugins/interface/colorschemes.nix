@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   inherit (pkgs) fetchFromGitHub;
@@ -27,7 +27,10 @@ in
         rev = "1a0ebbd10302da803673e1703c5f31a42676efe9";
         hash = "sha256-KZl+DRNKVP7vOZbd5Xwt7u+dqmkDon82oPvsoBFcHHM=";
       };
-      meta.homepage = "https://github.com/RichardSouzza/mini.base16";
+      meta = {
+        homepage = "https://github.com/RichardSouzza/mini.base16";
+        license = lib.licenses.mit;
+      };
     })
     (buildVimPlugin {
       pname = "monet.nvim";
@@ -38,7 +41,10 @@ in
         rev = "8fba02c535a408d5e5255251665325a69fa12a8e";
         hash = "sha256-fUnwv0mppD+sqlWMgbR/f/75Bau7psoSpiUVCQ/DxH4=";
       };
-      meta.homepage = "https://github.com/fynnfluegge/monet.nvim";
+      meta = {
+        homepage = "https://github.com/fynnfluegge/monet.nvim";
+        license = lib.licenses.asl20;
+      };
     })
     (buildVimPlugin {
       pname = "oasis.nvim";
@@ -49,18 +55,52 @@ in
         rev = "v4.0.0";
         hash = "sha256-uFO3eNhWsUmebYD6t85d8mlna2BF4qd1FU+RkGnQbvU=";
       };
-      meta.homepage = "https://github.com/uhs-robert/oasis.nvim";
+      meta = {
+        homepage = "https://github.com/uhs-robert/oasis.nvim";
+        license = lib.licenses.mit;
+      };
+    })
+    # (buildVimPlugin {
+    #   pname = "radium.nvim";
+    #   version = "0-unstable-2024-02-29";
+    #   src = fetchFromGitHub {
+    #     owner = "Sly-Harvey";
+    #     repo = "radium.nvim";
+    #     rev = "d600092250680155c7f5ff09d073599b38d36676";
+    #     hash = "sha256-MJntiTaeC7ItD04mHWEw80A9Lb+IojEGiSDC0CkyDQU=";
+    #   };
+    #   meta = {
+    #     homepage = "https://github.com/Sly-Harvey/radium.nvim";
+    #     license = lib.licenses.mit;
+    #   };
+    # })
+    (buildVimPlugin {
+      pname = "riderdark-vscode.nvim";
+      version = "0-unstable-2025-03-13";
+      src = fetchFromGitHub {
+        owner = "Sofiane5900";
+        repo = "riderdark-vscode.nvim";
+        rev = "eef17e470f0a809bccd5b5c83f89c7064dfa76fc";
+        hash = "";
+      };
+      meta = {
+        homepage = "https://github.com/Sofiane5900/riderdark-vscode.nvim";
+        license = lib.licenses.unlicense;
+      };
     })
     (buildVimPlugin {
-      pname = "radium.nvim";
-      version = "0-unstable-2024-02-29";
+      pname = "sonokai";
+      version = "0-unstable-2026-01-21";
       src = fetchFromGitHub {
-        owner = "Sly-Harvey";
-        repo = "radium.nvim";
-        rev = "d600092250680155c7f5ff09d073599b38d36676";
-        hash = "sha256-MJntiTaeC7ItD04mHWEw80A9Lb+IojEGiSDC0CkyDQU=";
+        owner = "sainnhe";
+        repo = "sonokai";
+        rev = "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3";
+        hash = "";
       };
-      meta.homepage = "https://github.com/Sly-Harvey/radium.nvim";
+      meta = {
+        homepage = "";
+        license = lib.licenses.mit;
+      };
     })
     (buildVimPlugin {
       pname = "spaceduck";
@@ -71,7 +111,10 @@ in
         rev = "350491f19343b24fa85809242089caa02d4dadce";
         hash = "sha256-lE8y9BA2a4y0B6O3+NyOS7numoltmzhArgwTAner2fE=";
       };
-      meta.homepage = "https://github.com/pineapplegiant/spaceduck";
+      meta = {
+        homepage = "https://github.com/pineapplegiant/spaceduck";
+        license = lib.licenses.mit;
+      };
     })
     (buildVimPlugin {
       pname = "witch";
@@ -82,7 +125,10 @@ in
         rev = "1.0.0";
         hash = "sha256-NtFjXzRuHcAEuGxSk61HBN+jcagA8Bt/q5y5xc1jdHo=";
       };
-      meta.homepage = "https://github.com/sontungexpt/witch";
+      meta = {
+        homepage = "https://github.com/sontungexpt/witch";
+        license = lib.licenses.mit;
+      };
     })
     (buildVimPlugin {
       pname = "yoda.nvim";
@@ -93,7 +139,10 @@ in
         rev = "v1.1.0";
         hash = "sha256-WSh9zrMSvvY1i4o7wMerNtyxvdT7aW4tsyPH5+9vlF4=";
       };
-      meta.homepage = "https://github.com/kuri-sun/yoda.nvim";
+      meta = {
+        homepage = "https://github.com/kuri-sun/yoda.nvim";
+license = lib.licenses.mit;
+};
     })
   ];
 }
