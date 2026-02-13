@@ -19,20 +19,6 @@ let
       end
     '';
   };
-  isNeoTree = {
-    __raw = ''
-      function()
-        return vim.bo.filetype == 'neo-tree'
-      end
-    '';
-  };
-  isNotNeoTree = {
-    __raw = ''
-      function()
-        return vim.bo.filetype ~= 'neo-tree'
-      end
-    '';
-  };
   linesSelected = {
     __raw = ''
       -- https://github.com/sirfz/dotvim/blob/db6f47c37a5286ddd878edd32ad060fea5584201/lua/plugins/lualine.lua#L60-L66
@@ -52,6 +38,31 @@ let
       end
     '';
   };
+  wakatime = {
+    __raw = ''
+      function()
+        local output = vim.fn.execute("WakaTimeToday")
+        output = output:gsub("\n", "")
+        return output
+      end
+    '';
+  };
+  wakatime2 = {
+    __raw = ''
+      function()
+        local result = vim.api.nvim_exec3("WakaTimeToday", { output = true })
+        local output = result.output
+
+        if not output or output == "" then
+          return ""
+        end
+
+        output = output:gsub("\n", "")
+
+        return output
+      end
+    '';
+  };
 
 in
 {
@@ -68,46 +79,38 @@ in
       settings = {
         sections = {
           lualine_a = [
-            { __unkeyed-1 = "mode"; cond = isNotNeoTree; }
+            { __unkeyed-1 = "mode"; }
           ];
 
           lualine_b = [
-            { __unkeyed-1 = "branch";      cond = isNotNeoTree; }
-            { __unkeyed-1 = "diff";        cond = isNotNeoTree; }
-            { __unkeyed-1 = "diagnostics"; cond = isNotNeoTree; }
+            { __unkeyed-1 = "branch";    }
+            { __unkeyed-1 = breadcrumbs; }
           ];
 
           lualine_c = [
-            { __unkeyed-1 = "branch";    cond = isNeoTree;    }
-            { __unkeyed-1 = breadcrumbs; cond = isNotNeoTree; }
+            { __unkeyed-1 = ""; }
           ];
 
           lualine_x = [
-            { __unkeyed-1 = "location"; cond = isNeoTree;    }
-            { __unkeyed-1 = "encoding"; cond = isNotNeoTree; }
+            { __unkeyed-1 = "encoding"; }
+            { __unkeyed-1 = "get_wakatime_time"; }
           ];
 
           lualine_y = [
-            { __unkeyed-1 = "lsp_status";  cond = isNotNeoTree;      }
-            { __unkeyed-1 = "searchcount"; cond = isNotNeoTree;      }
+            { __unkeyed-1 = "diff";        }
+            { __unkeyed-1 = "diagnostics"; }
+            { __unkeyed-1 = "lsp_status";  }
+            { __unkeyed-1 = "searchcount"; }
             { __unkeyed-1 = linesSelected; cond = linesSelectedCond; }
           ];
 
           lualine_z = [
-            { __unkeyed-1 = "location"; cond = isNotNeoTree; }
-          ];
-        };
-
-        inactive_sections = {
-          lualine_c = [
-            { __unkeyed-1 = "filename"; cond = isNotNeoTree; }
-          ];
-
-          lualine_x = [
-            { __unkeyed-1 = "location"; cond = isNotNeoTree; }
+            { __unkeyed-1 = "location"; }
           ];
         };
       };
     };
   };
+
+  extraConfigLua = builtins.readFile ./wakatime.lua;
 }

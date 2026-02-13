@@ -66,7 +66,9 @@ in
     };
   };
 
-  extraPlugins = [
+  extraPlugins = with pkgs.vimPlugins; [
+    plenary-nvim
+
     (buildVimPlugin {
       pname = "vim-cool";
       version = "0-unstable-2025-02-19";

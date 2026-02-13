@@ -65,6 +65,7 @@
     foldmethod = "indent";    # Create folds based on indentation
     foldlevelstart = 99;      # No closed folds when starting the buffer
     ignorecase = true;        # Case-insensitive search by default
+    laststatus = 3;           # Status line fills the entire width of window
     number = true;            # Current line number
     relativenumber = true;    # Side relative numbers
     scrolloff = 1000;         # Keep cursor vertically centered

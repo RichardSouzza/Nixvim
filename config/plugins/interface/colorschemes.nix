@@ -60,32 +60,18 @@ in
         license = lib.licenses.mit;
       };
     })
-    # (buildVimPlugin {
-    #   pname = "radium.nvim";
-    #   version = "0-unstable-2024-02-29";
-    #   src = fetchFromGitHub {
-    #     owner = "Sly-Harvey";
-    #     repo = "radium.nvim";
-    #     rev = "d600092250680155c7f5ff09d073599b38d36676";
-    #     hash = "sha256-MJntiTaeC7ItD04mHWEw80A9Lb+IojEGiSDC0CkyDQU=";
-    #   };
-    #   meta = {
-    #     homepage = "https://github.com/Sly-Harvey/radium.nvim";
-    #     license = lib.licenses.mit;
-    #   };
-    # })
     (buildVimPlugin {
-      pname = "riderdark-vscode.nvim";
-      version = "0-unstable-2025-03-13";
+      pname = "radium.nvim";
+      version = "0-unstable-2024-02-29";
       src = fetchFromGitHub {
-        owner = "Sofiane5900";
-        repo = "riderdark-vscode.nvim";
-        rev = "eef17e470f0a809bccd5b5c83f89c7064dfa76fc";
-        hash = "";
+        owner = "Sly-Harvey";
+        repo = "radium.nvim";
+        rev = "d600092250680155c7f5ff09d073599b38d36676";
+        hash = "sha256-MJntiTaeC7ItD04mHWEw80A9Lb+IojEGiSDC0CkyDQU=";
       };
       meta = {
-        homepage = "https://github.com/Sofiane5900/riderdark-vscode.nvim";
-        license = lib.licenses.unlicense;
+        homepage = "https://github.com/Sly-Harvey/radium.nvim";
+        license = lib.licenses.mit;
       };
     })
     (buildVimPlugin {
@@ -95,10 +81,10 @@ in
         owner = "sainnhe";
         repo = "sonokai";
         rev = "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3";
-        hash = "";
+        hash = "sha256-dNOL6aUro8SlhbMWPFY9tIF4C1HYNJo70f9zX3ajbPc=";
       };
       meta = {
-        homepage = "";
+        homepage = "https://github.com/davidscotson/sonokai-nvim";
         license = lib.licenses.mit;
       };
     })
@@ -141,8 +127,8 @@ in
       };
       meta = {
         homepage = "https://github.com/kuri-sun/yoda.nvim";
-license = lib.licenses.mit;
-};
+        license = lib.licenses.mit;
+      };
     })
   ];
 }

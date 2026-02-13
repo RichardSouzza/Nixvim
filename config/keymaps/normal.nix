@@ -1,4 +1,5 @@
 let
+  rmMap = (import ./_shared.nix).rmMap;
   setIcon = (import ./_shared.nix).setIcon;
   setIconGroup = (import ./_shared.nix).setIconGroup;
   smartJump = (import ./_shared.nix).smartJump;
@@ -9,8 +10,10 @@ in
     (setIcon { key = "gF"; icon = ""; })
     (setIcon { key = "go"; icon = ""; })
     (setIcon { key = "<leader><CR>"; icon = "󰛗"; })
-    (setIconGroup { group = "Debug"; key = "<leader>d"; icon = ""; color = "green"; })
-    (setIconGroup { group = "Format actions"; key = "<leader>w<Space>"; icon = "󰯉"; color = "pink"; })
+    (setIconGroup { group = "Goto";    key = "g";  icon = " "; })
+    (setIconGroup { group = "Comment"; key = "gb"; icon = "󰆈"; })
+    (setIconGroup { group = "Debug";   key = "<leader>d"; icon = ""; color = "green"; })
+    (setIconGroup { group = "Format actions"; key = "<leader>w"; icon = ""; color = "pink"; })
   ];
 
   keymaps = [
@@ -19,7 +22,6 @@ in
       key = "gb";
       action = "gc";
       options = {
-        desc = "Toggle comment";
         remap = true;
         silent = true;
       };
@@ -39,7 +41,6 @@ in
       action = ":vertical wincmd f";
       options = {
         desc = "Opens filepath or URI under cursor in a new buffer";
-        remap = true;
         silent = true;
       };
     }
@@ -81,15 +82,6 @@ in
     }
     {
       mode = "n";
-      key = "<Tab>";
-      action = "a <Esc>";
-      options = {
-        desc = "Add spaces in normal mode";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
       key = "<C-a>";
       action = "ggVG";
       options = {
@@ -126,7 +118,7 @@ in
     }
     {
       mode = "n";
-      key = "<C-delete>";
+      key = "<C-Delete>";
       action = "dw";
       options = {
         desc = "Delete word ahead of the cursor";
@@ -135,7 +127,16 @@ in
     }
     {
       mode = "n";
-      key = "<A-S-Up>";
+      key = "<C-Space>"; # <Tab>
+      action = "a <Esc>";
+      options = {
+        desc = "Add spaces in normal mode";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-A-Up>";
       action = "<C-w>k";
       options = {
         desc = "Go to the up window";
@@ -144,7 +145,7 @@ in
     }
     {
       mode = "n";
-      key = "<A-S-Down>";
+      key = "<C-A-Down>";
       action = "<C-w>j";
       options = {
         desc = "Go to the down window";
@@ -153,7 +154,7 @@ in
     }
     {
       mode = "n";
-      key = "<A-S-Left>";
+      key = "<C-A-Left>";
       action = "<C-w>h";
       options = {
         desc = "Go to the left window";
@@ -162,7 +163,7 @@ in
     }
     {
       mode = "n";
-      key = "<A-S-Right>";
+      key = "<C-A-Right>";
       action = "<C-w>l";
       options = {
         desc = "Go to the right window";
@@ -234,6 +235,15 @@ in
     }
     {
       mode = "n";
+      key = "<S-b>";
+      action = "ge";
+      options = {
+        desc = "Prev end of word";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
       key = "<S-n>";
       action = "<CMD>normal! n<CR>";
       options = {
@@ -243,7 +253,17 @@ in
     }
     {
       mode = "n";
-      key = "<S-left>";
+      key = "<S-w>";
+      action = "e";
+      options = {
+        desc = "Next end of word";
+        remap = true;
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<S-Left>";
       action = "<C-o>";
       options = {
         desc = "Jump back";
@@ -252,7 +272,7 @@ in
     }
     {
       mode = "n";
-      key = "<S-right>";
+      key = "<S-Right>";
       action = "<C-i>";
       options = {
         desc = "Jump forward";
@@ -290,5 +310,7 @@ in
         silent = true;
       };
     }
+
+    (rmMap { key = "gg"; })
   ];
 }

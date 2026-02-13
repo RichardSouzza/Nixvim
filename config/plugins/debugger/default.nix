@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   inherit (pkgs) fetchFromGitHub;
@@ -20,6 +20,11 @@ in
     # };
     overseer = {
       enable = true;
+      package = pkgs.vimPlugins.overseer-nvim.overrideAttrs (old: {
+        postInstall = (old.postInstall or "") + ''
+          rm $out/doc/recipes.md
+        '';
+      });
     };
   };
 

@@ -29,7 +29,16 @@ in
         cmd = [ "nixd" "--inlay-hints=false" "--semantic-tokens" ];
       };
 
-      pyright.enable = true;     # Python
+      pyright = {                # Python
+        enable = true;
+        settings = {
+          python = {
+            analysis = {
+              diagnosticMode = "workspace";
+            };
+          };
+        };
+      };
 
       omnisharp = {              # C#
         enable = false;
@@ -43,8 +52,6 @@ in
       roslyn_ls = {              # C#
         enable = false;
       };
-
-      # ruff.enable = true;        # Python
 
       sqls = {                   # SQL
         enable = false;
