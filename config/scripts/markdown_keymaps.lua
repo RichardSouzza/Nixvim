@@ -36,7 +36,7 @@ function()
     return line
   end
 
-  vim.keymap.set("n", "<space>",
+  vim.keymap.set("n", "<Space><Space>",
     function()
       local line = vim.api.nvim_get_current_line()
       local new = toggle_checkbox_line(line)
@@ -71,7 +71,7 @@ function()
 
   vim.keymap.set("n", "<C-k>",   [[I> ]],                { buffer = true, desc = "Insert blockquote"                   })
   vim.keymap.set("n", "<C-l>",   [[I- ]],                { buffer = true, desc = "Insert bullet list"                  })
-  vim.keymap.set("n", "<C-S-l>", [[I1. ]],               { buffer = true, desc = "Insert numbered list"                })
+  vim.keymap.set("n", "<C-A-l>", [[I1. ]],               { buffer = true, desc = "Insert numbered list"                })
   vim.keymap.set("n", "<C-x>",   [[I- [ ] ]],            { buffer = true, desc = "Insert checkbox list"                })
 
   vim.keymap.set("i", "<C-b>",   [[****<Esc>hi]],        { buffer = true, desc = "Insert **bold**"                     })
@@ -82,7 +82,7 @@ function()
 
   vim.keymap.set("i", "<C-k>",   [[> ]],                 { buffer = true, desc = "Insert blockquote"                   })
   vim.keymap.set("i", "<C-l>",   [[- ]],                 { buffer = true, desc = "Insert bullet list"                  })
-  vim.keymap.set("i", "<C-S-l>", [[1. ]],                { buffer = true, desc = "Insert numbered list"                })
+  vim.keymap.set("i", "<C-A-l>", [[1. ]],                { buffer = true, desc = "Insert numbered list"                })
   vim.keymap.set("i", "<C-x>",   [[- [ ] ]],             { buffer = true, desc = "Insert checkbox list"                })
 
   vim.keymap.set("v", "<C-b>",   [[c****<Esc>hP]],       { buffer = true, desc = "Wrap selection in **bold**"          })
@@ -92,7 +92,7 @@ function()
   vim.keymap.set("v", "<C-t>",   [[c~~~~<Esc>hP]],       { buffer = true, desc = "Wrap selection in ~~strikethrough~~" })
 
   vim.keymap.set("v", "<C-k>",   [[:s/^/> /<CR>gv]],     { buffer = true, desc = "Convert selection to blockquote"     })
-  vim.keymap.set("v", "<C-l>b",  [[:s/^/- /<CR>gv]],     { buffer = true, desc = "Convert selection to bullet list"    })
-  vim.keymap.set("v", "<C-l>n",  [[:s/^/1. /<CR>gv]],    { buffer = true, desc = "Convert selection to numbered list"  })
+  vim.keymap.set("v", "<C-l>",   [[:s/^/- /<CR>gv]],     { buffer = true, desc = "Convert selection to bullet list"    })
+  vim.keymap.set("v", "<C-A-l>", [[:s/^/1. /<CR>gv]],    { buffer = true, desc = "Convert selection to numbered list"  })
   vim.keymap.set("v", "<C-x>",   [[:s/^/- [ ] /<CR>gv]], { buffer = true, desc = "Convert selection to checkbox list"  })
 end

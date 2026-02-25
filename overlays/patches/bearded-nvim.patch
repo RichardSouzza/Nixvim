@@ -1,0 +1,37 @@
+diff --git a/lua/bearded/highlights.lua b/lua/bearded/highlights.lua
+index d3bdf88..9db48ac 100644
+--- a/lua/bearded/highlights.lua
++++ b/lua/bearded/highlights.lua
+@@ -110,8 +110,8 @@ local function syntax_groups(colors, opts)
+     ["@boolean"] = { fg = colors.red },
+     ["@string"] = { fg = colors.green },
+     ["@string.escape"] = { fg = colors.red },
+-    ["@string.special"] = { fg = colors.red },
+-    ["@string.regexp"] = { fg = colors.red },
++    ["@string.special"] = { fg = colors.orange },
++    ["@string.regexp"] = { fg = colors.orange },
+     ["@character"] = { fg = colors.green },
+     ["@character.special"] = { fg = colors.teal },
+     ["@constructor"] = { fg = colors.purple },
+@@ -136,7 +136,7 @@ local function syntax_groups(colors, opts)
+     ["@namespace"] = { fg = colors.teal },
+     ["@module"] = { fg = colors.teal },
+     ["@punctuation"] = { fg = colors.dim },
+-    ["@punctuation.bracket"] = { fg = colors.dim },
++    ["@punctuation.bracket"] = { fg = colors.fg },
+     ["@punctuation.delimiter"] = { fg = colors.dim },
+     ["@tag"] = { fg = colors.purple },
+     ["@tag.attribute"] = { fg = colors.orange, italic = italic },
+@@ -241,9 +241,9 @@ local function ui_groups(ui, colors, levels, opts)
+     TabLine = { fg = dim, bg = bg_alt },
+     TabLineSel = { fg = fg, bg = bg_mid, bold = bold },
+     TabLineFill = { fg = dim, bg = bg_alt },
+-    DiffAdd = { bg = "#2cfc82", fg = levels.success or colors.green },
+-    DiffDelete = { bg = "#f44a24", fg = levels.danger or colors.red },
+-    DiffChange = { bg = "#69c3ff", fg = colors.blue },
++    DiffAdd = { bg = ui.uibackground, fg = levels.success or colors.green },
++    DiffDelete = { bg = ui.uibackground, fg = levels.danger or colors.red },
++    DiffChange = { bg = ui.uibackground, fg = colors.blue },
+     DiffText = { bg = "#69c3ff", fg = colors.blue, bold = bold },
+     StatusLineTerm = { fg = fg, bg = ui.uibackgroundalt or bg_alt },
+     StatusLineTermNC = { fg = dim, bg = ui.uibackgroundalt or bg_alt },

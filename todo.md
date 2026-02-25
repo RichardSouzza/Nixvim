@@ -17,6 +17,7 @@
 - [ ] c# fold autocmd affect only his buffer
 - [x] neo-tree focus no change source
 - [x] <Shift> half jump
+- [ ] Write or :saveas keymap
 
 test list creation:
 a
@@ -86,7 +87,8 @@ create a ten item checklist bellow:
 - [ ] swap plugin bufferline by cokeline or buffertabs or barbar
 - [ ] visual increment keep selected
 - [ ] switch ts_ls by typescript-tools
-- [ ] stylua no touch spaces
+- [ ] enable flutter plugin if the package is installed in home;
+   make options to install the package from home-manager
 
 ## Failed attempts / Very difficult
 
@@ -95,3 +97,4 @@ create a ten item checklist bellow:
 - [ ] lsp actions on file actions
 - [ ] mouse click no trigger scrolloff
 - [ ] toggleterm offset neo-tree using width property
+- [ ] stylua no touch spaces

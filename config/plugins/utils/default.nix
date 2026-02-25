@@ -42,12 +42,28 @@ in
 
     no-neck-pain.enable = true;
 
+    oil = {
+      enable = true;
+      package = pkgs.vimPlugins.oil-nvim.overrideAttrs (old: {
+        postInstall = (old.postInstall or "") + ''
+          find $out -type f -name "recipes.md" -delete || true
+        '';
+      });
+      settings = {
+        default_file_explorer = false;
+      };
+    };
+
     showkeys = {
       enable = true;
       settings = {
         timeout = 1;
         maxkeys = 5;
       };
+    };
+
+    trouble = {
+      enable = true;
     };
 
     venv-selector.enable = true;

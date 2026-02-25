@@ -5,20 +5,21 @@
     ./coding/duplicate.nix
     ./coding/edition.nix
     ./coding/leap
-    ./coding/text-case
     ./coding/spider.nix
+    ./coding/text-case
     ./coding/visual-multi.nix
     ./debugger/default.nix
+    ./formatting
     ./interface/bufferline.nix
     ./interface/colorschemes.nix
     ./interface/dashboard
+    ./interface/edgy.nix
     ./interface/floating-help
     ./interface/gitsigns.nix
     ./interface/interface.nix
     ./interface/lualine.nix
     ./interface/neo-tree
     ./interface/treesitter
-    ./formatting
     ./lsp
     ./utils
     ./utils/snacks

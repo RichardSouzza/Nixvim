@@ -24,6 +24,8 @@ in
 
       html.enable = true;        # HTML
 
+      marksman.enable = true;    # Markdown
+
       nixd = {                   # Nix
         enable = true;
         cmd = [ "nixd" "--inlay-hints=false" "--semantic-tokens" ];
@@ -97,10 +99,6 @@ in
         };
       };
 
-      vale_ls = {           # Spell
-        enable = true;
-      };
-
       yamlls.enable = true; # Yaml
     };
 
@@ -139,7 +137,7 @@ in
     # rzls.enable = true;
   };
 
-  extraPlugins = [
+  extraPlugins = with pkgs.vimPlugins; [
     (buildVimPlugin {
       pname = "mssql.nvim";
       version = "0-unstable-2025-10-23";
@@ -165,5 +163,6 @@ in
         license = lib.licenses.unlicense;
       };
     })
+    ale
   ];
 }

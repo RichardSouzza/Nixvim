@@ -82,19 +82,19 @@ in
     }
     {
       mode = "n";
-      key = "<C-a>";
-      action = "ggVG";
+      key = "<Tab>"; # <C-i>
+      action = "<CMD>normal! <C-a><CR>";
       options = {
-        desc = "Select all";
+        desc = "Increment number under the cursor";
         silent = true;
       };
     }
     {
       mode = "n";
-      key = "<Tab>"; # <C-i>
-      action = "<CMD>normal! <C-a><CR>";
+      key = "<C-a>";
+      action = "ggVG";
       options = {
-        desc = "Increment number under the cursor";
+        desc = "Select all";
         silent = true;
       };
     }
@@ -212,6 +212,24 @@ in
       action = "<CMD>silent! m .+1<CR>";
       options = {
         desc = "Move line down";
+        silent = true;
+      };
+    }
+    {
+      mode = [ "n" "i" ];
+      key = "<A-+>";
+      action = "<C-w>>";
+      options = {
+        desc = "Increase width";
+        silent = true;
+      };
+    }
+    {
+      mode = [ "n" "i" ];
+      key = "<A-->";
+      action = "<C-w><";
+      options = {
+        desc = "Decrease width";
         silent = true;
       };
     }

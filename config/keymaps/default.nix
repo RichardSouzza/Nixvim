@@ -38,7 +38,7 @@
     {
       mode = [ "n" "v" "i" ];
       key = "<C-s>";
-      action = "<Esc><cmd>w<CR>";
+      action = "<Esc><CMD>w<CR>";
       options = {
         desc = "Save file";
         silent = true;

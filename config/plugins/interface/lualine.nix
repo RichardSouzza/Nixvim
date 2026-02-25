@@ -19,6 +19,20 @@ let
       end
     '';
   };
+  isNeoTree = {
+    __raw = ''
+      function()
+        return vim.bo.filetype == 'neo-tree'
+      end
+    '';
+  };
+  isNotNeoTree = {
+    __raw = ''
+      function()
+        return vim.bo.filetype ~= 'neo-tree'
+      end
+    '';
+  };
   linesSelected = {
     __raw = ''
       -- https://github.com/sirfz/dotvim/blob/db6f47c37a5286ddd878edd32ad060fea5584201/lua/plugins/lualine.lua#L60-L66
@@ -83,8 +97,8 @@ in
           ];
 
           lualine_b = [
-            { __unkeyed-1 = "branch";    }
-            { __unkeyed-1 = breadcrumbs; }
+            { __unkeyed-1 = "branch";                         }
+            { __unkeyed-1 = breadcrumbs; cond = isNotNeoTree; }
           ];
 
           lualine_c = [
@@ -92,7 +106,7 @@ in
           ];
 
           lualine_x = [
-            { __unkeyed-1 = "encoding"; }
+            { __unkeyed-1 = "encoding";          }
             { __unkeyed-1 = "get_wakatime_time"; }
           ];
 

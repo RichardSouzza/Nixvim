@@ -29,15 +29,6 @@
     }
     {
       mode = "v";
-      key = "<C-s>";
-      action = "<Esc>:w<CR>";
-      options = {
-        desc = "Save file";
-        silent = true;
-      };
-    }
-    {
-      mode = "v";
       key = "<A-up>";
       action = ":m '<-2<CR>gv=gv";
       options = {

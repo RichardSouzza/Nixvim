@@ -23,10 +23,24 @@
           };
 
           menu = {
-            draw.columns = [
-              { __raw = "{ 'kind_icon', 'label', 'label_description', gap = 1 }"; }
-              { __raw = "{ 'source_name' }"; }
-            ];
+            draw = {
+              columns = [
+                { __raw = "{ 'kind_icon', 'label', 'label_description', gap = 1 }"; }
+                { __raw = "{ 'source_name' }"; }
+              ];
+              components = {
+                label.__raw = ''
+                  {
+                    text = function(ctx)
+                        return require("colorful-menu").blink_components_text(ctx)
+                    end,
+                    highlight = function(ctx)
+                        return require("colorful-menu").blink_components_highlight(ctx)
+                    end,
+                  }
+                '';
+              };
+            };
           };
 
           trigger = {
