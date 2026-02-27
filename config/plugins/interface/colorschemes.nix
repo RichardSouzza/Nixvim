@@ -7,6 +7,18 @@ let
 in
 {
   colorscheme = "bearded-arc";
+  /* Best choices:
+    - bearded-arc
+    - bearded-arc-reversed
+    - bearded-hc-ebony
+    - bearded-hc-midnightvoid
+    - bearded-monokai-reversed
+    - bearded-monokai-themanopia
+    - catppuccin-mocha
+    - dracula
+    - oasis-lagoon
+    - oasis-midnight
+  */
 
   colorschemes = {
     ayu.enable = true;
@@ -18,6 +30,21 @@ in
   };
 
   extraPlugins = [
+    (buildVimPlugin {
+      pname = "bearded-nvim";
+      version = "0.1.2";
+      src = fetchFromGitHub {
+        owner = "Ferouk";
+        repo = "bearded-nvim";
+        rev = "v0.1.2";
+        hash = "sha256-VjPXHPK2Q+xGJAh9aV6wU89LMOKMT78vbVYX1PvbRQ4=";
+      };
+      meta = {
+        homepage = "https://github.com/Ferouk/bearded-nvim";
+        license = lib.licenses.gpl3Only;
+      };
+      patches = [ ./../../../overlays/patches/bearded-nvim.patch ];
+    })
     (buildVimPlugin {
       pname = "mini.base16";
       version = "0-unstable-2025-12-15";
@@ -31,6 +58,9 @@ in
         homepage = "https://github.com/RichardSouzza/mini.base16";
         license = lib.licenses.mit;
       };
+      postInstall = ''
+        mv $out/colors/bearded-arc.lua $out/colors/bearded-arc-16.lua
+      '';
     })
     (buildVimPlugin {
       pname = "monet.nvim";
@@ -71,6 +101,34 @@ in
       };
       meta = {
         homepage = "https://github.com/Sly-Harvey/radium.nvim";
+        license = lib.licenses.mit;
+      };
+    })
+    (buildVimPlugin {
+      pname = "rider.nvim";
+      version = "0-unstable-2025-10-21";
+      src = fetchFromGitHub {
+        owner = "tomstolarczuk";
+        repo = "rider.nvim";
+        rev = "e683c21df08a4f697e4126152d4a75f1d472197e";
+        hash = "sha256-bAikp5D3FDgTNf1rXC1xzus6ouj4TRBuX6lrYwRxsio=";
+      };
+      meta = {
+        homepage = "https://github.com/tomstolarczuk/rider.nvim";
+        license = lib.licenses.mit;
+      };
+    })
+    (buildVimPlugin {
+      pname = "sonokai";
+      version = "0-unstable-2026-01-21";
+      src = fetchFromGitHub {
+        owner = "sainnhe";
+        repo = "sonokai";
+        rev = "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3";
+        hash = "sha256-dNOL6aUro8SlhbMWPFY9tIF4C1HYNJo70f9zX3ajbPc=";
+      };
+      meta = {
+        homepage = "https://github.com/davidscotson/sonokai-nvim";
         license = lib.licenses.mit;
       };
     })
