@@ -77,7 +77,10 @@ in
         rev = "9815a55dbcd817784458df7a18acacc6f82b1241";
         hash = "sha256-9CfWi83DCzWBARNG6AA0MQllEfQ/3UtYtYPDWLdmDwk=";
       };
-      meta.homepage = "https://github.com/junegunn/vim-easy-align";
+      meta = {
+        homepage = "https://github.com/junegunn/vim-easy-align";
+        license = lib.licenses.unlicense;
+      };
     })
   ];
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   inherit (pkgs) fetchFromGitHub;
@@ -40,7 +40,6 @@ in
 
   extraPlugins = [
     (buildVimPlugin {
-      # noh on move after search
       pname = "vim-cool";
       version = "0-unstable-2025-02-19";
       src = fetchFromGitHub {
@@ -49,7 +48,10 @@ in
         rev = "9ea940c0d537e55de0de4c0298c04b976960fb12";
         hash = "sha256-mKlQkFH1665b290clIpx0BylrmOOmey/FX9XbSfC41s=";
       };
-      meta.homepage = "https://github.com/romainl/vim-cool";
+      meta = {
+        homepage = "https://github.com/romainl/vim-cool";
+        license = lib.licenses.mit;
+      };
     })
   ];
 }

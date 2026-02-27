@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   inherit (pkgs) fetchFromGitHub;
@@ -33,7 +33,10 @@ in
         rev = "v1.0.1";
         hash = "sha256-R1IuhysQODTJtJYETsWk/23/EWud7hphVM5ufKVUowU=";
       };
-      meta.homepage = "https://github.com/NStefan002/visual-surround.nvim";
+      meta = {
+        homepage = "https://github.com/NStefan002/visual-surround.nvim";
+        license = lib.licenses.mit;
+      };
     })
   ];
 }

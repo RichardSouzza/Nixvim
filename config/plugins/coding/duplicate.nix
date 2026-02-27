@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   inherit (pkgs) fetchFromGitHub;
@@ -16,7 +16,10 @@ in
         rev = "v1.1.0";
         hash = "sha256-k3Q7mk04dd2yql4NK5Lrm/AEy3lWp0xV2qvxqVly3lg=";
       };
-      meta.homepage = "https://github.com/hinell/duplicate.nvim";
+      meta = {
+        homepage = "https://github.com/hinell/duplicate.nvim";
+        license = lib.licenses.fair;
+      };
     })
   ];
 
