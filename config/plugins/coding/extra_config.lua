@@ -4,9 +4,8 @@ local npairs = require("nvim-autopairs")
 local rule = require("nvim-autopairs.rule")
 
 npairs.add_rules({
-  rule("{", "};", "nix"):with_pair(function(opts)
-    return true
-  end),
+  rule("=", ";", "nix"),
+  rule("with", "; ", "nix"),
 })
 
 -- ========== Visual Surround =================================================

@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         customPatterns = {
-          patterns = [ ";" "%(" "%)$" "\\n$" ];
+          patterns = [ "%(" "%)$" "[^%s]$" ];
           overrideDefault = false;
         };
       };

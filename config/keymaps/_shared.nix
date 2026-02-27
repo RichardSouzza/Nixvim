@@ -1,4 +1,11 @@
 {
+  rmMap = { key, mode ? "n" }:
+    {
+      mode = mode;
+      key = key;
+      action = "<Nop>";
+    };
+
   setIcon = { key, icon, color ? "azure" }:
     {
       __unkeyed-1 = key;

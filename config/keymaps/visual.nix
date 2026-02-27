@@ -2,25 +2,6 @@
   keymaps = [
     {
       mode = "v";
-      key = "<BS>";
-      action = "-";
-      options = {
-        desc = "Go up";
-        remap = true;
-        silent = true;
-      };
-    }
-    {
-      mode = "v";
-      key = "<C-c>";
-      action = "\"+y";
-      options = {
-        silent = true;
-        desc = "Copy selected text to clipboard";
-      };
-    }
-    {
-      mode = "v";
       key = "<Tab>"; # <C-i>
       action = '':s/\d\+/\=submatch(0)+1/g<CR>'';
       options = {
@@ -30,19 +11,19 @@
     }
     {
       mode = "v";
-      key = "<C-k>";
-      action = '':s/\d\+/\=submatch(0)-1/g<CR>'';
+      key = "<C-c>";
+      action = "\"+y";
       options = {
-        desc = "Decrement all numbers in the selection";
-        silent = true;
+        silent = false;
+        desc = "Copy selected text to clipboard";
       };
     }
     {
       mode = "v";
-      key = "<C-s>";
-      action = "<Esc>:w<CR>";
+      key = "<C-k>";
+      action = '':s/\d\+/\=submatch(0)-1/g<CR>'';
       options = {
-        desc = "Save file";
+        desc = "Decrement all numbers in the selection";
         silent = true;
       };
     }
@@ -79,6 +60,24 @@
       action = ">gv";
       options = {
         desc = "Indent while keeping selection";
+        silent = true;
+      };
+    }
+    {
+      mode = "v";
+      key = "?";
+      action = "#";
+      options = {
+        desc = "Search selection backward";
+        silent = true;
+      };
+    }
+    {
+      mode = "v";
+      key = "/";
+      action = "*";
+      options = {
+        desc = "Search selection foward";
         silent = true;
       };
     }

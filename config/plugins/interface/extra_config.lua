@@ -11,6 +11,22 @@ require("cinnamon").setup({
   },
 })
 
+-- Lualine breadcrumbs highlight
+
+local hl = vim.api.nvim_get_hl(0, { name = "lualine_b_normal" })
+
+vim.api.nvim_set_hl(0, "SagaBoolean", { fg = hl.fg, bg = hl.bg })
+vim.api.nvim_set_hl(0, "SagaClass", { fg = hl.fg, bg = hl.bg })
+vim.api.nvim_set_hl(0, "SagaField", { fg = hl.fg, bg = hl.bg })
+vim.api.nvim_set_hl(0, "SagaFileName", { fg = hl.fg, bg = hl.bg })
+vim.api.nvim_set_hl(0, "SagaFolder", { fg = hl.fg, bg = hl.bg })
+vim.api.nvim_set_hl(0, "SagaFolderName", { fg = hl.fg, bg = hl.bg })
+vim.api.nvim_set_hl(0, "SagaFunction", { fg = hl.fg, bg = hl.bg })
+vim.api.nvim_set_hl(0, "SagaMethod", { fg = hl.fg, bg = hl.bg })
+vim.api.nvim_set_hl(0, "SagaSep", { fg = hl.fg, bg = hl.bg })
+
+--------------------------------
+
 require("satellite").setup({
   show_always = true,
   excluded_buftypes = {
@@ -19,6 +35,9 @@ require("satellite").setup({
     "prompt",
     "scratch",
     "terminal",
+  },
+  excluded_filetypes = {
+    "neo-tree",
   },
   handlers = {
     marks = {
@@ -53,5 +72,5 @@ require("sunglasses").setup({
 vim.cmd("SunglassesDisable")
 
 require("scrollEOF").setup({
-  insert_mode = false,
+  insert_mode = true,
 })

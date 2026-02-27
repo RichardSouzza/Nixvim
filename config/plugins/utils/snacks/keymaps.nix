@@ -4,8 +4,8 @@ let
 in
 {
   plugins.which-key.settings.spec = [
-    (setIcon { key = "gb";  icon = "";  color = "purple"; })
-    (setIcon { key = "gf";  icon = "";  color = "purple"; })
+    (setIcon { key = "gc";  icon = ""; color = "green"; })
+    (setIcon { key = "gf";  icon = ""; color = "green"; })
     (setIcon { key = "gH";  icon = ""; color = "purple"; })
     (setIcon { key = "gpc"; icon = "󰏘"; color = "purple"; })
     (setIcon { key = "gpd"; icon = "";  color = "purple"; })
@@ -30,10 +30,12 @@ in
     }
     {
       action = "<CMD>lua Snacks.picker.grep({ regex = false })<CR>";
-      key = "gb";
+      key = "gc";
       mode = "n";
       options = {
         desc = "Search code";
+        nowait = true;
+        remap = true;
       };
     }
     {
@@ -125,7 +127,7 @@ in
       };
     }
     {
-      action = "<CMD>lua Snacks.lazygit.commands()<CR>";
+      action = "<CMD>lua Snacks.picker.commands()<CR>";
       key = "<leader>:";
       mode = "n";
       options = {

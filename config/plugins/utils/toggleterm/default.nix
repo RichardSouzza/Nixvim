@@ -4,6 +4,10 @@
   ];
 
   plugins = {
+    floaterm = {
+      enable = true;
+    };
+
     toggleterm = {
       enable = true;
       settings = {
