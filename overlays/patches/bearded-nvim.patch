@@ -1,0 +1,102 @@
+diff --git a/bearded-nvim.patch b/bearded-nvim.patch
+new file mode 100644
+index 0000000..e69de29
+diff --git a/lua/bearded/highlights.lua b/lua/bearded/highlights.lua
+index d3bdf88..48b2c5b 100644
+--- a/lua/bearded/highlights.lua
++++ b/lua/bearded/highlights.lua
+@@ -110,8 +110,8 @@ local function syntax_groups(colors, opts)
+     ["@boolean"] = { fg = colors.red },
+     ["@string"] = { fg = colors.green },
+     ["@string.escape"] = { fg = colors.red },
+-    ["@string.special"] = { fg = colors.red },
+-    ["@string.regexp"] = { fg = colors.red },
++    ["@string.special"] = { fg = colors.orange },
++    ["@string.regexp"] = { fg = colors.orange },
+     ["@character"] = { fg = colors.green },
+     ["@character.special"] = { fg = colors.teal },
+     ["@constructor"] = { fg = colors.purple },
+@@ -136,7 +136,7 @@ local function syntax_groups(colors, opts)
+     ["@namespace"] = { fg = colors.teal },
+     ["@module"] = { fg = colors.teal },
+     ["@punctuation"] = { fg = colors.dim },
+-    ["@punctuation.bracket"] = { fg = colors.dim },
++    ["@punctuation.bracket"] = { fg = colors.fg },
+     ["@punctuation.delimiter"] = { fg = colors.dim },
+     ["@tag"] = { fg = colors.purple },
+     ["@tag.attribute"] = { fg = colors.orange, italic = italic },
+@@ -197,8 +197,8 @@ local function ui_groups(ui, colors, levels, opts)
+   local italic = opts.italic ~= false
+   local bold = opts.bold ~= false
+   local groups = {
+-    Normal = { fg = fg, bg = bg },
+-    NormalNC = { fg = fg, bg = bg },
++    Normal = { fg = fg, bg = bg_alt },
++    NormalNC = { fg = fg, bg = bg_alt },
+     NormalFloat = { fg = fg, bg = bg_alt },
+     FloatBorder = { fg = dim, bg = bg_alt },
+     FloatTitle = { fg = primary, bg = bg_alt, bold = bold },
+@@ -210,7 +210,7 @@ local function ui_groups(ui, colors, levels, opts)
+       bg = bg_mid,
+       bold = bold,
+     },
+-    LineNr = { fg = bg == "NONE" and dim or blend_hex(fg, bg, 0.25), bg = bg_mid },
++    LineNr = { fg = bg == "NONE" and dim or blend_hex(fg, bg, 0.25), bg = bg_alt },
+     Visual = { bg = bg == "NONE" and (ui.primaryalt or "#444444") or blend_hex(primary, bg, 0.3) },
+     Search = { fg = bg, bg = levels.warning or colors.orange },
+     IncSearch = { fg = bg, bg = levels.info or colors.blue, bold = bold },
+@@ -222,7 +222,7 @@ local function ui_groups(ui, colors, levels, opts)
+     StatusLineNC = { fg = dim, bg = ui.uibackgroundalt or bg_alt },
+     VertSplit = { fg = ui.border or dim, bg = bg },
+     WinSeparator = { fg = ui.border or dim, bg = bg },
+-    SignColumn = { fg = dim, bg = bg_mid },
++    SignColumn = { fg = dim, bg = bg_alt },
+     ColorColumn = { bg = bg_mid },
+     Folded = { fg = dim, bg = bg_mid },
+     FoldColumn = { fg = dim, bg = bg_mid },
+@@ -241,9 +241,9 @@ local function ui_groups(ui, colors, levels, opts)
+     TabLine = { fg = dim, bg = bg_alt },
+     TabLineSel = { fg = fg, bg = bg_mid, bold = bold },
+     TabLineFill = { fg = dim, bg = bg_alt },
+-    DiffAdd = { bg = "#2cfc82", fg = levels.success or colors.green },
+-    DiffDelete = { bg = "#f44a24", fg = levels.danger or colors.red },
+-    DiffChange = { bg = "#69c3ff", fg = colors.blue },
++    DiffAdd = { bg = ui.uibackground, fg = levels.success or colors.green },
++    DiffDelete = { bg = ui.uibackground, fg = levels.danger or colors.red },
++    DiffChange = { bg = ui.uibackground, fg = colors.blue },
+     DiffText = { bg = "#69c3ff", fg = colors.blue, bold = bold },
+     StatusLineTerm = { fg = fg, bg = ui.uibackgroundalt or bg_alt },
+     StatusLineTermNC = { fg = dim, bg = ui.uibackgroundalt or bg_alt },
+@@ -264,6 +264,7 @@ end
+ 
+ local function plugin_groups(colors, ui, levels)
+   local primary = ui.primary or colors.blue or colors.teal
++  local leap = require("bearded.plugins.leap").highlights(ui, colors)
+   local neo_tree = require("bearded.plugins.neotree").highlights(ui, colors)
+   local treesitter_context = require("bearded.plugins.treesitter_context").highlights(ui, colors)
+   local noice = require("bearded.plugins.noice").highlights(ui, colors)
+@@ -321,6 +322,7 @@ local function plugin_groups(colors, ui, levels)
+     },
+   }
+ 
++  merge(g, leap)
+   merge(g, neo_tree)
+   merge(g, treesitter_context)
+   merge(g, noice)
+diff --git a/lua/bearded/plugins/leap.lua b/lua/bearded/plugins/leap.lua
+new file mode 100644
+index 0000000..3eb019b
+--- /dev/null
++++ b/lua/bearded/plugins/leap.lua
+@@ -0,0 +1,11 @@
++local M = {}
++
++function M.highlights(ui, colors)
++  return {
++    LeapMatch = { bg = colors.blue, fg = ui.defaultMain, bold = true },
++    LeapLabel = { fg = colors.blue, bold = true },
++    LeapBackdrop = { fg = ui.defaultalt },
++  }
++end
++
++return M
