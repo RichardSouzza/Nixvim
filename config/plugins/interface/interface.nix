@@ -31,6 +31,8 @@ in
       };
     };
 
+    markdown-preview.enable = true;
+
     noice = {
       enable = true;
       settings = {
@@ -39,6 +41,34 @@ in
             pattern = [ "^:%s*he?l?p?%s+" "^:%s*FloatingHelp%s+" ];
           };
         };
+
+        lsp = {
+          override = {
+            "vim.lsp.util.convert_input_to_markdown_lines" = true;
+            "vim.lsp.util.stylize_markdown" = true;
+            "cmp.entry.get_documentation" = true;
+          };
+        };
+
+        presets = {
+          command_palette = false;
+        };
+
+        routes = [
+          {
+            filter = {
+              event = "msg_show";
+              any = [
+                { find = "%d+L, %d+B";     }
+                { find = "%d fewer lines"; }
+                { find = "%d more lines";  }
+                { find = "; after #%d+";   }
+                { find = "; before #%d+";  }
+              ];
+            };
+            view = "mini";
+          }
+        ];
       };
     };
 
@@ -46,6 +76,7 @@ in
       enable = true;
       settings = {
         anti_conceal = {
+          enabled = false;
           disabled_modes = [ "n" "c" "v" ];
         };
         heading = {
@@ -66,6 +97,8 @@ in
 
     smear-cursor.enable = true;
 
+    tiny-glimmer.enable = true;
+
     transparent = {
       enable = true;
       settings = {
@@ -74,41 +107,40 @@ in
       };
     };
 
-    treesitter = {
+    web-devicons = {
       enable = true;
       settings = {
-        auto_install = false;
-        ensure_installed = [
-          "astro" "bash" "c_sharp" "css" "csv"
-          "html" "hyprlang" "ini" "java" "javascript"
-          "jinja" "jinja_inline" "json" "nix" "python"
-          "scss" "sql" "toml" "typescript"
-          "tsx" "xml" "yaml"
-          # Failed to build:
-          # "dockerfile" "lua" "markdown"
-          # "markdown_inline" "razor"
-        ];
-        highlight.enable = true;
+        override = {
+          license = {
+            icon = "󰄤";
+            color = "#d0bf41";
+            name = "License";
+          };
+        };
+        override_by_extension = {
+          "kv" = {
+            icon = "";
+            color = "#fbf7f7";
+            name = "Kivy";
+          };
+          "spec" = {
+            icon = "";
+            color = "#6d8086";
+            name = "Specification";
+          };
+        };
+        override_by_filename = {
+          "LICENSE" = {
+            icon = "󰄤";
+            color = "#d0bf41";
+            name = "License";
+          };
+        };
       };
     };
   };
 
-  extraConfigLua = ''
-    require("satellite").setup({
-      show_always = true,
-      excluded_buftypes = {
-       "nofile",
-       "popup",
-       "prompt",
-       "scratch",
-       "terminal"
-      }
-    })
-
-    require("scrollEOF").setup({
-      insert_mode = false
-    })
-  '';
+  extraConfigLua = builtins.readFile ./extra_config.lua;
 
   extraPlugins = [
     (buildVimPlugin {

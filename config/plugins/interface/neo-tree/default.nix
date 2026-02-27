@@ -21,7 +21,15 @@ in
           container = {
             right_padding = 1;
           };
+
           diagnostics = {
+            diag_sort_function = "severity";
+            refresh = {
+              delay = 100;
+              event = "vim_diagnostic_changed";
+              max_items = 10000;
+            };
+            show_unloaded = true;
             symbols = {
               error = "E";
               hint  = "";
@@ -29,6 +37,7 @@ in
               warn  = "";
             };
           };
+
           git_status = {
             symbols = {
               added     = " ";
@@ -41,6 +50,10 @@ in
               staged    = "";
               conflict  = "";
             };
+          };
+
+          name = {
+            handler.__raw = builtins.readFile ./functions/color_folders.lua;
           };
         };
 
@@ -71,6 +84,7 @@ in
             "c".__raw = luaCmd "Snacks.picker.grep({ regex = false })";
             "e".__raw = builtins.readFile ./functions/return_from_neotree.lua;
             "f".__raw = luaCmd "Snacks.picker.files({ hidden = true })";
+            "g".__raw = luaCmd "Snacks.lazygit.open()";
             "/".__raw = luaCmd "Snacks.picker.files({ hidden = true })";
             "D"          = "diff_files";
             "<A-up>"     = "close_node";
@@ -82,7 +96,7 @@ in
         };
       };
     };
-
-    web-devicons.enable = true;
   };
+
+  extraConfigLua = builtins.readFile ./functions/highlights.lua;
 }

@@ -2,6 +2,14 @@
   keymaps = [
     {
       mode = "n";
+      key = ''<C-\>'';
+      action = ''<C-\><C-n>'';
+      options = {
+        desc = "Exit terminal mode";
+      };
+    }
+    {
+      mode = "n";
       key = "<A-;>";
       action = "<CMD>ToggleTerm direction=horizontal<CR>";
       options = {

@@ -5,7 +5,7 @@ let
 in
 {
   plugins.which-key.settings.spec = [
-    (setIconGroup { group = "Neotree"; key = "<leader>e"; icon = ""; })
+    (setIconGroup { group = "Neotree"; key = "<leader>e"; icon = ""; })
     (setIcon { key = "<leader>eb"; icon = ""; })
     (setIcon { key = "<leader>ef"; icon = ""; })
     (setIcon { key = "<leader>eg"; icon = ""; color = "red"; })

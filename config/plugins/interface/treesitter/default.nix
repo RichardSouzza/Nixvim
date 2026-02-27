@@ -9,7 +9,17 @@
 
       settings = {
         auto_install = false;
-        highlight.enable = true;
+        highlight = {
+          enable = true;
+          use_languagetree = true;
+        };
+        incremental_selection = {
+          enable = true;
+          keymaps = {
+            node_incremental = "v";
+            node_decremental = "V";
+          };
+        };
       };
     };
   };

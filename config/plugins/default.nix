@@ -1,23 +1,28 @@
 {
   imports = [
+    ./coding/ai.nix
     ./coding/blink-cmp.nix
     ./coding/duplicate.nix
     ./coding/edition.nix
     ./coding/leap
-    ./coding/text-case
     ./coding/spider.nix
+    ./coding/text-case
     ./coding/visual-multi.nix
+    ./debugger/default.nix
+    ./formatting
     ./interface/bufferline.nix
     ./interface/colorschemes.nix
     ./interface/dashboard
-    ./interface/gitsigns.nix
+    ./interface/edgy.nix
     ./interface/floating-help
+    ./interface/gitsigns.nix
     ./interface/interface.nix
     ./interface/lualine.nix
     ./interface/neo-tree
-    ./interface/terminal.nix
-    ./formatting
+    ./interface/treesitter
     ./lsp
     ./utils
+    ./utils/snacks
+    ./utils/toggleterm
   ];
 }

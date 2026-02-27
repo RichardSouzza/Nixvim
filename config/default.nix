@@ -15,6 +15,5 @@
     krabby       # Snacks.dashboard
     ripgrep      # Blink and Snacks.picker
     wakatime-cli # Wakatime
-    wordnet      # Blink
   ];
 }

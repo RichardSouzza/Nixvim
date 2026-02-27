@@ -2,15 +2,6 @@
   keymaps = [
     {
       mode = "i";
-      key = "<C-s>";
-      action = "<Esc>:w<CR>";
-      options = {
-        desc = "Save file";
-        silent = true;
-      };
-    }
-    {
-      mode = "i";
       key = "<C-backspace>";
       action = "<Esc>ldbi";
       options = {
@@ -42,6 +33,24 @@
       action = "<Esc>gcci";
       options = {
         desc = "Comment line";
+        silent = true;
+      };
+    }
+    {
+      mode = "i";
+      key = "<C-c>";
+      action = "<Esc>yya";
+      options = {
+        desc = "Yank line";
+        silent = true;
+      };
+    }
+    {
+      mode = "i";
+      key = "<C-v>";
+      action = "<C-r>+";
+      options = {
+        desc = "Paste from the system clipboard";
         silent = true;
       };
     }
@@ -83,22 +92,19 @@
     }
     {
       mode = "i";
-      key = "<home>";
-      action.__raw = ''
-        function()
-          vim.schedule(function()
-            local col = vim.fn.col('.')
-            local first_non_blank = vim.fn.indent('.') + 1
-            if col == first_non_blank then
-              vim.cmd('normal! 0')
-            else
-              vim.cmd('normal! ^')
-            end
-          end)
-        end
-      '';
+      key = "<A-S-up>";
+      action = "<CMD>t. -1<CR>";
       options = {
-        desc = "Switches the cursor position between ^ and 0";
+        desc = "Duplicate line up";
+        silent = true;
+      };
+    }
+    {
+      mode = "i";
+      key = "<A-S-down>";
+      action = "<CMD>t.<CR>";
+      options = {
+        desc = "Duplicate line down";
         silent = true;
       };
     }

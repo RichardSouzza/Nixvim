@@ -14,6 +14,9 @@
               text_align = "center";
               separator = true;
             }
+            {
+              filetype = "snacks_picker_list";
+            }
           ];
         };
       };
@@ -25,7 +28,7 @@
   keymaps = [
     {
       action = "<CMD>lua Snacks.bufdelete()<CR>";
-      key = "<S-w>";
+      key = "<S-q>";
       mode = "n";
       options = {
         desc = "Close buffer";
@@ -43,10 +46,19 @@
     }
     {
       action = "<CMD>BufferLineCyclePrev<CR>";
-      key = "<S-A-tab>";
+      key = "<A-S-tab>";
       mode = "n";
       options = {
         desc = "Next buffer";
+        silent = true;
+      };
+    }
+    {
+      action = "<CMD>lua Snacks.bufdelete.other()<CR>";
+      key = "<A-S-q>";
+      mode = "n";
+      options = {
+        desc = "Close buffer";
         silent = true;
       };
     }

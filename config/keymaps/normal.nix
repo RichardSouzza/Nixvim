@@ -1,9 +1,31 @@
 let
-  smart_jump = (import ./_shared.nix).smart_jump;
+  rmMap = (import ./_shared.nix).rmMap;
+  setIcon = (import ./_shared.nix).setIcon;
+  setIconGroup = (import ./_shared.nix).setIconGroup;
+  smartJump = (import ./_shared.nix).smartJump;
 
 in
 {
+  plugins.which-key.settings.spec = [
+    (setIcon { key = "gF"; icon = ""; })
+    (setIcon { key = "go"; icon = ""; })
+    (setIcon { key = "<leader><CR>"; icon = "󰛗"; })
+    (setIconGroup { group = "Goto";    key = "g";  icon = " "; })
+    (setIconGroup { group = "Comment"; key = "gb"; icon = "󰆈"; })
+    (setIconGroup { group = "Debug";   key = "<leader>d"; icon = ""; color = "green"; })
+    (setIconGroup { group = "Format actions"; key = "<leader>w"; icon = ""; color = "pink"; })
+  ];
+
   keymaps = [
+    {
+      mode = "n";
+      key = "gb";
+      action = "gc";
+      options = {
+        remap = true;
+        silent = true;
+      };
+    }
     {
       mode = "n";
       key = "gF";
@@ -15,27 +37,17 @@ in
     }
     {
       mode = "n";
-      key = "gkz";
-      action = ":NoNeckPain<CR>";
-      options = {
-        desc = "Center buffer";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
       key = "go";
-      action = "gx";
+      action = ":vertical wincmd f";
       options = {
-        desc = "Opens filepath or URI under cursor with the system handler";
-        remap = true;
+        desc = "Opens filepath or URI under cursor in a new buffer";
         silent = true;
       };
     }
     {
       mode = "n";
       key = "n";
-      action = "<S-n>";
+      action = "<CMD>normal! <S-n><CR>";
       options = {
         desc = "Next";
         silent = true;
@@ -44,7 +56,7 @@ in
     {
       mode = "n";
       key = "<BS>";
-      action.__raw = smart_jump "-";
+      action.__raw = smartJump "-";
       options = {
         desc = "Go up";
         silent = true;
@@ -53,7 +65,7 @@ in
     {
       mode = "n";
       key = "<CR>";
-      action.__raw = smart_jump "+";
+      action.__raw = smartJump "+";
       options = {
         desc = "Go up";
         silent = true;
@@ -61,29 +73,19 @@ in
     }
     {
       mode = "n";
-      key = "<home>";
-      action.__raw = ''
-        function()
-          local col = vim.fn.col('.')
-          local first_non_blank = vim.fn.indent('.')
-          if col - 1 == first_non_blank then
-            vim.cmd('normal! 0')
-          else
-            vim.cmd('normal! ^')
-          end
-        end
-      '';
+      key = "<Insert>";
+      action = "a";
       options = {
-        desc = "Switches the cursor position between ^ and 0";
+        desc = "Append as default insertion mode";
         silent = true;
       };
     }
     {
       mode = "n";
-      key = "<insert>";
-      action = "a";
+      key = "<Tab>"; # <C-i>
+      action = "<CMD>normal! <C-a><CR>";
       options = {
-        desc = "Append as default insertion mode";
+        desc = "Increment number under the cursor";
         silent = true;
       };
     }
@@ -93,24 +95,6 @@ in
       action = "ggVG";
       options = {
         desc = "Select all";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-c>";
-      action = "\"+yy";
-      options = {
-        desc = "Copy line to clipboard";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-i>";
-      action = "<C-a>";
-      options = {
-        desc = "Increment number under the cursor";
         silent = true;
       };
     }
@@ -134,16 +118,7 @@ in
     }
     {
       mode = "n";
-      key = "<C-s>";
-      action = ":w<CR>";
-      options = {
-        desc = "Save file";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-delete>";
+      key = "<C-Delete>";
       action = "dw";
       options = {
         desc = "Delete word ahead of the cursor";
@@ -152,10 +127,46 @@ in
     }
     {
       mode = "n";
-      key = "<A-/>";
-      action = "gcc";
+      key = "<C-Space>"; # <Tab>
+      action = "a <Esc>";
       options = {
-        desc = "Comment line";
+        desc = "Add spaces in normal mode";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-A-Up>";
+      action = "<C-w>k";
+      options = {
+        desc = "Go to the up window";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-A-Down>";
+      action = "<C-w>j";
+      options = {
+        desc = "Go to the down window";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-A-Left>";
+      action = "<C-w>h";
+      options = {
+        desc = "Go to the left window";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-A-Right>";
+      action = "<C-w>l";
+      options = {
+        desc = "Go to the right window";
         silent = true;
       };
     }
@@ -179,37 +190,64 @@ in
     }
     {
       mode = "n";
+      key = "<A-v>";
+      action = "<C-S-v>";
+      options = {
+        desc = "Visual-block mode";
+        silent = true;
+      };
+    }
+    {
+      mode = [ "n" "i" ];
       key = "<A-up>";
-      action = ":silent! m .-2<CR>==";
+      action = "<CMD>silent! m .-2<CR>";
       options = {
         desc = "Move line up";
         silent = true;
       };
     }
     {
-      mode = "n";
+      mode = [ "n" "i" ];
       key = "<A-down>";
-      action = ":silent! m .+1<CR>==";
+      action = "<CMD>silent! m .+1<CR>";
       options = {
         desc = "Move line down";
         silent = true;
       };
     }
     {
-      mode = "n";
-      key = "<A-left>";
-      action = "<C-o>";
+      mode = [ "n" "i" ];
+      key = "<A-+>";
+      action = "<C-w>>";
       options = {
-        desc = "Jump back";
+        desc = "Increase width";
         silent = true;
       };
     }
     {
-      mode = "n";
-      key = "<A-right>";
-      action = "<C-i>";
+      mode = [ "n" "i" ];
+      key = "<A-->";
+      action = "<C-w><";
       options = {
-        desc = "Jump forward";
+        desc = "Decrease width";
+        silent = true;
+      };
+    }
+    {
+      mode = [ "n" "i" ];
+      key = "<A-*>";
+      action = "<C-w>+";
+      options = {
+        desc = "Increase height";
+        silent = true;
+      };
+    }
+    {
+      mode = [ "n" "i" ];
+      key = "<A-/>";
+      action = "<C-w>-";
+      options = {
+        desc = "Decrease height";
         silent = true;
       };
     }
@@ -232,13 +270,83 @@ in
       };
     }
     {
-      action = "n";
-      key = "<S-n>";
       mode = "n";
+      key = "<S-b>";
+      action = "ge";
+      options = {
+        desc = "Prev end of word";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<S-n>";
+      action = "<CMD>normal! n<CR>";
       options = {
         desc = "Previous";
         silent = true;
       };
     }
+    {
+      mode = "n";
+      key = "<S-w>";
+      action = "e";
+      options = {
+        desc = "Next end of word";
+        remap = true;
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<S-Left>";
+      action = "<C-o>";
+      options = {
+        desc = "Jump back";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<S-Right>";
+      action = "<C-i>";
+      options = {
+        desc = "Jump forward";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader><CR>";
+      action = "a<CR>";
+      options = {
+        desc = "Break line";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>D";
+      action = "<C-w>d";
+      options = {
+        desc = "Show diagnostics";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>w<Space>";
+      action.__raw = ''
+        function()
+          vim.cmd([[silent keeppatterns %s/\(\S\)\s\{2,}/\1 /ge]])
+        end
+      '';
+      options = {
+        desc = "Remove duplicate spaces";
+        silent = true;
+      };
+    }
+
+    (rmMap { key = "gg"; })
   ];
 }
