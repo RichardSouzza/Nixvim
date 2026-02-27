@@ -6,7 +6,7 @@ let
 
 in
 {
-  colorscheme = "bearded-arc";
+  colorscheme = "bearded-arc-reversed";
   /* Best choices:
     - bearded-arc
     - bearded-arc-reversed
@@ -101,6 +101,20 @@ in
       };
       meta = {
         homepage = "https://github.com/Sly-Harvey/radium.nvim";
+        license = lib.licenses.mit;
+      };
+    })
+    (buildVimPlugin {
+      pname = "rider.nvim";
+      version = "0-unstable-2025-10-21";
+      src = fetchFromGitHub {
+        owner = "tomstolarczuk";
+        repo = "rider.nvim";
+        rev = "e683c21df08a4f697e4126152d4a75f1d472197e";
+        hash = "sha256-bAikp5D3FDgTNf1rXC1xzus6ouj4TRBuX6lrYwRxsio=";
+      };
+      meta = {
+        homepage = "https://github.com/tomstolarczuk/rider.nvim";
         license = lib.licenses.mit;
       };
     })

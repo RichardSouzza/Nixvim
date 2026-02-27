@@ -234,6 +234,24 @@ in
       };
     }
     {
+      mode = [ "n" "i" ];
+      key = "<A-*>";
+      action = "<C-w>+";
+      options = {
+        desc = "Increase height";
+        silent = true;
+      };
+    }
+    {
+      mode = [ "n" "i" ];
+      key = "<A-/>";
+      action = "<C-w>-";
+      options = {
+        desc = "Decrease height";
+        silent = true;
+      };
+    }
+    {
       mode = "n";
       key = "<A-S-up>";
       action = "<CMD>t. -1<CR>";

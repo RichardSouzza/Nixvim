@@ -64,7 +64,7 @@ in
       taplo.enable = true;       # TOML
 
       ts_ls = {                  # JavaScript / TypeScript
-        enable = true;
+        # enable = true;
         settings = {
           completions = {
             completeFunctionCalls = true;

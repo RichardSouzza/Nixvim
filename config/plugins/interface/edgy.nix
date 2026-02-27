@@ -68,7 +68,7 @@
         ];
         options = {
           left = {
-            size = 42;
+            size = 40;
           };
           bottom = {
             size = 16;
