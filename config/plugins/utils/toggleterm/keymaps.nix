@@ -51,7 +51,7 @@
     {
       mode = "t";
       key = "<A-;>";
-      action = ''<C-\><C-n><C-w><C-p>'';
+      action.__raw = "function() goto_previous_buffer() end";
       options = {
         desc = "Exit terminal mode and go to the previous buffer";
       };

@@ -18,11 +18,42 @@
     #   '';
     # }
     {
+      desc = "Check if it is necessary to reload the file when focusing";
+      event = [ "FocusGained" "TermClose" "TermLeave" ];
+      callback.__raw = ''
+        function()
+          if vim.o.buftype ~= "nofile" then
+            vim.cmd("checktime")
+          end
+        end
+      '';
+    }
+    {
       desc = "Clear jump list on startup";
       event = "VimEnter";
       callback.__raw = ''
         function()
           vim.cmd.clearjumps()
+        end
+      '';
+    }
+    {
+      desc = "Close some filetypes with <q>";
+      event = "FileType";
+      pattern = [ "checkhealth" "gitsigns-blame" "help" "lspinfo" ];
+      callback.__raw = ''
+        function(event)
+          vim.bo[event.buf].buflisted = false
+          vim.schedule(function()
+            vim.keymap.set("n", "q", function()
+              vim.cmd("close")
+              pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+            end, {
+              buffer = event.buf,
+              silent = true,
+              desc = "Quit buffer",
+            })
+          end)
         end
       '';
     }
@@ -42,13 +73,24 @@
     }
     {
       desc = "Remove sqlcomplete pop-up";
-      event = [ "FileType" ];
+      event = "FileType";
       pattern = [ "sql" ];
       callback.__raw = ''
         function()
           -- https://github.com/neovim/neovim/issues/26977
           vim.keymap.del("i", "<left>",  { buffer = true })
           vim.keymap.del("i", "<right>", { buffer = true })
+        end
+      '';
+    }
+    {
+      desc = "Resize splits if window got resized";
+      event = "VimResized";
+      callback.__raw = ''
+        function()
+          local current_tab = vim.fn.tabpagenr()
+          vim.cmd("tabdo wincmd =")
+          vim.cmd("tabnext " .. current_tab)
         end
       '';
     }

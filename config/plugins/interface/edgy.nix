@@ -44,8 +44,20 @@
               winhighlight = "";
             };
           }
+          {
+            ft = "snacks_picker_list";
+            title = "Search";
+          }
         ];
+
         bottom = [
+          {
+            ft = "trouble";
+            wo = {
+              winbar = false;
+              winhighlight = "";
+            };
+          }
           {
             ft = "toggleterm";
             title = "  Terminal";
@@ -55,13 +67,6 @@
               end
             '';
             wo = {
-              winhighlight = "";
-            };
-          }
-          {
-            ft = "trouble";
-            wo = {
-              winbar = false;
               winhighlight = "";
             };
           }

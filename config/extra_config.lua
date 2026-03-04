@@ -101,5 +101,5 @@ function scan_workspace2()
   end
 end
 
-local timer = vim.uv.new_timer()
-timer:start(1000, 0, vim.schedule_wrap(scan_workspace2))
+-- local timer = vim.uv.new_timer()
+-- timer:start(1000, 0, vim.schedule_wrap(scan_workspace2))

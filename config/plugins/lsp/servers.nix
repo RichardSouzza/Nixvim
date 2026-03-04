@@ -56,7 +56,7 @@ in
       };
 
       sqls = {                   # SQL
-        enable = false;
+        enable = true;
       };
 
       tailwindcss.enable = true; # Tailwind CSS
@@ -135,6 +135,8 @@ in
     roslyn.enable = true;
 
     # rzls.enable = true;
+
+    typescript-tools.enable = true;
   };
 
   extraPlugins = with pkgs.vimPlugins; [
