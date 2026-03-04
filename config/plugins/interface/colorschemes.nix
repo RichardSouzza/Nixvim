@@ -6,7 +6,7 @@ let
 
 in
 {
-  colorscheme = "bearded-arc-reversed";
+  colorscheme = "bearded-arc";
   /* Best choices:
     - bearded-arc
     - bearded-arc-reversed
@@ -32,12 +32,12 @@ in
   extraPlugins = [
     (buildVimPlugin {
       pname = "bearded-nvim";
-      version = "0.1.2";
+      version = "0.1.3";
       src = fetchFromGitHub {
         owner = "Ferouk";
         repo = "bearded-nvim";
-        rev = "v0.1.2";
-        hash = "sha256-VjPXHPK2Q+xGJAh9aV6wU89LMOKMT78vbVYX1PvbRQ4=";
+        rev = "v0.1.3";
+        hash = "sha256-o6S6M31EMxl5dDxUNFAqG/3J8LRImGAayq7oUPWRSMo=";
       };
       meta = {
         homepage = "https://github.com/Ferouk/bearded-nvim";

@@ -91,6 +91,8 @@ in
             "<A-S-up>"   = "close_all_nodes";
             "<A-down>"   = "expand_all_subnodes";
             "<A-S-down>" = "expand_all_nodes";
+            "<A-[>" = { command = "scroll_preview"; config.direction =  10; };
+            "<A-]>" = { command = "scroll_preview"; config.direction = -10; };
           };
           width = 42;
         };

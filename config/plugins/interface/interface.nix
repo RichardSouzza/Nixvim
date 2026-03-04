@@ -20,6 +20,10 @@ in
       };
     };
 
+    csvview = {
+      enable = true;
+    };
+
     helpview = {
       enable = true;
       settings = {
@@ -71,6 +75,8 @@ in
         ];
       };
     };
+
+    # rainbow-csv.enable = true;
 
     render-markdown = {
       enable = true;
@@ -142,7 +148,8 @@ in
 
   extraConfigLua = builtins.readFile ./extra_config.lua;
 
-  extraPlugins = [
+  extraPlugins = with pkgs.vimPlugins; [
+    rainbow_csv
     (buildVimPlugin {
       pname = "cinnamon.nvim";
       version = "0-unstable-2024-08-06";

@@ -97,12 +97,11 @@ in
           ];
 
           lualine_b = [
-            { __unkeyed-1 = "branch";                         }
-            { __unkeyed-1 = breadcrumbs; cond = isNotNeoTree; }
+            { __unkeyed-1 = "branch"; }
           ];
 
           lualine_c = [
-            { __unkeyed-1 = ""; }
+            { __unkeyed-1 = breadcrumbs; cond = isNotNeoTree; }
           ];
 
           lualine_x = [

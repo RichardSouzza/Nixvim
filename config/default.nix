@@ -4,7 +4,7 @@
   imports = [
     ./keymaps
     ./plugins
-    ./auto_cmds.nix
+    ./autocmds.nix
     ./settings.nix
   ];
 
@@ -14,6 +14,7 @@
     gcc          # TreeSitter
     krabby       # Snacks.dashboard
     ripgrep      # Blink and Snacks.picker
+    typescript   # typescript-tools
     wakatime-cli # Wakatime
   ];
 }
