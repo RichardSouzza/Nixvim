@@ -10,9 +10,9 @@ in
 
   keymaps = [
     {
-      action = "<CMD>Navbuddy<CR>";
       mode = "n";
       key = "gj";
+      action = "<CMD>Navbuddy<CR>";
       options = {
         desc = "Navigate the breadcrumbs";
       };
@@ -23,6 +23,15 @@ in
       action = "<CMD>NoNeckPain<CR>";
       options = {
         desc = "Center buffer";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>t";
+      action = "<CMD>Trouble<CR>";
+      options = {
+        desc = "Trouble";
         silent = true;
       };
     }

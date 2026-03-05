@@ -4,6 +4,11 @@
       mode = mode;
       key = key;
       action = "<Nop>";
+      options = {
+        noremap = true;
+        silent = true;
+        desc = "which_key_ignore";
+      };
     };
 
   setIcon = { key, icon, color ? "azure" }:

@@ -18,22 +18,18 @@ function Scooter()
   scooter:toggle()
 end
 
-function goto_previous_buffer()
-  vim.cmd("stopinsert")
+function goto_previous_window()
+  local alt_buf = vim.fn.bufnr("#")
+  if alt_buf <= 0 then
+    return
+  end
 
-  local buffers = vim.fn.getbufinfo({ buflisted = 1 })
-
-  table.sort(buffers, function(a, b)
-    return a.lastused > b.lastused
-  end)
-
-  for _, buf in ipairs(buffers) do
-    if buf.bufnr ~= vim.api.nvim_get_current_buf() then
-      local ft = vim.bo[buf.bufnr].filetype
-      if ft ~= "toggleterm" then
-        vim.api.nvim_set_current_buf(buf.bufnr)
-        return
-      end
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    if vim.api.nvim_win_get_buf(win) == alt_buf then
+      vim.api.nvim_set_current_win(win)
+      return
     end
   end
+
+  vim.cmd("bprevious")
 end

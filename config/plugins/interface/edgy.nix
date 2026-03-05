@@ -44,10 +44,6 @@
               winhighlight = "";
             };
           }
-          {
-            ft = "snacks_picker_list";
-            title = "Search";
-          }
         ];
 
         bottom = [
