@@ -64,6 +64,9 @@ in
 
     trouble = {
       enable = true;
+      settings = {
+        auto_preview = false;
+      };
     };
 
     venv-selector.enable = true;

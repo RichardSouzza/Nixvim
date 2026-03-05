@@ -51,7 +51,7 @@
     {
       mode = "t";
       key = "<A-;>";
-      action.__raw = "function() goto_previous_buffer() end";
+      action.__raw = "function() goto_previous_window() end";
       options = {
         desc = "Exit terminal mode and go to the previous buffer";
       };
@@ -62,6 +62,14 @@
       action = "<CMD>TermNew<CR>";
       options = {
         desc = "Open new terminal";
+      };
+    }
+    {
+      mode = "t";
+      key = "<C-q>";
+      action = "<C-d>";
+      options = {
+        desc = "Close terminal";
       };
     }
     {

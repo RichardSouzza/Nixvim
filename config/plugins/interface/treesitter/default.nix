@@ -5,7 +5,9 @@
     treesitter = {
       enable = true;
 
-      grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
+      grammarPackages = builtins.filter (g:
+        g.pname != "tree-sitter-csv"
+      ) pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
 
       settings = {
         auto_install = false;
