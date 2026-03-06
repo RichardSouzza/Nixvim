@@ -119,6 +119,7 @@ in
 
           lualine_z = [
             { __unkeyed-1 = "location"; }
+            { __unkeyed-1 = "progress"; }
           ];
         };
       };

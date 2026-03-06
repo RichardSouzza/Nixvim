@@ -1,22 +1,5 @@
-let
-  setIcon = (import ./../../keymaps/_shared.nix).setIcon;
-
-in
 {
-  plugins.which-key.settings.spec = [
-    (setIcon { key = "gj";  icon = "";  color = "green"; })
-    (setIcon { key = "<leader>z"; icon = ""; })
-  ];
-
   keymaps = [
-    {
-      mode = "n";
-      key = "gj";
-      action = "<CMD>Navbuddy<CR>";
-      options = {
-        desc = "Navigate the breadcrumbs";
-      };
-    }
     {
       mode = "n";
       key = "<leader>z";

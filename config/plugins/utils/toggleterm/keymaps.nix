@@ -67,7 +67,7 @@
     {
       mode = "t";
       key = "<C-q>";
-      action = "<C-d>";
+      action = "<C-q><C-d>";
       options = {
         desc = "Close terminal";
       };

@@ -1,24 +1,4 @@
-let
-  setIcon = (import ./../../../keymaps/_shared.nix).setIcon;
-
-in
 {
-  plugins.which-key.settings.spec = [
-    (setIcon { key = "gc";  icon = ""; color = "green"; })
-    (setIcon { key = "gf";  icon = ""; color = "green"; })
-    (setIcon { key = "gH";  icon = ""; color = "purple"; })
-    (setIcon { key = "gpc"; icon = "󰏘"; color = "purple"; })
-    (setIcon { key = "gpd"; icon = "";  color = "purple"; })
-    (setIcon { key = "gpD"; icon = "";  color = "purple"; })
-    (setIcon { key = "gpk"; icon = "";  color = "purple"; })
-    (setIcon { key = "gpu"; icon = "";  color = "purple"; })
-    (setIcon { key = "<leader>b"; icon = ""; color = "green"; })
-    (setIcon { key = "<leader>c"; icon = ""; color = "green"; })
-    (setIcon { key = "<leader>f"; icon = ""; color = "green"; })
-    (setIcon { key = "<leader>g"; icon = "󰊢"; color = "red"; })
-    (setIcon { key = "<leader>:"; icon = ""; color = "green"; })
-  ];
-
   keymaps = [
     {
       action = "<CMD>lua Snacks.picker.lines({ layout = { preset = 'vertical' } })<CR>";
