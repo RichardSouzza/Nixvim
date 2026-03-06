@@ -1,17 +1,4 @@
-let
-  setIcon = (import ./../../../keymaps/_shared.nix).setIcon;
-  setIconGroup = (import ./../../../keymaps/_shared.nix).setIconGroup;
-
-in
 {
-  plugins.which-key.settings.spec = [
-    (setIconGroup { group = "Neotree"; key = "<leader>e"; icon = ""; })
-    (setIcon { key = "<leader>eb"; icon = ""; })
-    (setIcon { key = "<leader>ef"; icon = ""; })
-    (setIcon { key = "<leader>eg"; icon = ""; color = "red"; })
-    (setIcon { key = "<leader>es"; icon = ""; })
-  ];
-
   keymaps = [
     {
       mode = "n";

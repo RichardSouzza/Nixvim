@@ -1,37 +1,4 @@
 {
-  rmMap = { key, mode ? "n" }:
-    {
-      mode = mode;
-      key = key;
-      action = "<Nop>";
-      options = {
-        noremap = true;
-        silent = true;
-        desc = "which_key_ignore";
-      };
-    };
-
-  setIcon = { key, icon, color ? "azure" }:
-    {
-      __unkeyed-1 = key;
-      icon = {
-        icon = icon;
-        color = color;
-      };
-      mode = [ "n" ];
-    };
-
-  setIconGroup = { group, key, icon, color ? "azure" }:
-    {
-      __unkeyed-1 = key;
-      group = group;
-      icon = {
-        icon = icon;
-        color = color;
-      };
-      mode = [ "n" ];
-    };
-
   smartJump = key: ''
     function()
       local count = vim.v.count

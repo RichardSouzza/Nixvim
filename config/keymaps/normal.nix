@@ -1,29 +1,15 @@
 let
-  rmMap = (import ./_shared.nix).rmMap;
-  setIcon = (import ./_shared.nix).setIcon;
-  setIconGroup = (import ./_shared.nix).setIconGroup;
   smartJump = (import ./_shared.nix).smartJump;
 
 in
 {
-  plugins.which-key.settings.spec = [
-    (setIcon { key = "gF"; icon = ""; })
-    (setIcon { key = "go"; icon = ""; })
-    (setIcon { key = "<leader><CR>"; icon = "󰛗"; })
-    (setIconGroup { group = "Goto";    key = "g";  icon = " "; })
-    (setIconGroup { group = "Comment"; key = "gb"; icon = "󰆈"; })
-    (setIconGroup { group = "Debug";   key = "<leader>d"; icon = ""; color = "green"; })
-    (setIconGroup { group = "Format actions"; key = "<leader>w"; icon = ""; color = "pink"; })
-  ];
-
   keymaps = [
     {
       mode = "n";
       key = "gb";
       action = "gc";
       options = {
-        remap = true;
-        silent = true;
+        remap = false;
       };
     }
     {
@@ -32,7 +18,6 @@ in
       action = ":edit <cfile><CR>";
       options = {
         desc = "Go to file under cursor";
-        silent = true;
       };
     }
     {
@@ -41,7 +26,38 @@ in
       action = ":vertical wincmd f";
       options = {
         desc = "Opens filepath or URI under cursor in a new buffer";
-        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "gT";
+      action = "gT";
+      options = {
+        desc = "Go to previous tab page";
+      };
+    }
+    {
+      mode = "n";
+      key = "gv";
+      action = "gv";
+      options = {
+        desc = "Last visual selection";
+      };
+    }
+    {
+      mode = "n";
+      key = "g,";
+      action = "g,";
+      options = {
+        desc = "Go to newer position in change list";
+      };
+    }
+    {
+      mode = "n";
+      key = "g;";
+      action = "g;";
+      options = {
+        desc = "Go to older position in change list";
       };
     }
     {
@@ -50,7 +66,6 @@ in
       action = "<CMD>normal! <S-n><CR>";
       options = {
         desc = "Next";
-        silent = true;
       };
     }
     {
@@ -59,7 +74,6 @@ in
       action.__raw = smartJump "-";
       options = {
         desc = "Go up";
-        silent = true;
       };
     }
     {
@@ -68,7 +82,6 @@ in
       action.__raw = smartJump "+";
       options = {
         desc = "Go up";
-        silent = true;
       };
     }
     {
@@ -77,7 +90,6 @@ in
       action = "a";
       options = {
         desc = "Append as default insertion mode";
-        silent = true;
       };
     }
     {
@@ -86,7 +98,6 @@ in
       action = "<CMD>normal! <C-a><CR>";
       options = {
         desc = "Increment number under the cursor";
-        silent = true;
       };
     }
     {
@@ -95,7 +106,6 @@ in
       action = "ggVG";
       options = {
         desc = "Select all";
-        silent = true;
       };
     }
     {
@@ -104,7 +114,6 @@ in
       action = "<C-x>";
       options = {
         desc = "Decrement number under the cursor";
-        silent = true;
       };
     }
     {
@@ -113,7 +122,6 @@ in
       action = ":qa<CR>";
       options = {
         desc = "Exit NeoVim";
-        silent = true;
       };
     }
     {
@@ -122,7 +130,6 @@ in
       action = "dw";
       options = {
         desc = "Delete word ahead of the cursor";
-        silent = true;
       };
     }
     {
@@ -131,7 +138,6 @@ in
       action = "a <Esc>";
       options = {
         desc = "Add spaces in normal mode";
-        silent = true;
       };
     }
     {
@@ -140,7 +146,6 @@ in
       action = "<C-w>k";
       options = {
         desc = "Go to the up window";
-        silent = true;
       };
     }
     {
@@ -149,7 +154,6 @@ in
       action = "<C-w>j";
       options = {
         desc = "Go to the down window";
-        silent = true;
       };
     }
     {
@@ -158,7 +162,6 @@ in
       action = "<C-w>h";
       options = {
         desc = "Go to the left window";
-        silent = true;
       };
     }
     {
@@ -167,7 +170,6 @@ in
       action = "<C-w>l";
       options = {
         desc = "Go to the right window";
-        silent = true;
       };
     }
     {
@@ -176,7 +178,6 @@ in
       action = "O";
       options = {
         desc = "New line above";
-        silent = true;
       };
     }
     {
@@ -185,7 +186,6 @@ in
       action = "o";
       options = {
         desc = "New line bellow";
-        silent = true;
       };
     }
     {
@@ -194,7 +194,6 @@ in
       action = "<C-S-v>";
       options = {
         desc = "Visual-block mode";
-        silent = true;
       };
     }
     {
@@ -203,7 +202,6 @@ in
       action = "<CMD>silent! m .-2<CR>";
       options = {
         desc = "Move line up";
-        silent = true;
       };
     }
     {
@@ -212,7 +210,6 @@ in
       action = "<CMD>silent! m .+1<CR>";
       options = {
         desc = "Move line down";
-        silent = true;
       };
     }
     {
@@ -221,7 +218,6 @@ in
       action = "<C-w>>";
       options = {
         desc = "Increase width";
-        silent = true;
       };
     }
     {
@@ -230,7 +226,6 @@ in
       action = "<C-w><";
       options = {
         desc = "Decrease width";
-        silent = true;
       };
     }
     {
@@ -239,7 +234,6 @@ in
       action = "<C-w>+";
       options = {
         desc = "Increase height";
-        silent = true;
       };
     }
     {
@@ -248,7 +242,6 @@ in
       action = "<C-w>-";
       options = {
         desc = "Decrease height";
-        silent = true;
       };
     }
     {
@@ -257,7 +250,6 @@ in
       action = "<CMD>t. -1<CR>";
       options = {
         desc = "Duplicate line up";
-        silent = true;
       };
     }
     {
@@ -266,7 +258,6 @@ in
       action = "<CMD>t.<CR>";
       options = {
         desc = "Duplicate line down";
-        silent = true;
       };
     }
     {
@@ -275,7 +266,6 @@ in
       action = "ge";
       options = {
         desc = "Prev end of word";
-        silent = true;
       };
     }
     {
@@ -284,7 +274,6 @@ in
       action = "<CMD>normal! n<CR>";
       options = {
         desc = "Previous";
-        silent = true;
       };
     }
     {
@@ -293,8 +282,7 @@ in
       action = "e";
       options = {
         desc = "Next end of word";
-        remap = true;
-        silent = true;
+        remap = false;
       };
     }
     {
@@ -303,7 +291,6 @@ in
       action = "<C-o>";
       options = {
         desc = "Jump back";
-        silent = true;
       };
     }
     {
@@ -312,7 +299,6 @@ in
       action = "<C-i>";
       options = {
         desc = "Jump forward";
-        silent = true;
       };
     }
     {
@@ -321,7 +307,6 @@ in
       action = "a<CR>";
       options = {
         desc = "Break line";
-        silent = true;
       };
     }
     {
@@ -330,7 +315,6 @@ in
       action = "<C-w>d";
       options = {
         desc = "Show diagnostics";
-        silent = true;
       };
     }
     {
@@ -343,10 +327,7 @@ in
       '';
       options = {
         desc = "Remove duplicate spaces";
-        silent = true;
       };
     }
-
-    (rmMap { key = "gg"; })
   ];
 }

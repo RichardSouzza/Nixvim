@@ -24,5 +24,6 @@
     ./utils
     ./utils/snacks
     ./utils/toggleterm
+    ./utils/which-key
   ];
 }

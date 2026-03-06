@@ -1,18 +1,4 @@
-let
-  setIcon = (import ./../../keymaps/_shared.nix).setIcon;
-
-in
 {
-  plugins.which-key.settings.spec = [
-    (setIcon { key = "gd"; icon = ""; color = "purple"; })
-    (setIcon { key = "gD"; icon = ""; color = "purple"; })
-    (setIcon { key = "gi"; icon = "󰐱"; color = "purple"; })
-    (setIcon { key = "gr"; icon = "󰌹"; color = "purple"; })
-    (setIcon { key = "gR"; icon = ""; color = "purple"; })
-    (setIcon { key = "gt"; icon = "󰓹"; color = "purple"; })
-    (setIcon { key = "<leader>."; icon = "󱐋"; color = "yellow"; })
-  ];
-
   keymaps = [
     {
       mode = "n";
@@ -56,7 +42,7 @@ in
       key = "gR";
       action.__raw = "function() vim.lsp.buf.rename() end";
       options = {
-        desc = "LSP rename";
+        desc = "Rename";
         silent = true;
       };
     }

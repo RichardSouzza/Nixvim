@@ -28,18 +28,6 @@ in
 
     lazy.enable = true;
 
-    navbuddy = {
-      enable = true;
-      settings = {
-        lsp.auto_attach = true;
-        mappings = {
-          "<Left>" = "parent";
-          "<Right>" = "children";
-        };
-        source_buffer.highlight = true; # not working :(
-      };
-    };
-
     no-neck-pain.enable = true;
 
     oil = {
@@ -72,17 +60,6 @@ in
     venv-selector.enable = true;
 
     wakatime.enable = true;
-
-    which-key = {
-      enable = true;
-      settings = {
-        preset = "modern";
-        keys = {
-          scroll_up = "<S-Up>";
-          scroll_down = "<S-Down>";
-        };
-      };
-    };
   };
 
   extraPlugins = with pkgs.vimPlugins; [
