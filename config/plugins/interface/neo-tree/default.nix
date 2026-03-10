@@ -64,6 +64,9 @@ in
             };
           };
           enable_refresh_on_write = true;
+          filtered_items = {
+            show_hidden_count = false;
+          };
           follow_current_file.enabled = true;
           sort_case_insensitive = true;
           sort_function.__raw = builtins.readFile ./functions/natural_sort.lua;

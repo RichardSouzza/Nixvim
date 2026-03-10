@@ -63,6 +63,7 @@ in
   };
 
   extraPlugins = with pkgs.vimPlugins; [
+    hover-nvim
     plenary-nvim
 
     (buildVimPlugin {

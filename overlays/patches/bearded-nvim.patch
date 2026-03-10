@@ -1,22 +1,26 @@
 diff --git a/lua/bearded/highlights.lua b/lua/bearded/highlights.lua
-index 5e7278f..abd6ec4 100644
+index 5e7278f..950126c 100644
 --- a/lua/bearded/highlights.lua
 +++ b/lua/bearded/highlights.lua
-@@ -98,7 +98,7 @@ local function syntax_groups(colors, opts)
+@@ -97,8 +97,8 @@ local function syntax_groups(colors, opts)
+     SpecialComment = { fg = colors.dim, italic = italic },
      Debug = { fg = colors.red },
      ["@comment"] = { fg = colors.dim, italic = italic },
-     ["@variable"] = { fg = colors.salmon },
+-    ["@variable"] = { fg = colors.salmon },
 -    ["@variable.member"] = { fg = colors.orange },
-+    ["@variable.member"] = { fg = colors.fg },
++    ["@variable"] = { fg = colors.fg },
++    ["@variable.member"] = { fg = colors.salmon },
      ["@variable.parameter"] = { fg = colors.pink },
      ["@variable.builtin"] = { fg = colors.orange, italic = italic },
      ["@field"] = { fg = colors.pink },
-@@ -110,8 +110,8 @@ local function syntax_groups(colors, opts)
+@@ -109,9 +109,9 @@ local function syntax_groups(colors, opts)
+     ["@number"] = { fg = colors.orange },
      ["@boolean"] = { fg = colors.red },
      ["@string"] = { fg = colors.green },
-     ["@string.escape"] = { fg = colors.red },
+-    ["@string.escape"] = { fg = colors.red },
 -    ["@string.special"] = { fg = colors.red },
 -    ["@string.regexp"] = { fg = colors.red },
++    ["@string.escape"] = { fg = colors.dim },
 +    ["@string.special"] = { fg = colors.orange },
 +    ["@string.regexp"] = { fg = colors.orange },
      ["@character"] = { fg = colors.green },
@@ -27,7 +31,7 @@ index 5e7278f..abd6ec4 100644
      ["@module"] = { fg = colors.teal },
      ["@punctuation"] = { fg = colors.dim },
 -    ["@punctuation.bracket"] = { fg = colors.dim },
-+    ["@punctuation.bracket"] = { fg = colors.fg },
++    ["@punctuation.bracket"] = { fg = colors.salmon },
      ["@punctuation.delimiter"] = { fg = colors.dim },
      ["@tag"] = { fg = colors.purple },
      ["@tag.attribute"] = { fg = colors.orange, italic = italic },
@@ -60,16 +64,60 @@ index 5e7278f..abd6ec4 100644
      ColorColumn = { bg = bg_mid },
      Folded = { fg = dim, bg = bg_mid },
      FoldColumn = { fg = dim, bg = bg_mid },
-@@ -241,9 +241,9 @@ local function ui_groups(ui, colors, levels, opts)
+@@ -241,10 +241,10 @@ local function ui_groups(ui, colors, levels, opts)
      TabLine = { fg = dim, bg = bg_alt },
      TabLineSel = { fg = fg, bg = bg_mid, bold = bold },
      TabLineFill = { fg = dim, bg = bg_alt },
 -    DiffAdd = { bg = "#2cfc82", fg = levels.success or colors.green },
 -    DiffDelete = { bg = "#f44a24", fg = levels.danger or colors.red },
 -    DiffChange = { bg = "#69c3ff", fg = colors.blue },
+-    DiffText = { bg = "#69c3ff", fg = colors.blue, bold = bold },
 +    DiffAdd = { bg = ui.background, fg = levels.success or colors.green },
 +    DiffDelete = { bg = ui.background, fg = levels.danger or colors.red },
 +    DiffChange = { bg = ui.background, fg = colors.blue },
-     DiffText = { bg = "#69c3ff", fg = colors.blue, bold = bold },
++    DiffText = { bg = ui.background, fg = colors.blue, bold = bold },
      StatusLineTerm = { fg = fg, bg = ui.uibackgroundalt or bg_alt },
      StatusLineTermNC = { fg = dim, bg = ui.uibackgroundalt or bg_alt },
+   }
+diff --git a/lua/bearded/plugins/lualine.lua b/lua/bearded/plugins/lualine.lua
+index 7290b6e..1b1e547 100644
+--- a/lua/bearded/plugins/lualine.lua
++++ b/lua/bearded/plugins/lualine.lua
+@@ -12,27 +12,32 @@ function M.highlights(palette)
+   return {
+     normal = {
+       a = { bg = accent, fg = bg, gui = "bold" },
+-      b = { bg = ui.primaryalt or bg, fg = accent },
++      b = { bg = ui.defaultalt or bg, fg = accent },
+       c = { bg = bg, fg = fg },
+     },
+     insert = {
+       a = { bg = colors.green or accent, fg = bg, gui = "bold" },
+-      b = { bg = ui.primaryalt or bg, fg = colors.green or accent },
++      b = { bg = ui.defaultalt or bg, fg = colors.green or accent },
+       c = { bg = bg, fg = fg },
+     },
+     visual = {
+       a = { bg = colors.purple or accent, fg = bg, gui = "bold" },
+-      b = { bg = ui.primaryalt or bg, fg = colors.purple or accent },
++      b = { bg = ui.defaultalt or bg, fg = colors.purple or accent },
+       c = { bg = bg, fg = fg },
+     },
+     replace = {
+       a = { bg = colors.red or accent, fg = bg, gui = "bold" },
+-      b = { bg = ui.primaryalt or bg, fg = colors.red or accent },
++      b = { bg = ui.defaultalt or bg, fg = colors.red or accent },
+       c = { bg = bg, fg = fg },
+     },
+     command = {
+       a = { bg = colors.yellow or accent, fg = bg, gui = "bold" },
+-      b = { bg = ui.primaryalt or bg, fg = colors.yellow or accent },
++      b = { bg = ui.defaultalt or bg, fg = colors.yellow or accent },
++      c = { bg = bg, fg = fg },
++    },
++    terminal = {
++      a = { bg = colors.greenAlt or accent, fg = bg, gui = "bold" },
++      b = { bg = ui.defaultalt or bg, fg = colors.greenAlt or accent },
+       c = { bg = bg, fg = fg },
+     },
+     inactive = {
