@@ -32,9 +32,9 @@ in
             show_unloaded = true;
             symbols = {
               error = "E";
-              hint  = "";
-              info  = "";
-              warn  = "";
+              hint  = " ";
+              info  = " ";
+              warn  = " ";
             };
           };
 

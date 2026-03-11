@@ -110,10 +110,11 @@ in
           ];
 
           lualine_y = [
-            { __unkeyed-1 = "diff";        }
-            { __unkeyed-1 = "diagnostics"; }
-            { __unkeyed-1 = "lsp_status";  }
-            { __unkeyed-1 = "searchcount"; }
+            { __unkeyed-1 = "diff";          }
+            { __unkeyed-1 = "diagnostics";   }
+            { __unkeyed-1 = "lsp_status";    }
+            { __unkeyed-1 = "venv-selector"; }
+            { __unkeyed-1 = "searchcount";   }
             { __unkeyed-1 = linesSelected; cond = linesSelectedCond; }
           ];
 

@@ -62,14 +62,6 @@ in
     }
     {
       mode = "n";
-      key = "n";
-      action = "<CMD>normal! <S-n><CR>";
-      options = {
-        desc = "Next";
-      };
-    }
-    {
-      mode = "n";
       key = "<BS>";
       action.__raw = smartJump "-";
       options = {
@@ -266,14 +258,6 @@ in
       action = "ge";
       options = {
         desc = "Prev end of word";
-      };
-    }
-    {
-      mode = "n";
-      key = "<S-n>";
-      action = "<CMD>normal! n<CR>";
-      options = {
-        desc = "Previous";
       };
     }
     {

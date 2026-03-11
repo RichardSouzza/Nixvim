@@ -62,6 +62,11 @@ vim.opt.wildignore:append({
   "zellner.vim",
 })
 
+-- Invert search direction
+
+vim.keymap.set("n", "n", "N")
+vim.keymap.set("n", "N", "n")
+
 -- Disable scrolloff on click to prevent scrolling
 
 vim.keymap.set("n", "<LeftMouse>", ":let temp=&so<CR>:set so=0<CR><LeftMouse>:let &so=temp<CR>", { noremap = true, silent = true })

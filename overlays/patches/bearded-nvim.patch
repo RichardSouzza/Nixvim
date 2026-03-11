@@ -1,5 +1,5 @@
 diff --git a/lua/bearded/highlights.lua b/lua/bearded/highlights.lua
-index 5e7278f..950126c 100644
+index 5e7278f..e7a518d 100644
 --- a/lua/bearded/highlights.lua
 +++ b/lua/bearded/highlights.lua
 @@ -97,8 +97,8 @@ local function syntax_groups(colors, opts)
@@ -31,10 +31,19 @@ index 5e7278f..950126c 100644
      ["@module"] = { fg = colors.teal },
      ["@punctuation"] = { fg = colors.dim },
 -    ["@punctuation.bracket"] = { fg = colors.dim },
-+    ["@punctuation.bracket"] = { fg = colors.salmon },
++    ["@punctuation.bracket"] = { fg = colors.teal },
      ["@punctuation.delimiter"] = { fg = colors.dim },
      ["@tag"] = { fg = colors.purple },
      ["@tag.attribute"] = { fg = colors.orange, italic = italic },
+@@ -159,7 +159,7 @@ local function syntax_groups(colors, opts)
+     ["@lsp.type.parameter"] = { fg = colors.pink },
+     ["@lsp.type.property"] = { fg = colors.orange },
+     ["@lsp.typemod.property.declaration"] = { fg = colors.fg },
+-    ["@lsp.type.variable"] = { fg = colors.salmon },
++    ["@lsp.type.variable"] = { fg = colors.fg },
+     ["@lsp.typemod.variable.defaultLibrary"] = { fg = colors.teal },
+   }
+ end
 @@ -197,8 +197,8 @@ local function ui_groups(ui, colors, levels, opts)
    local italic = opts.italic ~= false
    local bold = opts.bold ~= false

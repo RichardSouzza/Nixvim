@@ -12,6 +12,25 @@ in
 
   plugins = {
     lsp.servers = {
+      basedpyright = {           # Python
+        enable = true;
+        settings = {
+          basedpyright = {
+            analysis = {
+              autoImportCompletions = true;
+              diagnosticMode = "workspace";
+              inlayHints = {
+                callArgumentNames = true;
+                callArgumentNamesMatching = true;
+                genericTypes = true;
+                variableTypes = false;
+              };
+              typeCheckingMode = "basic";
+            };
+          };
+        };
+      };
+
       csharp_ls.enable = false;  # C#
 
       cssls.enable = true;       # CSS
@@ -31,16 +50,16 @@ in
         cmd = [ "nixd" "--inlay-hints=false" "--semantic-tokens" ];
       };
 
-      pyright = {                # Python
-        enable = true;
-        settings = {
-          python = {
-            analysis = {
-              diagnosticMode = "workspace";
-            };
-          };
-        };
-      };
+      # pyright = {                # Python
+      #   enable = true;
+      #   settings = {
+      #     python = {
+      #       analysis = {
+      #         diagnosticMode = "workspace";
+      #       };
+      #     };
+      #   };
+      # };
 
       omnisharp = {              # C#
         enable = false;
