@@ -70,6 +70,10 @@ in
         };
       };
 
+      ruff = {
+        enable = true;
+      };
+
       roslyn_ls = {              # C#
         enable = false;
       };
@@ -151,7 +155,7 @@ in
       enable = true;
     };
 
-    roslyn.enable = true;
+    roslyn.enable = false;
 
     # rzls.enable = true;
 

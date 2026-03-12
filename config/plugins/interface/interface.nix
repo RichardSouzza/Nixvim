@@ -76,8 +76,6 @@ in
       };
     };
 
-    # rainbow-csv.enable = true;
-
     render-markdown = {
       enable = true;
       settings = {

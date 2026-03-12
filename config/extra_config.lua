@@ -67,6 +67,11 @@ vim.opt.wildignore:append({
 vim.keymap.set("n", "n", "N")
 vim.keymap.set("n", "N", "n")
 
+-- Swap Search Code and Comment keymaps
+
+vim.keymap.set("n", "gb", "gc")
+vim.keymap.set("n", "gc", "<CMD>lua Snacks.picker.lines({ layout = { preset = 'vertical' } })<CR>")
+
 -- Disable scrolloff on click to prevent scrolling
 
 vim.keymap.set("n", "<LeftMouse>", ":let temp=&so<CR>:set so=0<CR><LeftMouse>:let &so=temp<CR>", { noremap = true, silent = true })
