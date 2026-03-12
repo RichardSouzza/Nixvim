@@ -6,14 +6,6 @@ in
   keymaps = [
     {
       mode = "n";
-      key = "gb";
-      action = "gc";
-      options = {
-        remap = false;
-      };
-    }
-    {
-      mode = "n";
       key = "gF";
       action = ":edit <cfile><CR>";
       options = {
@@ -295,7 +287,7 @@ in
     }
     {
       mode = "n";
-      key = "<leader>D";
+      key = "<leader><S-d>";
       action = "<C-w>d";
       options = {
         desc = "Show diagnostics";

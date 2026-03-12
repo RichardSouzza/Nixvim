@@ -9,16 +9,6 @@
       };
     }
     {
-      action = "<CMD>lua Snacks.picker.grep({ regex = false })<CR>";
-      key = "gc";
-      mode = "n";
-      options = {
-        desc = "Search code";
-        nowait = true;
-        remap = true;
-      };
-    }
-    {
       action = "<CMD>lua Snacks.picker.files({ hidden = true })<CR>";
       key = "gf";
       mode = "n";
