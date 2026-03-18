@@ -7,7 +7,7 @@ let
 in
 {
   colorscheme = "bearded-arc";
-  /* Best choices:
+  /* Bright themes:
     - bearded-arc
     - bearded-arc-reversed
     - bearded-hc-ebony
@@ -18,6 +18,16 @@ in
     - dracula
     - oasis-lagoon
     - oasis-midnight
+    - tokyonight-moon
+    - tokyonight-night
+
+    Chill themes:
+    - bearded-aquarelle-hydrangea
+    - bearded-monokai-metallian
+    - catppuccin-machiatto
+    - monet
+    - nordfox
+    - tokyonight-storm
   */
 
   colorschemes = {
@@ -44,6 +54,20 @@ in
         license = lib.licenses.gpl3Only;
       };
       patches = [ ./../../../overlays/patches/bearded-nvim.patch ];
+    })
+    (buildVimPlugin {
+      pname = "kyotonight.vim";
+      version = "1-unstable-2023-12-25";
+      src = fetchFromGitHub {
+        owner = "shrikecode";
+        repo = "kyotonight.vim";
+        rev = "040aa565ef75bc1e2b566e3fc5d953ccaecd1447";
+        hash = "sha256-gZCbqhKpU+0Fv63lJHaIfbEsAYytrx44+6wLD3/a0g8=";
+      };
+      meta = {
+        homepage = "https://github.com/shrikecode/kyotonight.vim";
+        license = lib.licenses.gpl3Only;
+      };
     })
     (buildVimPlugin {
       pname = "mini.base16";

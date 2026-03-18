@@ -163,16 +163,16 @@ in
       };
     })
     (buildVimPlugin {
-      pname = "satellite.nvim";
-      version = "0-unstable-2026-02-02";
+      pname = "nvim-scrollbar";
+      version = "0-unstable-2025-11-07";
       src = fetchFromGitHub {
-        owner = "RichardSouzza";
-        repo = "satellite.nvim";
-        rev = "3b4ca5faeda69cdde033842bd30ccdb12faae902";
-        hash = "sha256-4eI+RpvLAR8l/taibIUuWNi4vQTTw0KfLO0ZfWBN2Do=";
+        owner = "petertriho";
+        repo = "nvim-scrollbar";
+        rev = "f8e87b96cd6362ef8579be456afee3b38fd7e2a8";
+        hash = "sha256-g+gJp7noNdLKfvp+QbnTFE++PI3FcJG7reDenkg15k0=";
       };
       meta = {
-        homepage = "https://github.com/RichardSouzza/satellite.nvim";
+        homepage = "https://github.com/petertriho/nvim-scrollbar";
         license = lib.licenses.mit;
       };
     })
