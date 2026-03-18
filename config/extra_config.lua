@@ -69,8 +69,11 @@ vim.keymap.set("n", "N", "n")
 
 -- Swap Search Code and Comment keymaps
 
-vim.keymap.set("n", "gb", "gc")
-vim.keymap.set("n", "gc", "<CMD>lua Snacks.picker.lines({ layout = { preset = 'vertical' } })<CR>")
+vim.keymap.set("n", "gc", function()
+  Snacks.picker.grep({ regex = false })
+end, { nowait = true })
+
+vim.keymap.set({ "n", "x", "o" }, "gb", "gc")
 
 -- Disable scrolloff on click to prevent scrolling
 

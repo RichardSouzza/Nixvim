@@ -11,24 +11,7 @@ require("cinnamon").setup({
   },
 })
 
-require("satellite").setup({
-  show_always = true,
-  excluded_buftypes = {
-    "nofile",
-    "popup",
-    "prompt",
-    "scratch",
-    "terminal",
-  },
-  excluded_filetypes = {
-    "neo-tree",
-  },
-  handlers = {
-    marks = {
-      enable = false, -- Very unstable
-    },
-  },
-})
+require("scrollbar").setup()
 
 require("sunglasses").setup({
   filter_percent = 0.4,
