@@ -89,6 +89,7 @@
     fillchars = {
       eob = " ";
       fold = " ";
+      diff = " ";
     };
   };
 

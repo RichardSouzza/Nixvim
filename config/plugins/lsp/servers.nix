@@ -82,7 +82,7 @@ in
         enable = true;
       };
 
-      tailwindcss.enable = true; # Tailwind CSS
+      # tailwindcss.enable = true; # Tailwind CSS
 
       taplo.enable = true;       # TOML
 
