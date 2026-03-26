@@ -66,7 +66,7 @@
     }
     {
       action = "<CMD>lua Snacks.picker.grep({ regex = false })<CR>";
-      key = "<leader>b";
+      key = "<leader>c";
       mode = "n";
       options = {
         desc = "Search code";
@@ -74,7 +74,7 @@
     }
     {
       action.__raw = builtins.readFile ./functions/search_sidebar.lua;
-      key = "<leader>c";
+      key = "<leader>C";
       mode = "n";
       options = {
         desc = "Open code search sidebar";
