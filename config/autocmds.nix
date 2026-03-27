@@ -58,6 +58,16 @@
       '';
     }
     {
+      desc = "Disable sidescrolloff in Neotree";
+      event = "FileType";
+      pattern = [ "neo-tree" ];
+      callback.__raw = ''
+        function()
+          vim.o.sidescrolloff = 0
+        end
+      '';
+    }
+    {
       desc = "Enter insert mode when the current buffer changes to 'toggleterm'";
       event = [ "BufEnter" "BufWinEnter" ];
       pattern = [ "term://*" ];
