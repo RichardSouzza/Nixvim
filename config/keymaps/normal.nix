@@ -279,6 +279,18 @@ in
     }
     {
       mode = "n";
+      key = "<S-ScrollWheelUp>";
+      action = "<ScrollWheelLeft>";
+      options.desc = "Scroll left";
+    }
+    {
+      mode = "n";
+      key = "<S-ScrollWheelDown>";
+      action = "<ScrollWheelRight>";
+      options.desc = "Scroll right";
+    }
+    {
+      mode = "n";
       key = "<leader><CR>";
       action = "a<CR>";
       options = {
