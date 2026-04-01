@@ -1,5 +1,5 @@
 diff --git a/lua/bearded/highlights.lua b/lua/bearded/highlights.lua
-index 5e7278f..e7a518d 100644
+index 5e7278f..dc832aa 100644
 --- a/lua/bearded/highlights.lua
 +++ b/lua/bearded/highlights.lua
 @@ -97,8 +97,8 @@ local function syntax_groups(colors, opts)
@@ -55,15 +55,18 @@ index 5e7278f..e7a518d 100644
      NormalFloat = { fg = fg, bg = bg_alt },
      FloatBorder = { fg = dim, bg = bg_alt },
      FloatTitle = { fg = primary, bg = bg_alt, bold = bold },
-@@ -210,7 +210,7 @@ local function ui_groups(ui, colors, levels, opts)
+@@ -210,9 +210,9 @@ local function ui_groups(ui, colors, levels, opts)
        bg = bg_mid,
        bold = bold,
      },
 -    LineNr = { fg = bg == "NONE" and dim or blend_hex(fg, bg, 0.25), bg = bg_mid },
 +    LineNr = { fg = bg == "NONE" and dim or blend_hex(fg, bg, 0.25), bg = bg_alt },
      Visual = { bg = bg == "NONE" and (ui.primaryalt or "#444444") or blend_hex(primary, bg, 0.3) },
-     Search = { fg = bg, bg = levels.warning or colors.orange },
+-    Search = { fg = bg, bg = levels.warning or colors.orange },
++    Search = { bg = dim },
      IncSearch = { fg = bg, bg = levels.info or colors.blue, bold = bold },
+     MatchParen = { fg = accent, bold = bold },
+     Pmenu = { fg = fg, bg = ui.primaryalt or bg_alt },
 @@ -222,7 +222,7 @@ local function ui_groups(ui, colors, levels, opts)
      StatusLineNC = { fg = dim, bg = ui.uibackgroundalt or bg_alt },
      VertSplit = { fg = ui.border or dim, bg = bg },
