@@ -87,13 +87,10 @@
       callback.__raw = ''
         function()
           local ignored = {
-            ["neo-tree"] = true,
-            ["help"] = true,
+            ["terminal"] = true
           }
-
-          if vim.bo.buftype == "" and not ignored[vim.bo.filetype] then
-            vim.wo.number = true
-            vim.wo.relativenumber = true
+          if not ignored[vim.bo.buftype] then
+            vim.wo.winhighlight = ""
           end
         end
       '';
@@ -103,8 +100,15 @@
       event = [ "WinLeave" "BufLeave" ];
       callback.__raw = ''
         function()
-          vim.wo.number = false
-          vim.wo.relativenumber = false
+          local ignored = {
+            ["terminal"] = true
+          }
+          if not ignored[vim.bo.buftype] then
+            local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
+            local bg = normal_hl.bg
+            vim.api.nvim_set_hl(0, "LineNrHidden", { fg = bg })
+            vim.wo.winhighlight = "LineNr:LineNrHidden"
+          end
         end
       '';
     }

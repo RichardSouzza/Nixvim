@@ -67,6 +67,7 @@
     ignorecase = true;        # Case-insensitive search by default
     laststatus = 3;           # Status line fills the entire width of window
     number = true;            # Current line number
+    numberwidth = 4;          # Fixed width of the line number column
     relativenumber = true;    # Side relative numbers
     scrolloff = 1000;         # Keep cursor vertically centered
     shiftwidth = 2;           # Size of an indent step

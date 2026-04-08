@@ -6,7 +6,7 @@ vim.cmd("filetype plugin indent on")
 
 vim.cmd("syntax on")
 
--- Enable clip and powershell for WSL
+-- Configure clipboard for WSL
 
 if vim.fn.has("wsl") == 1 then
   vim.g.clipboard = {
@@ -67,13 +67,28 @@ vim.opt.wildignore:append({
 vim.keymap.set("n", "n", "N")
 vim.keymap.set("n", "N", "n")
 
--- Swap Search Code and Comment keymaps
+-- Remap 'Comment' and set 'Search code' keymap
+-- https://github.com/neovim/neovim/discussions/29075#discussioncomment-11140291
+
+local copy_keymap = function(mode, cur_lhs, new_lhs)
+  local map_data = vim.fn.maparg(cur_lhs, mode, false, true)
+  map_data.lhs, map_data.lhsraw = new_lhs, vim.keycode(new_lhs)
+  vim.fn.mapset(map_data)
+end
+
+copy_keymap("n", "gc", "gb")
+copy_keymap("x", "gc", "gb")
+copy_keymap("o", "gc", "gb")
+copy_keymap("n", "gcc", "gbb")
+
+vim.keymap.del("n", "gc")
+vim.keymap.del("x", "gc")
+vim.keymap.del("o", "gc")
+vim.keymap.del("n", "gcc")
 
 vim.keymap.set("n", "gc", function()
   Snacks.picker.grep({ regex = false })
-end, { nowait = true })
-
-vim.keymap.set({ "n", "x", "o" }, "gb", "gc")
+end, { desc = "Search code", noremap = true, nowait = true })
 
 -- Disable scrolloff on click to prevent scrolling
 
