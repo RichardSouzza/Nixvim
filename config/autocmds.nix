@@ -82,6 +82,33 @@
       '';
     }
     {
+      desc = "Show line numbers on focus gain";
+      event = [ "WinEnter" "BufEnter" ];
+      callback.__raw = ''
+        function()
+          local ignored = {
+            ["neo-tree"] = true,
+            ["help"] = true,
+          }
+
+          if vim.bo.buftype == "" and not ignored[vim.bo.filetype] then
+            vim.wo.number = true
+            vim.wo.relativenumber = true
+          end
+        end
+      '';
+    }
+    {
+      desc = "Hide line numbers on focus loss";
+      event = [ "WinLeave" "BufLeave" ];
+      callback.__raw = ''
+        function()
+          vim.wo.number = false
+          vim.wo.relativenumber = false
+        end
+      '';
+    }
+    {
       desc = "Remove sqlcomplete pop-up";
       event = "FileType";
       pattern = [ "sql" ];
