@@ -7,7 +7,7 @@ in
     {
       mode = "n";
       key = "gF";
-      action = ":edit <cfile><CR>";
+      action = "<CMD>edit <cfile><CR>";
       options = {
         desc = "Go to file under cursor";
       };
@@ -15,7 +15,7 @@ in
     {
       mode = "n";
       key = "go";
-      action = ":vertical wincmd f";
+      action = "<CMD>vertical wincmd f";
       options = {
         desc = "Opens filepath or URI under cursor in a new buffer";
       };
@@ -103,7 +103,7 @@ in
     {
       mode = "n";
       key = "<C-q>";
-      action = ":qa<CR>";
+      action = "<CMD>qa<CR>";
       options = {
         desc = "Exit NeoVim";
       };

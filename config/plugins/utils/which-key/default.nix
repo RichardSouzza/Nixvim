@@ -19,10 +19,10 @@ in
         };
         spec = [
           # Goto
-          (setIcon { key = "gF";  icon = ""; color = "azure"; })   # nf-fa-file
-          (setIcon { key = "gH";  icon = ""; color = "green"; })   # nf-cod-git_pull_request
           (setIcon { key = "gc";  icon = ""; color = "green"; })   # nf-seti-search
           (setIcon { key = "gf";  icon = ""; color = "green"; })   # nf-seti-search
+          (setIcon { key = "gF";  icon = ""; color = "azure"; })   # nf-fa-file
+          (setIcon { key = "gH";  icon = ""; color = "green"; })   # nf-cod-git_pull_request
           (setIcon { key = "go";  icon = ""; color = "azure"; })   # nf-fa-file
           (setIcon { key = "gs";  icon = ""; color = "blue";  })   # nf-cod-window
           (setIcon { key = "gT";  icon = ""; color = "blue";  })   # nf-cod-window
