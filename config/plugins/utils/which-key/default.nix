@@ -67,12 +67,14 @@ in
 
           # Groups
           (setIconGroup { group = " Goto";         key = "g";         icon = " "; color = "azure"; }) # nf-fa-rocket
+          (setIconGroup { group = " Tools";        key = "<leader>";  icon = " "; color = "azure"; }) # nf-fa-wrench
           (setIconGroup { group = "Comment";        key = "gb";        icon = "󰆈"; color = "azure"; }) # nf-md-comment_text
           (setIconGroup { group = "Debug";          key = "<leader>d"; icon = ""; color = "green"; }) # nf-cod-debug_alt
           (setIconGroup { group = "Format actions"; key = "<leader>w"; icon = ""; color = "pink";  }) # nf-fa-marker
           (setIconGroup { group = "Git";            key = "gh";        icon = "󰊢"; color = "red";   }) # nf-md-git
           (setIconGroup { group = "Neotree";        key = "<leader>e"; icon = ""; color = "azure"; }) # nf-fa-folder_tree
           (setIconGroup { group = "Picker";         key = "gp";        icon = ""; color = "green"; }) # nf-seti-search
+          (setIconGroup { group = "Toggle";         key = "<leader>]"; icon = ""; color = "azure"; }) # nf-fa-toggle_on
 
           # Ignore
           (whichKeyIgnore { key = "gcc"; })

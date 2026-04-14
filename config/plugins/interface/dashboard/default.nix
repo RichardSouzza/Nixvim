@@ -48,10 +48,10 @@
         }
         {
           section = "terminal";
-          cmd = "krabby name blastoise --no-title; sleep .1";
+          cmd = "krabby name steelix -f mega --no-title; sleep .1";
           pane = 2;
           height = 22;
-          indent = 15;
+          indent = 12;
         }
         {
           icon = " ";
