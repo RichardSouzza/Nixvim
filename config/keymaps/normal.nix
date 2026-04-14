@@ -17,7 +17,7 @@ in
       key = "go";
       action = "<CMD>vertical wincmd f";
       options = {
-        desc = "Opens filepath or URI under cursor in a new buffer";
+        desc = "Opens link under cursor (new buffer)";
       };
     }
     {
@@ -34,6 +34,14 @@ in
       action = "gv";
       options = {
         desc = "Last visual selection";
+      };
+    }
+    {
+      mode = "n";
+      key = "gx";
+      action = "gx";
+      options = {
+        desc = "Opens link under cursor (sys handler)";
       };
     }
     {
@@ -295,6 +303,24 @@ in
       action = "a<CR>";
       options = {
         desc = "Break line";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>]n";
+      action.__raw = ''
+        function()
+          if vim.o.number and vim.o.relativenumber then
+            vim.o.number = false
+            vim.o.relativenumber = false
+          else
+            vim.o.number = true
+            vim.o.relativenumber = true
+          end
+        end
+      '';
+      options = {
+        desc = "Toggle line numbers";
       };
     }
     {
