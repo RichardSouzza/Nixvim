@@ -182,6 +182,22 @@ in
     }
     {
       mode = "n";
+      key = "<A-S-[>";
+      action = "O<Esc>";
+      options = {
+        desc = "New line above";
+      };
+    }
+    {
+      mode = "n";
+      key = "<A-S-]>";
+      action = "o<Esc>";
+      options = {
+        desc = "New line bellow";
+      };
+    }
+    {
+      mode = "n";
       key = "<A-v>";
       action = "<C-S-v>";
       options = {
