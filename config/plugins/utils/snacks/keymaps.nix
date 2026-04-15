@@ -65,6 +65,14 @@
       };
     }
     {
+      action = "<CMD>lua Snacks.picker.commands()<CR>";
+      key = "gp:";
+      mode = "n";
+      options = {
+        desc = "Show commands";
+      };
+    }
+    {
       action = "<CMD>lua Snacks.picker.grep({ regex = false })<CR>";
       key = "<leader>c";
       mode = "n";
@@ -77,7 +85,7 @@
       key = "<leader>C";
       mode = "n";
       options = {
-        desc = "Open code search sidebar";
+        desc = "Open search sidebar";
       };
     }
     {
@@ -94,14 +102,6 @@
       mode = "n";
       options = {
         desc = "Open Lazygit";
-      };
-    }
-    {
-      action = "<CMD>lua Snacks.picker.commands()<CR>";
-      key = "<leader>:";
-      mode = "n";
-      options = {
-        desc = "Search commands";
       };
     }
   ];
