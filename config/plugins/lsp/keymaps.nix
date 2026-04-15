@@ -60,7 +60,7 @@
       key = "<leader>.";
       action = "<CMD>Lspsaga code_action<CR>";
       options = {
-        desc = "Show code actions";
+        desc = "Code actions";
         silent = true;
       };
     }

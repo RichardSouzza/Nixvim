@@ -46,17 +46,17 @@ in
           (setIcon { key = "gpd"; icon = ""; color = "orange"; })  # nf-fa-warning
           (setIcon { key = "gpk"; icon = ""; color = "blue";   })  # nf-fa-keyboard
           (setIcon { key = "gpu"; icon = "󰕍"; color = "green";  })  # nf-md-undo_variant
+          (setIcon { key = "gp:"; icon = ""; color = "green";  })  # nf-seti-search
 
           # Actions
-          (setIcon { key = "<leader>b";    icon = ""; color = "green";  }) # nf-seti-search
           (setIcon { key = "<leader>c";    icon = ""; color = "green";  }) # nf-seti-search
+          (setIcon { key = "<leader>C";    icon = ""; color = "green";  }) # nf-seti-search
           (setIcon { key = "<leader>f";    icon = ""; color = "green";  }) # nf-seti-search
           (setIcon { key = "<leader>g";    icon = "󰊢"; color = "red";    }) # nf-md-git
           (setIcon { key = "<leader>s";    icon = ""; color = "blue";   }) # nf-fa-refresh
           (setIcon { key = "<leader>t";    icon = ""; color = "orange"; }) # nf-fa-warning
           (setIcon { key = "<leader>z";    icon = ""; color = "azure";  }) # nf-fa-align_center
           (setIcon { key = "<leader>.";    icon = "󱐋"; color = "yellow"; }) # nf-md-lightning_bolt
-          (setIcon { key = "<leader>:";    icon = ""; color = "green";  }) # nf-seti-search
           (setIcon { key = "<leader><CR>"; icon = "󰛗"; color = "azure";  }) # nf-md-format_page_break
 
           # NeoTree
