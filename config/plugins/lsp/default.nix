@@ -72,4 +72,6 @@ in
       };
     })
   ];
+
+  extraConfigLua = builtins.readFile ./extra_config.lua;
 }

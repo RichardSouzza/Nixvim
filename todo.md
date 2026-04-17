@@ -117,7 +117,7 @@ end)
 
 - [ ] <A-up/down> silent on SOF and EOF
 - [ ] indent on <enter> and <paste>
-- [ ] lsp actions on file actions
+- [ ] nvim-lsp-file-operations
 - [ ] mouse click no trigger scrolloff
 - [ ] toggleterm offset neo-tree using width property
 - [ ] stylua no touch spaces
