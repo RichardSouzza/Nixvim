@@ -59,7 +59,7 @@
       key = "<A-[>";
       action = "<Esc>O";
       options = {
-        desc = "New line above";
+        desc = "Open line above";
         silent = true;
       };
     }
@@ -68,7 +68,7 @@
       key = "<A-]>";
       action = "<Esc>o";
       options = {
-        desc = "New line bellow";
+        desc = "Open line bellow";
         silent = true;
       };
     }

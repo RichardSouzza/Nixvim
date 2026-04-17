@@ -169,7 +169,7 @@ in
       key = "<A-[>";
       action = "O";
       options = {
-        desc = "New line above";
+        desc = "Open line above";
       };
     }
     {
@@ -177,7 +177,7 @@ in
       key = "<A-]>";
       action = "o";
       options = {
-        desc = "New line bellow";
+        desc = "Open line bellow";
       };
     }
     {
@@ -185,7 +185,7 @@ in
       key = "<A-S-[>";
       action = "O<Esc>";
       options = {
-        desc = "New line above";
+        desc = "Open line above";
       };
     }
     {
@@ -193,7 +193,7 @@ in
       key = "<A-S-]>";
       action = "o<Esc>";
       options = {
-        desc = "New line bellow";
+        desc = "Open line bellow";
       };
     }
     {

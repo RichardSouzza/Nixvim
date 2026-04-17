@@ -87,7 +87,7 @@ in
       taplo.enable = true;       # TOML
 
       ts_ls = {                  # JavaScript / TypeScript
-        # enable = true;
+        enable = true;
         settings = {
           completions = {
             completeFunctionCalls = true;
@@ -104,6 +104,9 @@ in
               variableTypes.enabled = true;
             };
           };
+
+          publish_diagnostic_on = "insert_leave";
+          separate_diagnostic_server = true;
 
           typescript = {
             inlayHints = {
@@ -159,7 +162,44 @@ in
 
     # rzls.enable = true;
 
-    typescript-tools.enable = true;
+    typescript-tools = {                  # JavaScript / TypeScript
+      enable = true;
+      settings = {
+        completions = {
+          completeFunctionCalls = true;
+        };
+
+        javascript = {
+          format.enable = false;
+          inlayHints = {
+            enumMemberValues.enabled = true;
+            functionLikeReturnTypes.enabled = true;
+            parameterNames.enabled = "all";
+            parameterTypes.enabled = true;
+            propertyDeclarationTypes.enabled = true;
+            variableTypes.enabled = true;
+          };
+        };
+
+        publish_diagnostic_on = "insert_leave";
+        separate_diagnostic_server = true;
+
+        typescript = {
+          inlayHints = {
+            enumMemberValues.enabled = true;
+            functionLikeReturnTypes.enabled = true;
+            parameterNames.enabled = "all";
+            parameterTypes.enabled = true;
+            propertyDeclarationTypes.enabled = true;
+            variableTypes.enabled = true;
+          };
+          suggest = {
+            completeFunctionCalls = true;
+          };
+          updateImportsOnFileMove = { enabled = "always"; };
+        };
+      };
+    };
   };
 
   extraPlugins = with pkgs.vimPlugins; [
