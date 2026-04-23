@@ -48,7 +48,7 @@ let
   linesSelectedCond = {
     __raw = ''
       function()
-        return vim.bo.filetype ~= 'neo-tree' and vim.fn.mode():find("[Vv]") ~= nil
+        return vim.fn.mode():find("[Vv]") ~= nil
       end
     '';
   };

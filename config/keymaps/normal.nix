@@ -63,7 +63,7 @@ in
     {
       mode = "n";
       key = "<BS>";
-      action.__raw = smartJump "-";
+      action.__raw = smartJump "k";
       options = {
         desc = "Go up";
       };
@@ -71,7 +71,7 @@ in
     {
       mode = "n";
       key = "<CR>";
-      action.__raw = smartJump "+";
+      action.__raw = smartJump "j";
       options = {
         desc = "Go up";
       };

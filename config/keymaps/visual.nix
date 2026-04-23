@@ -2,10 +2,11 @@
   keymaps = [
     {
       mode = "v";
-      key = "<Tab>"; # <C-i>
-      action = '':s/\d\+/\=submatch(0)+1/g<CR>'';
+      key = "+";
+      action = "<C-a>";
       options = {
         desc = "Increment all numbers in the selection";
+        noremap = true;
         silent = true;
       };
     }
@@ -20,8 +21,8 @@
     }
     {
       mode = "v";
-      key = "<C-k>";
-      action = '':s/\d\+/\=submatch(0)-1/g<CR>'';
+      key = "-";
+      action = "<C-x>";
       options = {
         desc = "Decrement all numbers in the selection";
         silent = true;

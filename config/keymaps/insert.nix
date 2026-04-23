@@ -6,7 +6,6 @@
       action = "<Esc>ldbi";
       options = {
         desc = "Delete word behind of the cursor";
-        silent = true;
       };
     }
     {
@@ -15,7 +14,6 @@
       action = "<Esc>ldwi";
       options = {
         desc = "Delete word ahead of the cursor";
-        silent = true;
       };
     }
     {
@@ -24,7 +22,6 @@
       action = "<Esc>ldwi";
       options = {
         desc = "Delete word ahead of the cursor";
-        silent = true;
       };
     }
     {
@@ -33,7 +30,6 @@
       action = "<Esc>gcci";
       options = {
         desc = "Comment line";
-        silent = true;
       };
     }
     {
@@ -42,7 +38,6 @@
       action = "<Esc>yya";
       options = {
         desc = "Yank line";
-        silent = true;
       };
     }
     {
@@ -51,7 +46,6 @@
       action = "<C-r>+";
       options = {
         desc = "Paste from the system clipboard";
-        silent = true;
       };
     }
     {
@@ -60,7 +54,6 @@
       action = "<Esc>O";
       options = {
         desc = "Open line above";
-        silent = true;
       };
     }
     {
@@ -69,7 +62,6 @@
       action = "<Esc>o";
       options = {
         desc = "Open line bellow";
-        silent = true;
       };
     }
     {
@@ -78,7 +70,6 @@
       action = "<Esc><C-o>a";
       options = {
         desc = "Jump back";
-        silent = true;
       };
     }
     {
@@ -87,7 +78,6 @@
       action = "<Esc><C-i>a";
       options = {
         desc = "Jump forward";
-        silent = true;
       };
     }
     {
@@ -96,7 +86,6 @@
       action = "<CMD>t. -1<CR>";
       options = {
         desc = "Duplicate line up";
-        silent = true;
       };
     }
     {
@@ -105,7 +94,6 @@
       action = "<CMD>t.<CR>";
       options = {
         desc = "Duplicate line down";
-        silent = true;
       };
     }
   ];

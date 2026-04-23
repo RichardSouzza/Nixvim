@@ -203,6 +203,7 @@ in
   };
 
   extraPlugins = with pkgs.vimPlugins; [
+    nvim-lsp-file-operations
     (buildVimPlugin {
       pname = "mssql.nvim";
       version = "0-unstable-2025-10-23";
