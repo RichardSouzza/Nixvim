@@ -13,6 +13,7 @@
     fzf          # Blink
     gcc          # TreeSitter
     krabby       # Snacks.dashboard
+    lsof         # OpenCode
     ripgrep      # Blink and Snacks.picker
     typescript   # typescript-tools
     wakatime-cli # Wakatime
