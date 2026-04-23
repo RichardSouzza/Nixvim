@@ -9,11 +9,10 @@
     {
       mode = [ "v" "o" ];
       key = "<BS>";
-      action = "-";
+      action = "k";
       options = {
         desc = "Go up";
-        remap = true;
-        silent = true;
+        noremap = true;
       };
     }
     {
@@ -32,7 +31,6 @@
       '';
       options = {
         desc = "Switches the cursor position between ^ and 0";
-        silent = true;
       };
     }
     {
@@ -41,7 +39,6 @@
       action = "<Esc><CMD>w<CR>";
       options = {
         desc = "Save file";
-        silent = true;
       };
     }
     {
@@ -51,7 +48,6 @@
       options = {
         desc = "Smooth scroll";
         remap = true;
-        silent = true;
       };
     }
     {
@@ -61,7 +57,6 @@
       options = {
         desc = "Smooth scroll";
         remap = true;
-        silent = true;
       };
     }
   ];
