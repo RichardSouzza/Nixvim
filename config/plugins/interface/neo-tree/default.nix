@@ -67,9 +67,13 @@ in
           filtered_items = {
             show_hidden_count = false;
           };
-          follow_current_file.enabled = true;
+          follow_current_file = {
+            enabled = true;
+            leave_dirs_open = true;
+          };
           sort_case_insensitive = true;
           sort_function.__raw = builtins.readFile ./functions/natural_sort.lua;
+          use_libuv_file_watcher = true;
           window.mappings = {
             "F" = "filter_as_you_type";
           };

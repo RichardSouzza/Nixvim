@@ -70,10 +70,6 @@ in
         };
       };
 
-      ruff = {
-        enable = true;
-      };
-
       roslyn_ls = {              # C#
         enable = false;
       };

@@ -15,7 +15,9 @@
     krabby       # Snacks.dashboard
     lsof         # OpenCode
     ripgrep      # Blink and Snacks.picker
+    ruff         # Conform
     typescript   # typescript-tools
     wakatime-cli # Wakatime
+    yamlfmt      # Conform
   ];
 }

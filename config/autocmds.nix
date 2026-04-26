@@ -73,11 +73,10 @@
       pattern = [ "term://*" ];
       callback.__raw = ''
         function()
-          if vim.bo.filetype == "toggleterm" then
-            vim.schedule(function()
-              vim.cmd("startinsert")
-            end)
-          end
+          vim.schedule(function()
+            vim.cmd("startinsert")
+            vim.cmd("set nobuflisted")
+          end)
         end
       '';
     }

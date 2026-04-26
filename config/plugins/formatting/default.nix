@@ -20,18 +20,23 @@ in
         format_after_save = "function() end";
 
         formatters_by_ft = {
-          "*"  = [ "trim_newlines" "trim_whitespace" ];
-          "_"  = [ "trim_newlines" "trim_whitespace" ];
-          bash = [ "shfmt" ];
-          lua  = [ "stylua" ];
-          markdown = [ "injected"  ];
-          sh   = [ "shfmt" ];
-          sql  = [ "sqlfluff" ]; # sqls -> sqlfluff
-          toml = [ "taplo"    ];
-          yaml = [ "yamlfmt"  ];
+          "*"      = [ "trim_newlines" "trim_whitespace" ];
+          "_"      = [ "trim_newlines" "trim_whitespace" ];
+          bash     = [ "shfmt"    ];
+          lua      = [ "stylua"   ];
+          markdown = [ "injected" ];
+          python   = [ "ruff_organize_imports" "ruff_format" ];
+          sh       = [ "shfmt"    ];
+          sql      = [ "sqlfluff" ]; # sqls -> sqlfluff
+          toml     = [ "taplo"    ];
+          yaml     = [ "yamlfmt"  ];
         };
 
         formatters = {
+          ruff = {
+            command = getExe pkgs.ruff;
+          };
+
           shfmt = {
             command = getExe pkgs.shfmt;
           };

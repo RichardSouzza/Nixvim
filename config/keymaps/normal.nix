@@ -133,33 +133,33 @@ in
       };
     }
     {
-      mode = "n";
+      mode = ["n" "t" ];
       key = "<C-A-Up>";
-      action = "<C-w>k";
+      action.__raw = ''function() vim.cmd("wincmd k") end'';
       options = {
         desc = "Go to the up window";
       };
     }
     {
-      mode = "n";
+      mode = ["n" "t" ];
       key = "<C-A-Down>";
-      action = "<C-w>j";
+      action.__raw = ''function() vim.cmd("wincmd j") end'';
       options = {
         desc = "Go to the down window";
       };
     }
     {
-      mode = "n";
+      mode = ["n" "t" ];
       key = "<C-A-Left>";
-      action = "<C-w>h";
+      action.__raw = ''function() vim.cmd("wincmd h") end'';
       options = {
         desc = "Go to the left window";
       };
     }
     {
-      mode = "n";
+      mode = ["n" "t" ];
       key = "<C-A-Right>";
-      action = "<C-w>l";
+      action.__raw = ''function() vim.cmd("wincmd l") end'';
       options = {
         desc = "Go to the right window";
       };
