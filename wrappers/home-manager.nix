@@ -35,6 +35,7 @@ in
         home.file = {
           ".config/emmylua_ls/.emmyrc.json".source = ../config/plugins/lsp/configs/emmyrc.json;
           ".config/markdownlint/.markdownlint.yaml".source = ../config/plugins/formatting/rules/markdownlint.yaml;
+          ".config/ruff/ruff.toml".source = ../config/plugins/formatting/rules/ruff.toml;
           ".config/sqlfluff/.sqlfluff".source = ../config/plugins/formatting/rules/sqlfluff.ini;
           ".config/yamlfmt/.yamlfmt.yaml".source = ../config/plugins/formatting/rules/yamlfmt.yaml;
           ".stylua.toml".source = ../config/plugins/formatting/rules/stylua.toml;
