@@ -22,6 +22,7 @@
     ./interface/treesitter
     ./lsp
     ./utils
+    ./utils/arrow.nix
     ./utils/snacks
     ./utils/toggleterm
     ./utils/which-key

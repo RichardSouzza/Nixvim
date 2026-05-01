@@ -20,13 +20,21 @@ if vim.fn.has("wsl") == 1 then
         "powershell.exe",
         "-NoProfile",
         "-Command",
-        "[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; " .. "$t = Get-Clipboard -Raw; " .. '$t = $t -replace "`r`n", "`n"; ' .. '$t = $t -replace "`r", ""; ' .. "[Console]::Out.Write($t)",
+        "[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; "
+          .. "$t = Get-Clipboard -Raw; "
+          .. '$t = $t -replace "`r`n", "`n"; '
+          .. '$t = $t -replace "`r", ""; '
+          .. "[Console]::Out.Write($t)",
       },
       ["*"] = {
         "powershell.exe",
         "-NoProfile",
         "-Command",
-        "[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; " .. "$t = Get-Clipboard -Raw; " .. '$t = $t -replace "`r`n", "`n"; ' .. '$t = $t -replace "`r", ""; ' .. "[Console]::Out.Write($t)",
+        "[Console]::OutputEncoding=[System.Text.Encoding]::UTF8; "
+          .. "$t = Get-Clipboard -Raw; "
+          .. '$t = $t -replace "`r`n", "`n"; '
+          .. '$t = $t -replace "`r", ""; '
+          .. "[Console]::Out.Write($t)",
       },
     },
     cache_enabled = 0,
@@ -62,6 +70,55 @@ vim.opt.wildignore:append({
   "zellner.vim",
 })
 
+-- Fix persistence
+
+vim.opt.sessionoptions = {
+  "buffers",
+  "curdir",
+  "folds",
+  "globals",
+  "help",
+  "skiprtp",
+  "tabpages",
+  "winsize",
+}
+
+-- Open arrow buffers on init
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.schedule(function()
+      for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+
+        if ft == "snacks_dashboard" then return end
+      end
+
+      local arrow_files = vim.g.arrow_filenames or {}
+      local cwd = vim.loop.cwd()
+
+      for _, filename in ipairs(arrow_files) do
+        local fullpath = cwd .. "/" .. filename
+
+        if vim.fn.filereadable(fullpath) == 1 then
+          vim.cmd("badd " .. fullpath)
+        end
+      end
+
+      if #arrow_files > 0 then
+        vim.cmd("edit " .. cwd .. "/" .. arrow_files[1])
+
+        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+          if vim.api.nvim_buf_get_name(buf) == "" then
+            vim.cmd("bwipeout " .. buf)
+          end
+        end
+      end
+    end)
+  end,
+})
+
 -- Invert search direction
 
 vim.keymap.set("n", "n", "N")
@@ -92,7 +149,12 @@ end, { desc = "Search code", noremap = true, nowait = true })
 
 -- Disable scrolloff on click to prevent scrolling
 
-vim.keymap.set("n", "<LeftMouse>", ":let temp=&so<CR>:set so=0<CR><LeftMouse>:let &so=temp<CR>", { noremap = true, silent = true })
+vim.keymap.set(
+  "n",
+  "<LeftMouse>",
+  ":let temp=&so<CR>:set so=0<CR><LeftMouse>:let &so=temp<CR>",
+  { noremap = true, silent = true }
+)
 
 -- Periodically scan the workspace for diagnostics
 

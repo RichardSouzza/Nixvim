@@ -42,6 +42,8 @@ in
       };
     };
 
+    persistence.enable = true;
+
     showkeys = {
       enable = true;
       settings = {

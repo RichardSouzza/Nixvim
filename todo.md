@@ -10,7 +10,6 @@
 - [x] spider improve regex
 - [x] gitsigns gh actions
 - [x] gitsigns in scrollbar
-- [ ] invert <n> and <S-n> when serching
 - [x] jumplist navigation
 - [x] markdown specific keymaps
 - [ ] improve markdown keymaps: numbered list creation and code blocks `````` <C-C>
@@ -63,7 +62,7 @@ create a ten item checklist bellow:
 - [ ] web-devicons custom sets from lazyvim (consider mini.icons for overlay by filename)
 - [ ] which-key keymap icons
 - [ ] c# lsp
-- [ ] persistence buffer
+- [x] persistence buffer
 - [ ] spotlight cursor
 - [ ] <A-S-left/right> in blink-cmp to select next 2
 - [ ] blink-cmp filter duplicate snippets
@@ -98,10 +97,18 @@ local ui = require("harpoon.ui")
 vim.keymap.set("n", "<leader>a", mark.add_file)
 vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 
-vim.keymap.set("n", "<leader>ha", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<leader>hs", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<leader>hd", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<leader>hf", function() ui.nav_file(4) end)
+vim.keymap.set("n", "<leader>ha", function()
+  ui.nav_file(1)
+end)
+vim.keymap.set("n", "<leader>hs", function()
+  ui.nav_file(2)
+end)
+vim.keymap.set("n", "<leader>hd", function()
+  ui.nav_file(3)
+end)
+vim.keymap.set("n", "<leader>hf", function()
+  ui.nav_file(4)
+end)
 ```
 
 ## Failed attempts / Very difficult
