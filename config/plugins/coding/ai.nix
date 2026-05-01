@@ -20,6 +20,10 @@
     };
   };
 
+  env = {
+    DEBUG_CODEIUM = "info";
+  };
+
   keymaps = [
     {
       mode = "n";
