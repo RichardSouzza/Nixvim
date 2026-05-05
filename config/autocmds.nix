@@ -134,6 +134,17 @@
         end
       '';
     }
+    {
+      desc = "Restore session on startup";
+      event = "VimEnter";
+      callback.__raw = ''
+        function()
+          vim.schedule(function()
+            require("persistence").load()
+          end)
+        end
+      '';
+    }
     # {
     #   desc = "Set #region as fold marker in C# files";
     #   event = [ "FileType" ];

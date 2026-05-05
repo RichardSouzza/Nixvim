@@ -10,6 +10,7 @@ in
   /* Bright themes:
     - bearded-arc
     - bearded-arc-reversed
+    - bearded-feat-mellejulie
     - bearded-hc-ebony
     - bearded-hc-midnightvoid
     - bearded-monokai-reversed
