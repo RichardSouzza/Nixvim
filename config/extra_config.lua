@@ -70,16 +70,16 @@ vim.opt.wildignore:append({
   "zellner.vim",
 })
 
--- Fix persistence
+-- Set persistence
 
 vim.opt.sessionoptions = {
-  "buffers",
+  -- "buffers",
   "curdir",
-  "folds",
+  -- "folds",
   "globals",
   "help",
   "skiprtp",
-  "tabpages",
+  -- "tabpages",
   "winsize",
 }
 
