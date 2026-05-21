@@ -154,6 +154,10 @@ in
       enable = true;
     };
 
+    rustaceanvim = {                      # Rust
+      enable = true;
+    };
+
     roslyn.enable = false;
 
     # rzls.enable = true;

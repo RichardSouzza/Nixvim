@@ -1,8 +1,8 @@
 {
   keymaps = [
     {
-      mode = "n";
-      key = ''<C-\>'';
+      mode = "t";
+      key = ''<A-\>'';
       action = ''<C-\><C-n>'';
       options = {
         desc = "Exit terminal mode";
@@ -26,18 +26,18 @@
     }
     {
       mode = "n";
-      key = "<A-:>";
-      action = "<CMD>TermNew<CR>";
-      options = {
-        desc = "Open new terminal";
-      };
-    }
-    {
-      mode = "n";
       key = ";";
       action = "<CMD>TermSelect<CR>";
       options = {
         desc = "Switch terminal";
+      };
+    }
+    {
+      mode = "t";
+      key = "<A-S-;>";
+      action = "<CMD>TermNew<CR>";
+      options = {
+        desc = "Open new terminal";
       };
     }
     {
@@ -66,8 +66,8 @@
     }
     {
       mode = "t";
-      key = "<C-q>";
-      action = "<C-q><C-d>";
+      key = "<A-q>";
+      action = ''<C-\><C-n>:bd!<CR>'';
       options = {
         desc = "Close terminal";
       };
