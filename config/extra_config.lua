@@ -41,6 +41,11 @@ if vim.fn.has("wsl") == 1 then
   }
 end
 
+-- Configure diff
+
+vim.o.diffopt =
+  "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
+
 -- Ignore builtin colorschemes
 
 vim.opt.wildignore:append({
