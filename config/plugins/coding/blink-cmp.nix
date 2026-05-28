@@ -7,7 +7,7 @@
 
       settings = {
         completion = {
-          documentation.auto_show = true;
+          documentation.auto_show = false;
 
           ghost_text = {
             enabled = true;
@@ -75,7 +75,7 @@
         };
 
         signature = {
-          enabled = true;
+          enabled = false;
         };
 
         snippets = {

@@ -1,9 +1,9 @@
 {
   imports = [
+    ./coding
     ./coding/ai.nix
     ./coding/blink-cmp.nix
     ./coding/duplicate.nix
-    ./coding/edition.nix
     ./coding/leap
     ./coding/spider.nix
     ./coding/text-case
