@@ -65,7 +65,7 @@ in
   };
 
   extraPlugins = with pkgs.vimPlugins; [
-    # hover-nvim
+    hover-nvim
     plenary-nvim
 
     (buildVimPlugin {
@@ -97,4 +97,6 @@ in
       };
     })
   ];
+
+  extraConfigLua = builtins.readFile ./extra_config.lua;
 }
