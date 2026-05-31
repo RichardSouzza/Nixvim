@@ -82,15 +82,13 @@
     }
     {
       desc = "Show line numbers on focus gain";
-      event = [ "WinEnter" "BufEnter" ];
+      event = [ "WinEnter" "BufEnter" "TermClose" ];
       callback.__raw = ''
         function()
-          local ignored = {
-            ["terminal"] = true
-          }
-          if not ignored[vim.bo.buftype] then
+          vim.schedule(function()
+            local win = vim.api.nvim_get_current_win()
             vim.wo.winhighlight = ""
-          end
+          end)
         end
       '';
     }

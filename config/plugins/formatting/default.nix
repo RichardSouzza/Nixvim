@@ -20,19 +20,36 @@ in
         format_after_save = "function() end";
 
         formatters_by_ft = {
-          "*"      = [ "trim_newlines" "trim_whitespace" ];
-          "_"      = [ "trim_newlines" "trim_whitespace" ];
-          bash     = [ "shfmt"    ];
-          lua      = [ "stylua"   ];
-          markdown = [ "injected" ];
-          python   = [ "ruff_organize_imports" "ruff_format" ];
-          sh       = [ "shfmt"    ];
-          sql      = [ "sqlfluff" ]; # sqls -> sqlfluff
-          toml     = [ "taplo"    ];
-          yaml     = [ "yamlfmt"  ];
+          "*"             = [ "trim_newlines" "trim_whitespace"     ];
+          "_"             = [ "trim_newlines" "trim_whitespace"     ];
+          bash            = [ "shfmt"                               ];
+          lua             = [ "stylua"                              ];
+          java            = [ "astyle"                              ];
+          javascript      = [ "biome" "biome-organize-imports"      ];
+          javascriptreact = [ "biome" "biome-organize-imports"      ];
+          markdown        = [ "injected"                            ];
+          python          = [ "ruff_format" "ruff_organize_imports" ];
+          sh              = [ "shfmt"                               ];
+          sql             = [ "sleek"                               ];
+          toml            = [ "taplo"                               ];
+          typescript      = [ "biome" "biome-organize-imports"      ];
+          typescriptreact = [ "biome" "biome-organize-imports"      ];
+          yaml            = [ "yamlfmt"                             ];
         };
 
         formatters = {
+          astyle = {
+            command = getExe pkgs.astyle;
+          };
+
+          biome = {
+            command = getExe pkgs.biome;
+          };
+
+          biome-organize-imports = {
+            command = getExe pkgs.biome;
+          };
+
           ruff = {
             command = getExe pkgs.ruff;
           };
@@ -41,10 +58,8 @@ in
             command = getExe pkgs.shfmt;
           };
 
-          sqlfluff = {
-            command = getExe pkgs.sqlfluff;
-            args = [ "fix" "-" ];
-            require_cwd = false;
+          sleek = {
+            command = getExe pkgs.sleek;
           };
 
           stylua = {

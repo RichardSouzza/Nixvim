@@ -11,7 +11,8 @@
 
           ghost_text = {
             enabled = true;
-            show_with_menu = true;
+            show_with_menu = false;
+            show_without_menu = true;
           };
 
           keyword.range = "full";

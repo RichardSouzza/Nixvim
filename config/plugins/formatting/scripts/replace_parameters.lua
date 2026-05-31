@@ -2,6 +2,9 @@ function replace_sql_parameters(bufnr)
   local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
 
   local function to_pascal_case(str)
+    if not str:match("[_%s]") then
+      return str:sub(1, 1):upper() .. str:sub(2)
+    end
     local words = {}
     for w in str:gmatch("[A-Za-z0-9]+") do
       table.insert(words, w:sub(1, 1):upper() .. w:sub(2):lower())

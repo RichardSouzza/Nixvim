@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 let
-  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs) fetchFromGitHub fetchgit;
   inherit (pkgs.vimUtils) buildVimPlugin;
 
 in
@@ -42,6 +42,8 @@ in
       gopls.enable = true;       # Go
 
       html.enable = true;        # HTML
+
+      jdtls.enable = true;       # Java
 
       marksman.enable = true;    # Markdown
 
@@ -204,6 +206,7 @@ in
 
   extraPlugins = with pkgs.vimPlugins; [
     nvim-lsp-file-operations
+
     (buildVimPlugin {
       pname = "mssql.nvim";
       version = "0-unstable-2025-10-23";
@@ -229,6 +232,5 @@ in
         license = lib.licenses.unlicense;
       };
     })
-    ale
   ];
 }
