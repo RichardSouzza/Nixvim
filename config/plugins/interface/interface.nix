@@ -37,45 +37,6 @@ in
 
     markdown-preview.enable = true;
 
-    noice = {
-      enable = true;
-      settings = {
-        cmdline.format = {
-          help = {
-            pattern = [ "^:%s*he?l?p?%s+" "^:%s*FloatingHelp%s+" ];
-          };
-        };
-
-        lsp = {
-          override = {
-            "vim.lsp.util.convert_input_to_markdown_lines" = true;
-            "vim.lsp.util.stylize_markdown" = true;
-            "cmp.entry.get_documentation" = true;
-          };
-        };
-
-        presets = {
-          command_palette = false;
-        };
-
-        routes = [
-          {
-            filter = {
-              event = "msg_show";
-              any = [
-                { find = "%d+L, %d+B";     }
-                { find = "%d fewer lines"; }
-                { find = "%d more lines";  }
-                { find = "; after #%d+";   }
-                { find = "; before #%d+";  }
-              ];
-            };
-            view = "mini";
-          }
-        ];
-      };
-    };
-
     render-markdown = {
       enable = true;
       settings = {

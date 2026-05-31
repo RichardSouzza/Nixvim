@@ -19,6 +19,7 @@
     ./interface/interface.nix
     ./interface/lualine.nix
     ./interface/neo-tree
+    ./interface/noice.nix
     ./interface/treesitter
     ./lsp
     ./utils
