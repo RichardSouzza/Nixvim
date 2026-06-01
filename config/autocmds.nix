@@ -63,7 +63,9 @@
       pattern = [ "neo-tree" ];
       callback.__raw = ''
         function()
-          vim.o.sidescrolloff = 0
+          vim.schedule(function()
+            vim.wo.sidescrolloff = 0
+          end)
         end
       '';
     }
@@ -132,6 +134,17 @@
         end
       '';
     }
+    # {
+    #   desc = "Restore session on startup";
+    #   event = "VimEnter";
+    #   callback.__raw = ''
+    #     function()
+    #       vim.schedule(function()
+    #         require("persistence").load()
+    #       end)
+    #     end
+    #   '';
+    # }
     # {
     #   desc = "Set #region as fold marker in C# files";
     #   event = [ "FileType" ];

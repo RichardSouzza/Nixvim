@@ -65,8 +65,22 @@ in
   };
 
   extraPlugins = with pkgs.vimPlugins; [
-    hover-nvim
     plenary-nvim
+
+    (buildVimPlugin {
+      pname = "hover.nvim";
+      version = "0-unstable-2026-06-01";
+      src = fetchFromGitHub {
+        owner = "RichardSouzza";
+        repo = "hover.nvim";
+        rev = "c73bc149ab9322d25e90ce71cede95ae13d1a90a";
+        hash = "sha256-GFOGM91tC4PE7dfLPOaHbZdK339dtxIPiopwe64Rw9w=";
+      };
+      meta = {
+        homepage = "https://github.com/RichardSouzza/hover.nvim";
+        license = lib.licenses.mit;
+      };
+    })
 
     (buildVimPlugin {
       pname = "vim-cool";
@@ -82,6 +96,7 @@ in
         license = lib.licenses.mit;
       };
     })
+
     (buildVimPlugin {
       pname = "vim-startuptime";
       version = "4.5.0-unstable-2025-02-18";
