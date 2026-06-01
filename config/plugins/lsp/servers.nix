@@ -12,6 +12,7 @@ in
 
   plugins = {
     lsp.servers = {
+
       basedpyright = {           # Python
         enable = true;
         settings = {
@@ -52,17 +53,6 @@ in
         cmd = [ "nixd" "--inlay-hints=false" "--semantic-tokens" ];
       };
 
-      # pyright = {                # Python
-      #   enable = true;
-      #   settings = {
-      #     python = {
-      #       analysis = {
-      #         diagnosticMode = "workspace";
-      #       };
-      #     };
-      #   };
-      # };
-
       omnisharp = {              # C#
         enable = false;
         settings = {
@@ -80,53 +70,12 @@ in
         enable = true;
       };
 
-      # tailwindcss.enable = true; # Tailwind CSS
-
       taplo.enable = true;       # TOML
 
-      ts_ls = {                  # JavaScript / TypeScript
-        enable = true;
-        settings = {
-          completions = {
-            completeFunctionCalls = true;
-          };
-
-          javascript = {
-            format.enable = false;
-            inlayHints = {
-              enumMemberValues.enabled = true;
-              functionLikeReturnTypes.enabled = true;
-              parameterNames.enabled = "all";
-              parameterTypes.enabled = true;
-              propertyDeclarationTypes.enabled = true;
-              variableTypes.enabled = true;
-            };
-          };
-
-          publish_diagnostic_on = "insert_leave";
-          separate_diagnostic_server = true;
-
-          typescript = {
-            inlayHints = {
-              enumMemberValues.enabled = true;
-              functionLikeReturnTypes.enabled = true;
-              parameterNames.enabled = "all";
-              parameterTypes.enabled = true;
-              propertyDeclarationTypes.enabled = true;
-              variableTypes.enabled = true;
-            };
-            suggest = {
-              completeFunctionCalls = true;
-            };
-            updateImportsOnFileMove = { enabled = "always"; };
-          };
-        };
-      };
-
-      yamlls.enable = true; # Yaml
+      yamlls.enable = true;      # Yaml
     };
 
-    easy-dotnet = {         # C#
+    easy-dotnet = {              # C#
       enable = false;
       settings = {
         get_sdk_path.__raw = ''
@@ -167,6 +116,7 @@ in
     typescript-tools = {                  # JavaScript / TypeScript
       enable = true;
       settings = {
+
         completions = {
           completeFunctionCalls = true;
         };
@@ -184,9 +134,11 @@ in
         };
 
         publish_diagnostic_on = "insert_leave";
+
         separate_diagnostic_server = true;
 
         typescript = {
+          format.enable = false;
           inlayHints = {
             enumMemberValues.enabled = true;
             functionLikeReturnTypes.enabled = true;

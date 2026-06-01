@@ -25,10 +25,10 @@ in
           bash            = [ "shfmt"                               ];
           lua             = [ "stylua"                              ];
           java            = [ "astyle"                              ];
-          javascript      = [ "biome" "biome-organize-imports"      ];
-          javascriptreact = [ "biome" "biome-organize-imports"      ];
+          javascript      = [ "biome-organize-imports" "biome"      ];
+          javascriptreact = [ "biome-organize-imports" "biome"      ];
           markdown        = [ "injected"                            ];
-          python          = [ "ruff_format" "ruff_organize_imports" ];
+          python          = [ "ruff_organize_imports" "ruff_format" ];
           sh              = [ "shfmt"                               ];
           sql             = [ "sleek"                               ];
           toml            = [ "taplo"                               ];
@@ -44,6 +44,7 @@ in
 
           biome = {
             command = getExe pkgs.biome;
+            args = [ "format" "--config-path" (builtins.getEnv "HOME" + "/.config/biome") "--stdin-file-path" "$FILENAME" ];
           };
 
           biome-organize-imports = {
