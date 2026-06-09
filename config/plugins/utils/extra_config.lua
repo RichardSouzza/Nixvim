@@ -8,7 +8,7 @@ require('hover').config({
   preview_opts = {
     border = 'single',
   },
-  show_when_null = false,
+  show_no_result = false,
   preview_window = false,
   title = true,
   mouse_providers = {
@@ -38,3 +38,14 @@ vim.keymap.set('n', '<MouseMove>', function()
 end, { desc = 'hover.nvim (mouse)' })
 
 vim.o.mousemoveevent = true
+
+require('tail').setup({
+  -- enable timestamps by default
+  timestamps = false,
+  -- customise the format (see `:help os.date`)
+  timestamp_format = '%Y-%m-%d %H:%M:%S',
+  -- customise the highlight group used for the timestamp
+  timestamp_hl = 'Comment',
+  -- enable log level highlighting by default
+  log_level_hl = true,
+})
