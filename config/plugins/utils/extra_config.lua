@@ -1,3 +1,5 @@
+-- Hover
+
 require('hover').config({
   providers = {
     'hover.providers.dap',
@@ -39,6 +41,8 @@ end, { desc = 'hover.nvim (mouse)' })
 
 vim.o.mousemoveevent = true
 
+-- Tail
+
 require('tail').setup({
   -- enable timestamps by default
   timestamps = false,
@@ -48,4 +52,12 @@ require('tail').setup({
   timestamp_hl = 'Comment',
   -- enable log level highlighting by default
   log_level_hl = true,
+})
+
+-- Various Text Objects
+
+require('various-textobjs').setup({
+  keymaps = {
+    useDefaults = true,
+  },
 })

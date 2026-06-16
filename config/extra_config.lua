@@ -124,6 +124,16 @@ vim.api.nvim_create_autocmd('VimEnter', {
   end,
 })
 
+-- Custom commands
+
+vim.api.nvim_create_user_command('LintingEnable', function()
+  vim.diagnostic.enable(true)
+end, {})
+
+vim.api.nvim_create_user_command('LintingDisable', function()
+  vim.diagnostic.enable(false)
+end, {})
+
 -- Invert search direction
 
 vim.keymap.set('n', 'n', 'N')
