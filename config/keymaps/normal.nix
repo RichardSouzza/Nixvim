@@ -15,7 +15,7 @@ in
     {
       mode = "n";
       key = "go";
-      action = "<CMD>vertical wincmd f";
+      action = "<CMD>vertical wincmd f<CR>";
       options = {
         desc = "Opens link under cursor (new buffer)";
       };

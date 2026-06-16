@@ -65,6 +65,7 @@ in
   };
 
   extraPlugins = with pkgs.vimPlugins; [
+    nvim-various-textobjs
     plenary-nvim
 
     (buildVimPlugin {
