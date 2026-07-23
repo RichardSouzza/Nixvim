@@ -3,7 +3,7 @@
     "enabled": true,
     "formatWithErrors": false,
     "attributePosition": "auto",
-    "indentStyle": "tab",
+    "indentStyle": "space",
     "indentWidth": 4,
     "lineWidth": 320,
     "lineEnding": "lf"
@@ -13,10 +13,14 @@
       "arrowParentheses":"always",
       "bracketSameLine": false,
       "bracketSpacing": true,
+      "indentStyle": "space",
+      "lineWidth": 160,
       "jsxQuoteStyle": "single",
+      "operatorLinebreak": "after",
+      "quoteStyle": "single",
       "quoteProperties": "asNeeded",
       "semicolons": "always",
-      "trailingCommas": "all"
+      "trailingCommas": "es5"
     }
   },
   "json": {
