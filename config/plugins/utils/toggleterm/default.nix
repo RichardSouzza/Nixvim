@@ -4,13 +4,14 @@
   ];
 
   plugins = {
-    floaterm = {
-      enable = true;
-    };
-
     toggleterm = {
       enable = true;
       settings = {
+        float_opts = {
+          border = "curved";
+          width = 160;
+          height = 40;
+        };
         size = ''
           function(term)
             if term.direction == "horizontal" then

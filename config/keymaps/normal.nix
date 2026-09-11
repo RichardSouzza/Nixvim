@@ -6,6 +6,22 @@ in
   keymaps = [
     {
       mode = "n";
+      key = "<Up>";
+      action = "gk";
+      options = {
+        desc = "Move up by one display line";
+      };
+    }
+    {
+      mode = "n";
+      key = "<Down>";
+      action = "gj";
+      options = {
+        desc = "Move down by one display line";
+      };
+    }
+    {
+      mode = "n";
       key = "gF";
       action = "<CMD>edit <cfile><CR>";
       options = {

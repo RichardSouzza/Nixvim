@@ -2,6 +2,22 @@
   keymaps = [
     {
       mode = "i";
+      key = "<Up>";
+      action = "<Esc>gka";
+      options = {
+        desc = "Move up by one display line";
+      };
+    }
+    {
+      mode = "i";
+      key = "<Down>";
+      action = "<Esc>gja";
+      options = {
+        desc = "Move down by one display line";
+      };
+    }
+    {
+      mode = "i";
       key = "<C-backspace>";
       action = "<Esc>ldbi";
       options = {

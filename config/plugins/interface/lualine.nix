@@ -19,13 +19,6 @@ let
       end
     '';
   };
-  isNeoTree = {
-    __raw = ''
-      function()
-        return vim.bo.filetype == 'neo-tree'
-      end
-    '';
-  };
   isNotNeoTree = {
     __raw = ''
       function()

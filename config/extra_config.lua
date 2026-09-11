@@ -162,6 +162,9 @@ vim.keymap.set('n', 'gc', function()
   Snacks.picker.grep({ regex = false })
 end, { desc = 'Search code', noremap = true, nowait = true })
 
+-- Remap 'Go to end of word' and set 'Focus on Neotree' keymap
+copy_keymap('n', 'e', '<S-w>')
+
 -- Disable scrolloff on click to prevent scrolling
 
 vim.keymap.set(

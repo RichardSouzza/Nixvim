@@ -58,6 +58,7 @@
 
   opts = {
     autoindent = true;        # Basic automatic indentation
+    breakindent = true;       # Wrapped lines retain the same indent level as the original line
     confirm = true;           # Ask for confirmation instead of failing
     cursorline = true;        # Highlight the current line
     cursorlineopt = "number"; # Highlight the line number of the cursor
@@ -66,6 +67,7 @@
     foldlevelstart = 99;      # No closed folds when starting the buffer
     ignorecase = true;        # Case-insensitive search by default
     laststatus = 3;           # Status line fills the entire width of window
+    linebreak = true;         # Wrap lines at word boundaries
     number = true;            # Current line number
     numberwidth = 4;          # Fixed width of the line number column
     relativenumber = true;    # Side relative numbers
