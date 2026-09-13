@@ -89,7 +89,7 @@ in
         window = {
           mappings = {
             "c".__raw = luaCmd "Snacks.picker.grep({ regex = false })";
-            "e".__raw = builtins.readFile ./functions/return_from_neotree.lua;
+            "<S-e>".__raw = builtins.readFile ./functions/return_from_neotree.lua;
             "f".__raw = luaCmd "Snacks.picker.files({ hidden = true })";
             "/".__raw = luaCmd "Snacks.picker.files({ hidden = true })";
             "D"          = "diff_files";

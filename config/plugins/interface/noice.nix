@@ -3,9 +3,13 @@
     noice = {
       enable = true;
       settings = {
-        cmdline.format = {
-          help = {
-            pattern = [ "^:%s*he?l?p?%s+" "^:%s*FloatingHelp%s+" ];
+        cmdline = {
+          enabled = true;
+          format = {
+            conceal = false;
+            help = {
+              pattern = [ "^:%s*he?l?p?%s+" "^:%s*FloatingHelp%s+" ];
+            };
           };
         };
 

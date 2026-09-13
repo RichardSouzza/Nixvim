@@ -2,7 +2,7 @@
   keymaps = [
     {
       mode = "n";
-      key = "e";
+      key = "<S-e>";
       action.__raw = builtins.readFile ./functions/focus_or_open.lua;
       options = {
         desc = "Focus on Neotree";
@@ -10,7 +10,7 @@
     }
     {
       mode = "n";
-      key = "<S-e>";
+      key = "<A-e>";
       action.__raw = builtins.readFile ./functions/toggle.lua;
       options = {
         desc = "Toggle Neotree";
