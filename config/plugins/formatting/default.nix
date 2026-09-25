@@ -27,7 +27,7 @@ in
           java            = [ "astyle"                              ];
           javascript      = [ "biome-organize-imports" "biome"      ];
           javascriptreact = [ "biome-organize-imports" "biome"      ];
-          markdown        = [ "injected"                            ];
+          markdown        = [                                       ];
           python          = [ "ruff_organize_imports" "ruff_format" ];
           sh              = [ "shfmt"                               ];
           sql             = [ "sleek"                               ];
