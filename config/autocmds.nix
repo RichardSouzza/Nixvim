@@ -83,35 +83,6 @@
       '';
     }
     {
-      desc = "Show line numbers on focus gain";
-      event = [ "WinEnter" "BufEnter" "TermClose" ];
-      callback.__raw = ''
-        function()
-          vim.schedule(function()
-            local win = vim.api.nvim_get_current_win()
-            vim.wo.winhighlight = ""
-          end)
-        end
-      '';
-    }
-    {
-      desc = "Hide line numbers on focus loss";
-      event = [ "WinLeave" "BufLeave" ];
-      callback.__raw = ''
-        function()
-          local ignored = {
-            ["terminal"] = true
-          }
-          if not ignored[vim.bo.buftype] then
-            local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
-            local bg = normal_hl.bg
-            vim.api.nvim_set_hl(0, "LineNrHidden", { fg = bg })
-            vim.wo.winhighlight = "LineNr:LineNrHidden"
-          end
-        end
-      '';
-    }
-    {
       desc = "Remove sqlcomplete pop-up";
       event = "FileType";
       pattern = [ "sql" ];
