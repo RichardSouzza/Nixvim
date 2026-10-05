@@ -45,6 +45,7 @@ in
           disabled_modes = [ "n" "c" "v" ];
         };
         heading = {
+          sign = false;
           width = "block";
           min_width = 80;
           right_pad = 0;

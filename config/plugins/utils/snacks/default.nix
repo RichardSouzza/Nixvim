@@ -17,6 +17,7 @@
       });
 
       settings = {
+        bigfile.enabled = true;
         image.enabled = true;
         indent.enabled = true;
         input.enabled = true;
