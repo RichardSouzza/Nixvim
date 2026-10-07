@@ -1,29 +1,38 @@
 {
   imports = [
     ./coding
-    ./coding/ai.nix
-    ./coding/blink-cmp.nix
-    ./coding/duplicate.nix
+    ./coding/ai
+    ./coding/autopairs
+    ./coding/blink-cmp
+    ./coding/duplicate
+    ./coding/flash
     ./coding/leap
-    ./coding/spider.nix
+    ./coding/spider
     ./coding/text-case
-    ./coding/visual-multi.nix
-    ./debugger/default.nix
+    ./coding/visual-multi
+    ./coding/visual-surround
+    ./debugger
     ./formatting
-    ./interface/bufferline.nix
+    ./interface
+    ./interface/bufferline
+    ./interface/cinnamon
     ./interface/colorschemes.nix
     ./interface/dashboard
-    ./interface/edgy.nix
+    ./interface/edgy
     ./interface/floating-help
-    ./interface/gitsigns.nix
-    ./interface/interface.nix
-    ./interface/lualine.nix
+    ./interface/gitsigns
+    ./interface/lualine
     ./interface/neo-tree
-    ./interface/noice.nix
+    ./interface/noice
+    ./interface/render-markdown
+    ./interface/scroll-eof
+    ./interface/scrollbar
+    ./interface/sunglasses
     ./interface/treesitter
+    ./interface/web-devicons
     ./lsp
     ./utils
-    ./utils/arrow.nix
+    ./utils/arrow
     ./utils/snacks
     ./utils/toggleterm
     ./utils/which-key

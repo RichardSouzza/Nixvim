@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function()
   local neotree_wins = {}
 

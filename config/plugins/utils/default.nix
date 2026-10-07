@@ -26,7 +26,13 @@ in
       };
     };
 
+    grug-far = {
+      enable = true;
+    };
+
     lazy.enable = true;
+
+    markdown-preview.enable = true;
 
     no-neck-pain.enable = true;
 

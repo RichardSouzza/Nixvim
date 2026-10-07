@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function()
   function forward_char()
     local char = vim.fn.getchar()

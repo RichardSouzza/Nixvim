@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function(a, b)
   -- 1. Directories before files
   if a.type ~= b.type then

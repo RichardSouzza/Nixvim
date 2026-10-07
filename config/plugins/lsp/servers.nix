@@ -101,7 +101,7 @@ in
       };
     };
 
-    flutter-tools = {
+    flutter-tools = {                     # Dart
       enable = true;
     };
 

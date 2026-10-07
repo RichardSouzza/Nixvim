@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function(state)
   local node = state.tree:get_node()
   local log = require("neo-tree.log")

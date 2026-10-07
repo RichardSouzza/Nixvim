@@ -45,31 +45,6 @@ let
       end
     '';
   };
-  wakatime = {
-    __raw = ''
-      function()
-        local output = vim.fn.execute("WakaTimeToday")
-        output = output:gsub("\n", "")
-        return output
-      end
-    '';
-  };
-  wakatime2 = {
-    __raw = ''
-      function()
-        local result = vim.api.nvim_exec3("WakaTimeToday", { output = true })
-        local output = result.output
-
-        if not output or output == "" then
-          return ""
-        end
-
-        output = output:gsub("\n", "")
-
-        return output
-      end
-    '';
-  };
 
 in
 {
@@ -119,6 +94,4 @@ in
       };
     };
   };
-
-  extraConfigLua = builtins.readFile ./wakatime.lua;
 }

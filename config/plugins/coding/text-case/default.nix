@@ -10,12 +10,6 @@ in
     ./keymaps.nix
   ];
 
-  extraConfigLua = ''
-    require("textcase").setup({
-      prefix = "ç"
-    })
-  '';
-
   extraPlugins = [
     (buildVimPlugin {
       pname = "text-case.nvim";
@@ -35,4 +29,6 @@ in
       };
     })
   ];
+
+  extraConfigLua = builtins.readFile ./extra_config.lua;
 }

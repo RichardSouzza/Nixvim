@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function()
   _G.last_win = vim.api.nvim_get_current_win()
   _G.last_buf = vim.api.nvim_get_current_buf()

@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function()
   if _G.last_win and vim.api.nvim_win_is_valid(_G.last_win) then
     vim.api.nvim_set_current_win(_G.last_win)

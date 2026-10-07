@@ -51,11 +51,20 @@ in
               conflict  = "";
             };
           };
-
-          name = {
-            handler.__raw = builtins.readFile ./functions/color_folders.lua;
-          };
         };
+
+        event_handlers = [
+          {
+            event = "neo_tree_buffer_enter";
+            handler = {
+              __raw = ''
+                function(arg)
+                  vim.opt_local.relativenumber = true
+                end
+              '';
+            };
+          }
+        ];
 
         filesystem = {
           components = {

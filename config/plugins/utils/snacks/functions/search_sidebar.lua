@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function()
   local function is_neotree_open()
     local visible = false

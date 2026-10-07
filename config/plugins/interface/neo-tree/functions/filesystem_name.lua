@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function(config, node, state)
   local name_component = require("neo-tree.sources.filesystem.components").name
   local name = name_component(config, node, state)

@@ -15,7 +15,6 @@
             '';
             wo = {
               winbar = false;
-              winhighlight = "";
             };
           }
           {
@@ -28,7 +27,6 @@
             '';
             wo = {
               winbar = false;
-              winhighlight = "";
             };
           }
           {
@@ -41,7 +39,6 @@
             '';
             wo = {
               winbar = false;
-              winhighlight = "";
             };
           }
         ];
@@ -51,7 +48,6 @@
             ft = "trouble";
             wo = {
               winbar = false;
-              winhighlight = "";
             };
           }
           {
@@ -62,9 +58,6 @@
                 return vim.api.nvim_win_get_config(win).relative == ""
               end
             '';
-            wo = {
-              winhighlight = "";
-            };
           }
         ];
         options = {

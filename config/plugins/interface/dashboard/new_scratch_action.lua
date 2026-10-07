@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function()
   Snacks.input.input({ prompt = "Scratch Name", relative = "cursor" }, function(value)
     function splitByPeriod(str)

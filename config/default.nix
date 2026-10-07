@@ -2,9 +2,10 @@
 
 {
   imports = [
+    ./autocmds
     ./keymaps
+    ./options
     ./plugins
-    ./autocmds.nix
     ./settings.nix
   ];
 

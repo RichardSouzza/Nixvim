@@ -4,6 +4,7 @@
   plugins = {
     treesitter = {
       enable = true;
+      nixGrammars = true;
 
       grammarPackages = builtins.filter (g:
         !(builtins.elem g.pname [ "tree-sitter-csv" ])
@@ -31,4 +32,8 @@
     "after/queries/markdown/injections.scm".source = ./queries/markdown.scm;
     "after/queries/nix/injections.scm".source = ./queries/nix.scm;
   };
+
+  extraConfigLuaPre = ''
+    vim.opt.runtimepath:prepend(vim.fn.stdpath("config"))
+  '';
 }

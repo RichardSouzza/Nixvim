@@ -1,3 +1,4 @@
+---@diagnostic disable: syntax-error
 function(bufnr)
   local ignored_filetypes = { }
   local filetype = vim.bo[bufnr].filetype
