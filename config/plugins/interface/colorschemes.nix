@@ -19,6 +19,7 @@ in
     - dracula
     - oasis-lagoon
     - oasis-midnight
+    - teide-darker
     - tokyonight-moon
     - tokyonight-night
 
@@ -57,6 +58,37 @@ in
       patches = [ ./../../../overlays/patches/bearded-nvim.patch ];
     })
     (buildVimPlugin {
+      pname = "conifer.nvim";
+      version = "0.3-unstable-2026-05-12";
+      src = fetchFromGitHub {
+        owner = "lucasadelino";
+        repo = "conifer.nvim";
+        rev = "b4e626afefef996dba67226ad50c49dc0b67f6dd";
+        hash = "sha256-I24Tmx3/X+jJ0FqkswTXVlO30Vbkg15zs3h7WNbyFMc=";
+      };
+      postInstall = ''
+        sed -i "5c\  transparent = false," $out/lua/conifer/config.lua
+      '';
+      meta = {
+        homepage = "https://github.com/lucasadelino/conifer.nvim";
+        license = lib.licenses.mit;
+      };
+    })
+    (buildVimPlugin {
+      pname = "houston.nvim";
+      version = "0.1.1";
+      src = fetchFromGitHub {
+        owner = "devbydaniel";
+        repo = "houston.nvim";
+        rev = "v0.1.1";
+        hash = "sha256-3s9Vga48wt1VPIoY+LAmldIs8HXXwSbyOVbyo/CtTBg=";
+      };
+      meta = {
+        homepage = "https://github.com/devbydaniel/houston.nvim";
+        license = lib.licenses.mit;
+      };
+    })
+    (buildVimPlugin {
       pname = "mini.base16";
       version = "0-unstable-2025-12-15";
       src = fetchFromGitHub {
@@ -88,13 +120,33 @@ in
       };
     })
     (buildVimPlugin {
+      pname = "nyx.nvim";
+      version = "0-unstable-2026-03-11";
+      src = fetchFromGitHub {
+        owner = "rawnly";
+        repo = "nyx.nvim";
+        rev = "9076fc0deabf478c33fc082230b463847dee3de3";
+        hash = "sha256-TlAqJBur+0jHSWFj1q+ezyCyIw/JeSMbdOWJnh8j6yo=";
+      };
+      nvimSkipModule = [
+        "nyx.docs"
+      ];
+      postInstall = ''
+        mv $out/autoload/lightline/colorscheme/teide.vim $out/autoload/lightline/colorscheme/nyx.vim
+      '';
+      meta = {
+        homepage = "https://github.com/rawnly/nyx.nvim";
+        license = lib.licenses.asl20;
+      };
+    })
+    (buildVimPlugin {
       pname = "oasis.nvim";
       version = "4.0.0";
       src = fetchFromGitHub {
         owner = "uhs-robert";
         repo = "oasis.nvim";
         rev = "v4.0.0";
-        hash = "sha256-uFO3eNhWsUmebYD6t85d8mlna2BF4qd1FU+RkGnQbvU=";
+        hash = "sha256-fOT91MAEhKfZeMRV8YCwdFVOKOhCN5Sg+eapbsjkwS4=";
       };
       meta = {
         homepage = "https://github.com/uhs-robert/oasis.nvim";
@@ -154,6 +206,23 @@ in
       };
       meta = {
         homepage = "https://github.com/pineapplegiant/spaceduck";
+        license = lib.licenses.mit;
+      };
+    })
+    (buildVimPlugin {
+      pname = "teide.nvim";
+      version = "0-unstable-2026-01-11";
+      src = fetchFromGitHub {
+        owner = "serhez";
+        repo = "teide.nvim";
+        rev = "95041d1d78e786bd88be64bca3e1771f7b6236df";
+        hash = "sha256-+rp+HermR7hbCmH+aqe7z8yy+csUKfDIvQnQSpwRDGA=";
+      };
+      nvimSkipModule = [
+        "teide.docs"
+      ];
+      meta = {
+        homepage = "https://github.com/serhez/teide.nvim";
         license = lib.licenses.mit;
       };
     })
