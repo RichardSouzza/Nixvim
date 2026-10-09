@@ -115,42 +115,42 @@ in
 
     typescript-tools = {                  # JavaScript / TypeScript
       enable = true;
-      settings = {
 
-        completions = {
-          completeFunctionCalls = true;
+      settings = {
+        publish_diagnostic_on = "insert_leave";
+        separate_diagnostic_server = true;
+
+        tsserver_file_preferences = {
+          includeInlayEnumMemberValueHints         = true;
+          includeInlayFunctionLikeReturnTypeHints  = true;
+          includeInlayParameterNameHints           = "all";
+          includeInlayParameterTypeHints           = true;
+          includeInlayPropertyDeclarationTypeHints = true;
+          includeInlayVariableTypeHints            = true;
+          includeInlayFunctionParameterTypeHints   = true;
+
+          importModuleSpecifierPreference = "non-relative";
+          updateImportsOnFileMove         = "always";
+
+          includeCompletionsWithSnippetText        = true;
+          includeCompletionsWithInsertText         = true;
+        };
+
+        tsserver_format_options = {
+          allowIncompleteCompletions    = false;
+          insertSpaceAfterCommaDelimiter = true;
+        };
+
+        expose_as_code_action = [ "fix_all" "add_missing_imports" "remove_unused_imports" ];
+
+        typescript = {
+          format.enable = false;
+          suggest.completeFunctionCalls = true;
         };
 
         javascript = {
           format.enable = false;
-          inlayHints = {
-            enumMemberValues.enabled = true;
-            functionLikeReturnTypes.enabled = true;
-            parameterNames.enabled = "all";
-            parameterTypes.enabled = true;
-            propertyDeclarationTypes.enabled = true;
-            variableTypes.enabled = true;
-          };
-        };
-
-        publish_diagnostic_on = "insert_leave";
-
-        separate_diagnostic_server = true;
-
-        typescript = {
-          format.enable = false;
-          inlayHints = {
-            enumMemberValues.enabled = true;
-            functionLikeReturnTypes.enabled = true;
-            parameterNames.enabled = "all";
-            parameterTypes.enabled = true;
-            propertyDeclarationTypes.enabled = true;
-            variableTypes.enabled = true;
-          };
-          suggest = {
-            completeFunctionCalls = true;
-          };
-          updateImportsOnFileMove = { enabled = "always"; };
+          suggest.completeFunctionCalls = true;
         };
       };
     };
