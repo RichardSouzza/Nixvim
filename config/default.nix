@@ -15,6 +15,7 @@
     gcc          # TreeSitter
     krabby       # Snacks.dashboard
     lsof         # OpenCode
+    nodejs-slim  # markdown-preview
     ripgrep      # Blink and Snacks.picker
     ruff         # Conform
     typescript   # typescript-tools
