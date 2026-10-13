@@ -1,3 +1,7 @@
+let
+  deleteWordAhead = (import ./_shared.nix).deleteWordAhead;
+
+in
 {
   keymaps = [
     {
@@ -18,16 +22,20 @@
     }
     {
       mode = "i";
-      key = "<C-backspace>";
-      action = "<Esc>ldbi";
-      options = {
-        desc = "Delete word behind of the cursor";
-      };
+      key = "<C-BS>";
+      action = "<C-w>";
+      options.desc = "Delete word behind the cursor";
+    }
+    {
+      mode = "i";
+      key = "<C-h>";
+      action = "<C-w>";
+      options.desc = "Delete word behind the cursor";
     }
     {
       mode = "i";
       key = "<C-delete>";
-      action = "<Esc>ldwi";
+      action = deleteWordAhead;
       options = {
         desc = "Delete word ahead of the cursor";
       };
@@ -35,7 +43,7 @@
     {
       mode = "i";
       key = "<C-kDel>";
-      action = "<Esc>ldwi";
+      action = deleteWordAhead;
       options = {
         desc = "Delete word ahead of the cursor";
       };

@@ -24,12 +24,27 @@
         lazygit.enabled = true;
         notifier.enabled = true;
         notify.enable = true;
-        picker.enabled = true;
+        picker = {
+          enabled = true;
+          actions = {
+            confirm_and_reveal.__raw = ''
+              function(picker)
+                picker:action("confirm")
+                vim.schedule(function()
+                  vim.cmd("Neotree reveal action=show")
+                end)
+              end
+            '';
+          };
+          win = {
+            input.keys."<CR>" = { __unkeyed-1 = "confirm_and_reveal"; mode = [ "n" "i" ]; };
+            list.keys."<CR>" = "confirm_and_reveal";
+          };
+        };
         scratch.enabled = true;
         words.enabled = true;
         zen.enabled = true;
       };
     };
   };
-
 }

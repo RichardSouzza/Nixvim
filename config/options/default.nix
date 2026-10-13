@@ -40,7 +40,7 @@
   };
 
   extraConfigLua = ''
-    ${builtins.readFile ./clipboard_wsl.lua}
+    ${builtins.readFile ./clipboard.lua}
     ${builtins.readFile ./extra.lua}
     ${builtins.readFile ./wildignore.lua}
   '';

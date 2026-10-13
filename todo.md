@@ -59,19 +59,18 @@ create a ten item checklist bellow:
 - [x] colorscheme
 - [x] empty lines in EOF
 - [x] scroll animation
-- [ ] web-devicons custom sets from lazyvim (consider mini.icons for overlay by filename)
-- [ ] which-key keymap icons
-- [ ] c# lsp
+- [ ] web-devicons custom sets from lazyvim (consider mini.icons if overlay by filename is not supported by devicons)
+- [x] which-key keymap icons
 - [x] persistence buffer
-- [ ] spotlight cursor
-- [ ] <A-S-left/right> in blink-cmp to select next 2
+- [ ] c# lsp
+- [ ] highlight cursor line
 - [ ] blink-cmp filter duplicate snippets
 - [ ] raise issue: cinnamon bug view in markdown
 
 ## Consider
 
 - [ ] refresh neo-tree periodically
-- [ ] neo-tree <S-number> to select file
+- [x] neo-tree <S-number> to select file
 - [ ] ci" lookbehind
 - [ ] better scratchs management
 - [ ] dim bufferline while in scooter
@@ -87,35 +86,11 @@ create a ten item checklist bellow:
 - [ ] switch ts_ls by typescript-tools
 - [ ] enable flutter plugin if the package is installed in home;
    make options to install the package from home-manager
-- [ ] using harpoon or arrow insted of bufferline
-   sample workflow:
-
-```lua
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
-
-vim.keymap.set("n", "<leader>a", mark.add_file)
-vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
-
-vim.keymap.set("n", "<leader>ha", function()
-  ui.nav_file(1)
-end)
-vim.keymap.set("n", "<leader>hs", function()
-  ui.nav_file(2)
-end)
-vim.keymap.set("n", "<leader>hd", function()
-  ui.nav_file(3)
-end)
-vim.keymap.set("n", "<leader>hf", function()
-  ui.nav_file(4)
-end)
-```
 
 ## Failed attempts / Very difficult
 
-- [ ] <A-up/down> silent on SOF and EOF
 - [ ] indent on <enter> and <paste>
-- [ ] nvim-lsp-file-operations
 - [ ] mouse click no trigger scrolloff
-- [ ] toggleterm offset neo-tree using width property
+- [ ] nvim-lsp-file-operations
 - [ ] stylua no touch spaces
+- [x] toggleterm offset neo-tree (done with edgy.nvim)

@@ -98,16 +98,19 @@ in
         window = {
           mappings = {
             "c".__raw = luaCmd "Snacks.picker.grep({ regex = false })";
-            "<S-e>".__raw = builtins.readFile ./functions/return_from_neotree.lua;
             "f".__raw = luaCmd "Snacks.picker.files({ hidden = true })";
             "/".__raw = luaCmd "Snacks.picker.files({ hidden = true })";
+            "s"          = "open_split";
+            "v"          = "open_vsplit";
             "D"          = "diff_files";
             "<A-up>"     = "close_node";
             "<A-S-up>"   = "close_all_nodes";
             "<A-down>"   = "expand_all_subnodes";
             "<A-S-down>" = "expand_all_nodes";
-            "<A-[>" = { command = "scroll_preview"; config.direction =  10; };
-            "<A-]>" = { command = "scroll_preview"; config.direction = -10; };
+            "<C-r>" = "";
+            "<S-e>".__raw = builtins.readFile ./functions/return_from_neotree.lua;
+            "<S-[>" = { command = "scroll_preview"; config.direction =  10; };
+            "<S-]>" = { command = "scroll_preview"; config.direction = -10; };
           };
           width = 42;
         };

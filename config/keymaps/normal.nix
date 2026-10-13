@@ -134,15 +134,7 @@ in
     }
     {
       mode = "n";
-      key = "<C-Delete>";
-      action = "dw";
-      options = {
-        desc = "Delete word ahead of the cursor";
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-Space>"; # <Tab>
+      key = "<C-Space>";
       action = "a <Esc>";
       options = {
         desc = "Add spaces in normal mode";

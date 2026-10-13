@@ -2,6 +2,14 @@
   keymaps = [
     {
       mode = "n";
+      key = "s";
+      action = "<CMD><CR>";
+      options = {
+        desc = "";
+      };
+    }
+    {
+      mode = "n";
       key = "<S-e>";
       action.__raw = builtins.readFile ./functions/focus_or_open.lua;
       options = {
