@@ -69,38 +69,7 @@ in
   };
 
   extraPlugins = with pkgs.vimPlugins; [
-    nvim-various-textobjs
     plenary-nvim
-
-    (buildVimPlugin {
-      pname = "hover.nvim";
-      version = "0-unstable-2026-06-01";
-      src = fetchFromGitHub {
-        owner = "RichardSouzza";
-        repo = "hover.nvim";
-        rev = "7655da598eefa6344a14d5733af39a242cfaa61a";
-        hash = "sha256-LHayhGYuGm/CIdfQylo98xzdQyW0IUihlCqGb9aFrsw=";
-      };
-      meta = {
-        homepage = "https://github.com/RichardSouzza/hover.nvim";
-        license = lib.licenses.mit;
-      };
-    })
-
-    (buildVimPlugin {
-      pname = "tail.nvim";
-      version = "0-unstable-2026-06-01";
-      src = fetchFromGitHub {
-        owner = "thgrass";
-        repo = "tail.nvim";
-        rev = "v0.9.2";
-        hash = "sha256-+Hg9oL3PJQO39VtTsVIgDHD6Ze05n/eIO2IY8QolhD8=";
-      };
-      meta = {
-        homepage = "https://github.com/thgrass/tail.nvim";
-        license = lib.licenses.mit;
-      };
-    })
 
     (buildVimPlugin {
       pname = "vim-cool";
@@ -116,7 +85,6 @@ in
         license = lib.licenses.mit;
       };
     })
-
     (buildVimPlugin {
       pname = "vim-startuptime";
       version = "4.5.0-unstable-2025-02-18";
@@ -132,6 +100,4 @@ in
       };
     })
   ];
-
-  extraConfigLua = builtins.readFile ./extra_config.lua;
 }

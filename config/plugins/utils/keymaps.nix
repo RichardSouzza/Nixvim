@@ -12,7 +12,11 @@
     {
       mode = "n";
       key = "<leader>C";
-      action = "<CMD>GrugFar<CR>";
+      action.__raw = ''
+        function()
+          require("grug-far").toggle_instance({ instanceName = "far" })
+        end
+      '';
       options = {
         desc = "Open GrugFar";
         silent = true;

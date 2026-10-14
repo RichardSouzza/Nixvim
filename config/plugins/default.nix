@@ -9,6 +9,7 @@
     ./coding/leap
     ./coding/spider
     ./coding/text-case
+    ./coding/various-textobjs
     ./coding/visual-multi
     ./coding/visual-surround
     ./debugger
@@ -33,7 +34,10 @@
     ./lsp
     ./utils
     ./utils/arrow
+    ./utils/hover
+    ./utils/outline
     ./utils/snacks
+    ./utils/tail
     ./utils/toggleterm
     ./utils/which-key
   ];
