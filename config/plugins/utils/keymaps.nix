@@ -11,6 +11,15 @@
     }
     {
       mode = "n";
+      key = "<leader>C";
+      action = "<CMD>GrugFar<CR>";
+      options = {
+        desc = "Open GrugFar";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
       key = "<leader>t";
       action = "<CMD>Trouble<CR>";
       options = {

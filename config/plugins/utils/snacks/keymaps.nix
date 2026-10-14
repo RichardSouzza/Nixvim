@@ -81,14 +81,6 @@
       };
     }
     {
-      action.__raw = builtins.readFile ./functions/search_sidebar.lua;
-      key = "<leader>C";
-      mode = "n";
-      options = {
-        desc = "Open search sidebar";
-      };
-    }
-    {
       action = "<CMD>lua Snacks.picker.files({ hidden = true })<CR>";
       key = "<leader>f";
       mode = "n";

@@ -51,6 +51,13 @@
               end
             '';
           }
+          {
+            ft = "grug-far";
+            title = "Grug FAR";
+            size = {
+              width = 0.4;
+            };
+          }
         ];
 
         bottom = [

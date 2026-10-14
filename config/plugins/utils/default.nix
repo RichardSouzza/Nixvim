@@ -26,9 +26,7 @@ in
       };
     };
 
-    grug-far = {
-      enable = true;
-    };
+    grug-far.enable = true;
 
     lazy.enable = true;
 
