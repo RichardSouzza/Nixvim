@@ -15,6 +15,7 @@
       action.__raw = ''
         function()
           require("grug-far").toggle_instance({ instanceName = "far" })
+          vim.cmd("Neotree reveal action=show")
         end
       '';
       options = {

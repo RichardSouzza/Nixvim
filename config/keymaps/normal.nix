@@ -141,38 +141,6 @@ in
       };
     }
     {
-      mode = ["n" "t" ];
-      key = "<C-A-Up>";
-      action.__raw = ''function() vim.cmd("wincmd k") end'';
-      options = {
-        desc = "Go to the up window";
-      };
-    }
-    {
-      mode = ["n" "t" ];
-      key = "<C-A-Down>";
-      action.__raw = ''function() vim.cmd("wincmd j") end'';
-      options = {
-        desc = "Go to the down window";
-      };
-    }
-    {
-      mode = ["n" "t" ];
-      key = "<C-A-Left>";
-      action.__raw = ''function() vim.cmd("wincmd h") end'';
-      options = {
-        desc = "Go to the left window";
-      };
-    }
-    {
-      mode = ["n" "t" ];
-      key = "<C-A-Right>";
-      action.__raw = ''function() vim.cmd("wincmd l") end'';
-      options = {
-        desc = "Go to the right window";
-      };
-    }
-    {
       mode = "n";
       key = "<A-[>";
       action = "O";

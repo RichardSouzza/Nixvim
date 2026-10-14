@@ -14,6 +14,9 @@
           left = {
             size = 40;
           };
+          right = {
+            size = 80;
+          };
           bottom = {
             size = 16;
           };
@@ -51,12 +54,12 @@
               end
             '';
           }
+        ];
+
+        right = [
           {
             ft = "grug-far";
             title = "Grug FAR";
-            size = {
-              width = 0.4;
-            };
           }
         ];
 

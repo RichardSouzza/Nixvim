@@ -1,5 +1,13 @@
 ---@diagnostic disable: syntax-error
 function(bufnr)
+  local ignored_filetypes = {
+    ["grug-far"] = true,
+  }
+
+  if ignored_filetypes[vim.bo[bufnr].filetype] then
+    return false
+  end
+
   local arrow_files = vim.g.arrow_filenames or {}
   if #arrow_files == 0 then
     return true

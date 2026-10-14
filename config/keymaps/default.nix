@@ -42,6 +42,58 @@
       };
     }
     {
+      mode = ["n" "t" "i"];
+      key = "<C-A-Up>";
+      action.__raw = ''
+        function()
+          vim.cmd("wincmd k")
+          vim.cmd.stopinsert()
+        end
+      '';
+      options = {
+        desc = "Go to the up window";
+      };
+    }
+    {
+      mode = ["n" "t" "i"];
+      key = "<C-A-Down>";
+      action.__raw = ''
+        function()
+          vim.cmd("wincmd j")
+          vim.cmd.stopinsert()
+        end
+      '';
+      options = {
+        desc = "Go to the down window";
+      };
+    }
+    {
+      mode = ["n" "t" "i"];
+      key = "<C-A-Left>";
+      action.__raw = ''
+        function()
+          vim.cmd("wincmd h")
+          vim.cmd.stopinsert()
+        end
+      '';
+      options = {
+        desc = "Go to the left window";
+      };
+    }
+    {
+      mode = ["n" "t" "i"];
+      key = "<C-A-Right>";
+      action.__raw = ''
+        function()
+          vim.cmd("wincmd l")
+          vim.cmd.stopinsert()
+        end
+      '';
+      options = {
+        desc = "Go to the right window";
+      };
+    }
+    {
       mode = [ "n" "v" "i" ];
       key = "<S-Up>";
       action = "<C-u>";
