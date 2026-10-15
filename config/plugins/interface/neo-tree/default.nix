@@ -64,6 +64,16 @@ in
               '';
             };
           }
+          {
+            event = "neo_tree_buffer_leave";
+            handler = {
+              __raw = ''
+                function(arg)
+                  vim.opt_local.relativenumber = false
+                end
+              '';
+            };
+          }
         ];
 
         filesystem = {

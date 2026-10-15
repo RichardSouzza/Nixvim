@@ -22,6 +22,9 @@
           language_pad = 1;
           border = "thin";
         };
+        pipe_table = {
+          border_virtual = true;
+        };
       };
     };
   };

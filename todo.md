@@ -1,7 +1,7 @@
 ## P1
 
 - [x] blink-cmp show sources
-- [x] neo-tree natural sort
+- [ ] neo-tree natural sort
 - [x] markdown preview
 - [x] remap increment actions
 - [x] sqlfluff formatter
@@ -13,7 +13,7 @@
 - [x] jumplist navigation
 - [x] markdown specific keymaps
 - [ ] improve markdown keymaps: numbered list creation and code blocks `````` <C-C>
-- [ ] c# fold autocmd affect only his buffer
+- [ ] c# fold regions autocmd affect only his buffer
 - [x] neo-tree focus no change source
 - [x] <Shift> half jump
 - [ ] Write or :saveas keymap
@@ -24,8 +24,6 @@ b
 c
 d
 e
-
-create a ten item checklist bellow:
 
 ## P2
 
@@ -75,7 +73,6 @@ create a ten item checklist bellow:
 - [ ] better scratchs management
 - [ ] dim bufferline while in scooter
 - [ ] exit code actions with <ESC>
-- [ ] change Snacks.picker by telescope for advanced file search
 - [ ] change Snacks.indent by hlchunk
 - [ ] dim unfocused buffers (vimmade or sunglasses)
 - [ ] change "open in difftool" setting for lazygit

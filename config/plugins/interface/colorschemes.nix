@@ -14,7 +14,7 @@ in
     - bearded-hc-ebony
     - bearded-hc-midnightvoid
     - bearded-monokai-reversed
-    - bearded-monokai-themanopia
+    - bearded-themanopia
     - catppuccin-mocha
     - dracula
     - oasis-lagoon
