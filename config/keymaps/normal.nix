@@ -102,26 +102,10 @@ in
     }
     {
       mode = "n";
-      key = "<Tab>"; # <C-i>
-      action = "<CMD>normal! <C-a><CR>";
-      options = {
-        desc = "Increment number under the cursor";
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-a>";
+      key = "<A-a>";
       action = "ggVG";
       options = {
         desc = "Select all";
-      };
-    }
-    {
-      mode = "n";
-      key = "<C-k>";
-      action = "<C-x>";
-      options = {
-        desc = "Decrement number under the cursor";
       };
     }
     {
@@ -197,34 +181,38 @@ in
       };
     }
     {
-      mode = [ "n" "i" ];
-      key = "<A-+>";
+      mode = "n";
+      key = "<A-kPlus>";
       action = "<C-w>>";
       options = {
+        remap = true;
         desc = "Increase width";
       };
     }
     {
-      mode = [ "n" "i" ];
-      key = "<A-->";
+      mode = "n";
+      key = "<A-kMinus>";
       action = "<C-w><";
       options = {
+        remap = true;
         desc = "Decrease width";
       };
     }
     {
-      mode = [ "n" "i" ];
-      key = "<A-*>";
+      mode = "n";
+      key = "<A-kMultiply>";
       action = "<C-w>+";
       options = {
+        remap = true;
         desc = "Increase height";
       };
     }
     {
-      mode = [ "n" "i" ];
-      key = "<A-/>";
+      mode = "n";
+      key = "<A-kDivide>";
       action = "<C-w>-";
       options = {
+        remap = true;
         desc = "Decrease height";
       };
     }

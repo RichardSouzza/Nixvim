@@ -2,30 +2,11 @@
   keymaps = [
     {
       mode = "v";
-      key = "+";
-      action = "<C-a>";
-      options = {
-        desc = "Increment all numbers in the selection";
-        noremap = true;
-        silent = true;
-      };
-    }
-    {
-      mode = "v";
       key = "<C-c>";
       action = "\"+y";
       options = {
         silent = false;
         desc = "Copy selected text to clipboard";
-      };
-    }
-    {
-      mode = "v";
-      key = "-";
-      action = "<C-x>";
-      options = {
-        desc = "Decrement all numbers in the selection";
-        silent = true;
       };
     }
     {

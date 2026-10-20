@@ -8,11 +8,13 @@
           disabled_modes = [ "n" "c" "v" ];
         };
         heading = {
-          enabled = true;
           icons = [ "# " "## " "### " "#### " "##### " "###### " ];
           width = "block";
           min_width = 80;
           right_pad = 0;
+        };
+        bullet = {
+          icons = "󰧞"; # nf-md-circle_medium
         };
         code = {
           width = "block";

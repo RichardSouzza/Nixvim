@@ -3,7 +3,6 @@
 - [x] blink-cmp show sources
 - [ ] neo-tree natural sort
 - [x] markdown preview
-- [x] remap increment actions
 - [x] sqlfluff formatter
 - [x] delete no copy
 - [x] blink-cmp dictionary realy useful
