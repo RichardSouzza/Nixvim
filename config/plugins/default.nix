@@ -7,10 +7,11 @@
     ./coding/duplicate
     ./coding/flash
     ./coding/leap
+    ./coding/multiple-cursors
     ./coding/spider
     ./coding/text-case
     ./coding/various-textobjs
-    ./coding/visual-multi
+    # ./coding/visual-multi
     ./coding/visual-surround
     ./debugger
     ./formatting
@@ -34,7 +35,7 @@
     ./lsp
     ./utils
     ./utils/arrow
-    ./utils/hover
+    # ./utils/hover
     ./utils/outline
     ./utils/snacks
     ./utils/tail

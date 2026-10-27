@@ -1,5 +1,21 @@
 -- Configure clipboard for WSL with Interop fix
 
+--[[
+sudo tee /usr/local/bin/fix-wsl-interop >/dev/null <<'EOF'
+#!/bin/sh
+mountpoint -q /proc/sys/fs/binfmt_misc || mount -t binfmt_misc none /proc/sys/fs/binfmt_misc
+grep -qx enabled /proc/sys/fs/binfmt_misc/WSLInterop 2>/dev/null && exit 0
+[ -e /proc/sys/fs/binfmt_misc/WSLInterop ] && echo -1 > /proc/sys/fs/binfmt_misc/WSLInterop
+echo ':WSLInterop:M::MZ::/init:PF' > /proc/sys/fs/binfmt_misc/register
+EOF
+sudo chown root:root /usr/local/bin/fix-wsl-interop
+sudo chmod 755 /usr/local/bin/fix-wsl-interop
+
+echo "$USER ALL=(root) NOPASSWD: /usr/local/bin/fix-wsl-interop" | sudo tee /etc/sudoers.d/wsl-interop
+sudo chmod 440 /etc/sudoers.d/wsl-interop
+sudo visudo -c
+--]]
+
 if vim.fn.has('wsl') == 1 then
   local fix = 'sudo -n /usr/local/bin/fix-wsl-interop >/dev/null 2>&1'
 

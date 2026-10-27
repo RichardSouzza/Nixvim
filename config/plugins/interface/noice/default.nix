@@ -6,9 +6,16 @@
         cmdline = {
           enabled = true;
           format = {
-            conceal = false;
+            lua = {
+              pattern = [ "^:%s*lua%s+" "^:%s*lua%s*=%s*" "^:%s*=%s*" ];
+              conceal = false;
+            };
             help = {
               pattern = [ "^:%s*he?l?p?%s+" "^:%s*FloatingHelp%s+" ];
+              conceal = false;
+            };
+            filter = {
+              conceal = false;
             };
           };
         };

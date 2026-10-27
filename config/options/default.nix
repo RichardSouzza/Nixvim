@@ -4,7 +4,7 @@
     breakindent = true;       # Wrapped lines retain the same indent level as the original line
     confirm = true;           # Ask for confirmation instead of failing
     cursorline = true;        # Highlight the current line
-    cursorlineopt = "number"; # Highlight the line number of the cursor
+    cursorlineopt = "both";   # Highlight the line and the line number of the cursor
     expandtab = true;         # Use spaces instead of tabs
     foldmethod = "indent";    # Create folds based on indentation
     foldlevelstart = 99;      # No closed folds when starting the buffer

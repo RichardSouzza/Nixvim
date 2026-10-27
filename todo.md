@@ -1,21 +1,13 @@
 ## P1
 
-- [x] blink-cmp show sources
 - [ ] neo-tree natural sort
-- [x] markdown preview
-- [x] sqlfluff formatter
-- [x] delete no copy
-- [x] blink-cmp dictionary realy useful
-- [x] spider improve regex
-- [x] gitsigns gh actions
-- [x] gitsigns in scrollbar
-- [x] jumplist navigation
-- [x] markdown specific keymaps
-- [ ] improve markdown keymaps: numbered list creation and code blocks `````` <C-C>
+- [ ] improve markdown keymaps: numbered list creation and code blocks and fix cursor position
 - [ ] c# fold regions autocmd affect only his buffer
-- [x] neo-tree focus no change source
-- [x] <Shift> half jump
-- [ ] Write or :saveas keymap
+- [ ] `<C-s>` do `:saveas` using Snacks.input to get file name
+- [ ] no throw `Invalid range errors` on `A-Up/Down`
+- [x] noice: disable conceal in cmline
+- [ ] improve spider.nvim movements
+- [ ] fix foreground of neo-tree and terminal buffers
 
 test list creation:
 a
@@ -26,67 +18,49 @@ e
 
 ## P2
 
-- [x] auto insert mode on toggleterm
-- [x] continuos blink-cmp path completion
-- [ ] artificial inteligence
-- [ ] <A-up/down> in visual mode move only selected block
-- [ ] <A-S-left/right> duplicate action in visual mode
-- [ ] replace quotes (maybe mini-surround can handle this)
-- [ ] code actions
-- [ ] refactoring
-- [x] lualine show number of lines selected
+- [x] highlight cursor line
+- [ ] fix sort of blink-cmp
+- [ ] better code actions
+- [ ] better refactoring actions
 
 ## P3
 
 - [ ] c# inner queries highlight
-- [ ] Cascade side bar
-- [ ] <C-w><S-t> to restore buffer
+- [ ] `<C-w><S-t>` to restore buffer
 - [ ] fix toggleterm side-by-side try to quit
+- [ ] `<A-S-left/right>` duplicate action in visual mode
 
 ## P4
 
-- [ ] <Esc> / ghb close blame if open
-- [ ] <A-number> to change buffer
-- [ ] <C-up/down> actions in multi-cursor mode
+- [ ] <Esc> / `ghb` close blame if open
+- [ ] neo-tree color folders and change icon by the folder name like VS Code
 - [ ] <A-S-up/down> actions in multi-cursor mode
-- [ ] <A-S-up/down> fix indent
+- [ ] configure codesnap.nvim
 
-## No P
+## P5
 
-- [x] colorscheme
-- [x] empty lines in EOF
-- [x] scroll animation
-- [ ] web-devicons custom sets from lazyvim (consider mini.icons if overlay by filename is not supported by devicons)
-- [x] which-key keymap icons
-- [x] persistence buffer
 - [ ] c# lsp
-- [ ] highlight cursor line
 - [ ] blink-cmp filter duplicate snippets
-- [ ] raise issue: cinnamon bug view in markdown
+- [ ] bug beteween `cinnamon.nvim` and `render-markdown.nvim`
+- [ ] artificial inteligence (consider codecompanion.nvim or opencode.nvim)
+- [ ] configure nvim-dap
 
 ## Consider
 
 - [ ] refresh neo-tree periodically
-- [x] neo-tree <S-number> to select file
-- [ ] ci" lookbehind
-- [ ] better scratchs management
-- [ ] dim bufferline while in scooter
+- [ ] ci" lookbehind if not found ahead
 - [ ] exit code actions with <ESC>
 - [ ] change Snacks.indent by hlchunk
-- [ ] dim unfocused buffers (vimmade or sunglasses)
-- [ ] change "open in difftool" setting for lazygit
-- [ ] swap plugin Snacks.indent by indent-blankline
-- [ ] swap plugin duplicate by mini
-- [ ] swap plugin bufferline by cokeline or buffertabs or barbar
+- [ ] using indent-blankline (it rainbow feature) instead of Snacks.indent in HTML / XML files
+- [ ] replace duplicate.nvim by a manual implementation
 - [ ] visual increment keep selected
-- [ ] switch ts_ls by typescript-tools
-- [ ] enable flutter plugin if the package is installed in home;
-   make options to install the package from home-manager
 
 ## Failed attempts / Very difficult
 
-- [ ] indent on <enter> and <paste>
+- [ ] dim bufferline while in scooter
+- [ ] indent when open new line
 - [ ] mouse click no trigger scrolloff
 - [ ] nvim-lsp-file-operations
 - [ ] stylua no touch spaces
-- [x] toggleterm offset neo-tree (done with edgy.nvim)
+- [ ] nixvim: enable flutter plugin if the package is installed in home;
+   make options to install the package from home-manager
