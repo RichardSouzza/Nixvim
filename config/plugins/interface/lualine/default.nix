@@ -2,7 +2,8 @@
 
 let
   breadcrumbs = {
-    __raw = ''
+    __raw = # lua
+    ''
       function()
         local ok, saga = pcall(require, "lspsaga.symbol.winbar")
         if not ok then
@@ -20,14 +21,47 @@ let
     '';
   };
   isNotNeoTree = {
-    __raw = ''
+    __raw = # lua
+    ''
       function()
         return vim.bo.filetype ~= 'neo-tree'
       end
     '';
   };
+  mode = {
+    __raw = # lua
+    ''
+      -- https://github.com/nvim-lualine/lualine.nvim/issues/1355#issuecomment-2566497849
+      function()
+        local mode_map = {
+          n = 'NORMAL',
+          i = 'INSERT',
+          v = 'VISUAL',
+          V = 'V-LINE',
+          ['^V'] = 'V-BLOCK',
+          c = 'COMMAND',
+          R = 'REPLACE',
+          s = 'SELECT',
+          S = 'S-LINE',
+          ['^S'] = 'S-BLOCK',
+          t = 'TERMINAL',
+        }
+
+        local reg = vim.fn.reg_recording()
+        local mode = vim.api.nvim_get_mode().mode
+        mode = mode_map[mode] or mode:upper()
+
+  			if reg ~= "" then
+  				mode = mode .. " rec@" .. reg
+  			end
+
+        return mode
+      end
+    '';
+  };
   linesSelected = {
-    __raw = ''
+    __raw = # lua
+    ''
       -- https://github.com/sirfz/dotvim/blob/db6f47c37a5286ddd878edd32ad060fea5584201/lua/plugins/lualine.lua#L60-L66
       function()
         local starts = vim.fn.line("v")
@@ -39,7 +73,8 @@ let
     '';
   };
   linesSelectedCond = {
-    __raw = ''
+    __raw = # lua
+    ''
       function()
         return vim.fn.mode():find("[Vv]") ~= nil
       end
@@ -61,7 +96,7 @@ in
       settings = {
         sections = {
           lualine_a = [
-            { __unkeyed-1 = "mode"; }
+            { __unkeyed-1 = mode; }
           ];
 
           lualine_b = [

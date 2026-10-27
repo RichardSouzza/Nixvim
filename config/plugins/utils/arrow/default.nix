@@ -3,7 +3,7 @@
     arrow = {
       enable = true;
       settings = {
-        leader_key = "q";
+        leader_key = "'";
         mappings = {
           edit = "e";
           delete_mode = "d";

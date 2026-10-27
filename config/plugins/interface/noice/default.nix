@@ -31,6 +31,7 @@
 
         routes = [
           {
+            view = "mini";
             filter = {
               event = "msg_show";
               any = [
@@ -41,7 +42,12 @@
                 { find = "; before #%d+";  }
               ];
             };
-            view = "mini";
+          }
+          {
+            view = "notify";
+            filter = {
+              event = "msg_showmode";
+            };
           }
         ];
 
