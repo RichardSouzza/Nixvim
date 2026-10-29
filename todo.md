@@ -3,9 +3,7 @@
 - [ ] neo-tree natural sort
 - [ ] improve markdown keymaps: numbered list creation and code blocks and fix cursor position
 - [ ] c# fold regions autocmd affect only his buffer
-- [ ] `<C-s>` do `:saveas` using Snacks.input to get file name
 - [ ] no throw `Invalid range errors` on `A-Up/Down`
-- [x] noice: disable conceal in cmline
 - [ ] improve spider.nvim movements
 - [ ] fix foreground of neo-tree and terminal buffers
 
@@ -18,7 +16,6 @@ e
 
 ## P2
 
-- [x] highlight cursor line
 - [ ] fix sort of blink-cmp
 - [ ] better code actions
 - [ ] better refactoring actions
