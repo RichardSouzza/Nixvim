@@ -10,7 +10,7 @@
     ./coding/multiple-cursors
     ./coding/spider
     ./coding/text-case
-    ./coding/various-textobjs
+    # ./coding/various-textobjs
     # ./coding/visual-multi
     ./coding/visual-surround
     ./debugger

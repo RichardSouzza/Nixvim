@@ -6,6 +6,7 @@
 - [ ] no throw `Invalid range errors` on `A-Up/Down`
 - [ ] improve spider.nvim movements
 - [ ] fix foreground of neo-tree and terminal buffers
+- [ ] AI autocomplete (ollama)
 
 test list creation:
 a
@@ -19,6 +20,7 @@ e
 - [ ] fix sort of blink-cmp
 - [ ] better code actions
 - [ ] better refactoring actions
+- [ ] neo-tree rm use gtrash
 
 ## P3
 
