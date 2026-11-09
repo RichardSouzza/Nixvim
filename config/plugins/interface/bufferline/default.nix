@@ -33,6 +33,8 @@
               filetype = "snacks_picker_list";
             }
           ];
+
+          separator_style = "padded";
         };
       };
     };
