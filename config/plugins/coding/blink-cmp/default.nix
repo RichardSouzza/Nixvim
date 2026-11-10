@@ -86,7 +86,6 @@
         sources = {
           default = [
             "buffer"
-            "codeium"
             # "dictionary"
             "emoji"
             "lsp"
@@ -100,13 +99,6 @@
               async = true;
               score_offset = -5;
               max_items = 3;
-            };
-
-            codeium = {
-              async = true;
-              name = "Codeium";
-              module = "codeium.blink";
-              score_offset = -3;
             };
 
             # dictionary = {
@@ -203,8 +195,4 @@
       ];
     };
   };
-
-  extraPlugins = with pkgs.vimPlugins; [
-    blink-cmp-avante
-  ];
 }

@@ -1,13 +1,13 @@
 {
   imports = [
     ./coding
-    ./coding/ai
     ./coding/autopairs
     ./coding/blink-cmp
     ./coding/duplicate
     ./coding/flash
     ./coding/leap
     ./coding/multiple-cursors
+    ./coding/opencode
     ./coding/spider
     ./coding/text-case
     # ./coding/various-textobjs
