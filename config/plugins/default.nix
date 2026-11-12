@@ -6,12 +6,12 @@
     ./coding/duplicate
     ./coding/flash
     ./coding/leap
-    ./coding/multiple-cursors
+    # ./coding/multiple-cursors
     ./coding/opencode
     ./coding/spider
     ./coding/text-case
     # ./coding/various-textobjs
-    # ./coding/visual-multi
+    ./coding/visual-multi
     ./coding/visual-surround
     ./debugger
     ./formatting
