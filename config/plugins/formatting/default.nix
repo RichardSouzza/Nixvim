@@ -7,6 +7,10 @@ let
 
 in
 {
+  globals = {
+    disable_autoformat = true;
+  };
+
   plugins = {
     conform-nvim = {
       enable = true;
