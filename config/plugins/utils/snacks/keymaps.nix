@@ -1,14 +1,6 @@
 {
   keymaps = [
     {
-      action = "<CMD>lua Snacks.picker.lines({ layout = { preset = 'vertical' } })<CR>";
-      mode = "n";
-      key = "/";
-      options = {
-        desc = "Search line";
-      };
-    }
-    {
       action = "<CMD>lua Snacks.picker.files({ hidden = true })<CR>";
       key = "gf";
       mode = "n";

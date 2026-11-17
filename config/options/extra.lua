@@ -38,11 +38,6 @@ vim.api.nvim_create_user_command('LintingDisable', function()
   vim.diagnostic.enable(false)
 end, {})
 
--- Invert search direction
-
-vim.keymap.set('n', 'n', 'N')
-vim.keymap.set('n', 'N', 'n')
-
 -- Remap 'Comment' and set 'Search code' keymap
 -- https://github.com/neovim/neovim/discussions/29075#discussioncomment-11140291
 

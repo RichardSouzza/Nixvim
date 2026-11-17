@@ -42,7 +42,9 @@ in
           ".config/ruff/ruff.toml".source = ../config/plugins/formatting/rules/ruff.toml;
           # ".config/sqlfluff/.sqlfluff".source = ../config/plugins/formatting/rules/sqlfluff.ini;
           ".config/yamlfmt/.yamlfmt.yaml".source = ../config/plugins/formatting/rules/yamlfmt.yaml;
-          ".stylua.toml".source = ../config/plugins/formatting/rules/stylua.toml;
+          ".config/stylua/stylua.toml".source = ../config/plugins/formatting/rules/stylua.toml;
+
+          # Utils:
           ".wakatime/wakatime-cli".source = "${pkgs.wakatime-cli}/bin/wakatime-cli";
         };
       }

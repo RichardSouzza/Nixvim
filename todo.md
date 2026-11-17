@@ -28,6 +28,7 @@ e
 - [ ] `<C-w><S-t>` to restore buffer
 - [ ] fix toggleterm side-by-side try to quit
 - [ ] `<A-S-left/right>` duplicate action in visual mode
+- [ ] xlsx support (xls-viewer.nvim / nvim-xlsx)
 
 ## P4
 

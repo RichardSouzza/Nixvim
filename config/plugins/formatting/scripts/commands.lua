@@ -3,9 +3,9 @@
 vim.api.nvim_create_user_command("FormatDisable", function(args)
   -- FormatDisable! will disable formatting just for this buffer
   if args.bang then
-    vim.b.disable_autoformat = true
+    vim.b.autoformat = false
   else
-    vim.g.disable_autoformat = true
+    vim.g.autoformat = false
     vim.b.autoformat = false
     for _, client in ipairs(vim.lsp.get_clients()) do
       client.server_capabilities.documentFormattingProvider = false
@@ -18,9 +18,8 @@ end, {
 })
 
 vim.api.nvim_create_user_command("FormatEnable", function()
-  vim.b.disable_autoformat = false
-  vim.g.disable_autoformat = false
   vim.b.autoformat = true
+  vim.g.autoformat = true
   for _, client in ipairs(vim.lsp.get_clients()) do
     client.server_capabilities.documentFormattingProvider = true
     client.server_capabilities.documentRangeFormattingProvider = true

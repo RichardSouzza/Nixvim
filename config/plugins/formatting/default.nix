@@ -8,7 +8,7 @@ let
 in
 {
   globals = {
-    disable_autoformat = true;
+    autoformat = true;
   };
 
   plugins = {
@@ -69,6 +69,7 @@ in
 
           stylua = {
             command = getExe pkgs.stylua;
+            args = [ "--config-path" (builtins.getEnv "HOME" + "/.config/stylua/stylua.toml") ];
           };
 
           toml = {

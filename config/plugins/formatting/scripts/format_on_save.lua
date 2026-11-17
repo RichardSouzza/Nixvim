@@ -3,11 +3,20 @@ function(bufnr)
   local ignored_filetypes = { }
   local filetype = vim.bo[bufnr].filetype
 
+  local autoformat_filetypes = {
+    lua = true,
+  }
+
   if vim.tbl_contains(ignored_filetypes, filetype) then
     return
   end
 
-  if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+  if not vim.b[bufnr].autoformat then
+    return
+  end
+
+  -- Allows autoformatting only when the filetype is permitted and global autoformatting is enabled.
+  if not (vim.tbl_contains(autoformat_filetypes, filetype) and vim.g.autoformat) then
     return
   end
 
