@@ -11,7 +11,7 @@
         highlights.buffer_selected.italic = false;
 
         options = {
-          custom_filter = builtins.readFile ./filter.lua;
+          custom_filter.__raw = builtins.readFile ./functions/custom_filter.lua;
 
           diagnostics = "nvim_lsp";
 
@@ -21,6 +21,8 @@
               return icon
             end
           '';
+
+          name_formatter.__raw = builtins.readFile ./functions/name_formatter.lua;
 
           offsets = [
             {

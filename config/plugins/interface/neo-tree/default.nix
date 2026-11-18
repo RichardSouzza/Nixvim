@@ -1,6 +1,5 @@
 let
   luaCmd = cmd: "function() ${cmd} end";
-  vimCmd = cmd: "function() vim.cmd('${cmd}') end";
 
 in
 {

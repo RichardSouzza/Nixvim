@@ -16,7 +16,7 @@
     relativenumber = true;    # Side relative numbers
     scrolloff = 1000;         # Keep cursor vertically centered
     shiftwidth = 2;           # Size of an indent step
-    shortmess = "ltToOCFS";   # Disables the search count (+= S)
+    shortmess = "ltToOCFSs";  # Disables the search count (+= S)
     showmode = false;         # Disables in favor of Lualine
     sidescrolloff = 20;       # Keep 20 columns of horizontal spacing between the cursor and the margin
     signcolumn = "yes";       # Always show sign column
