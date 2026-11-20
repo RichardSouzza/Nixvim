@@ -2,6 +2,7 @@
   opts = {
     autoindent = true;        # Basic automatic indentation
     breakindent = true;       # Wrapped lines retain the same indent level as the original line
+    colorcolumn = "80";       # Highlight the 80th column
     confirm = true;           # Ask for confirmation instead of failing
     cursorline = true;        # Highlight the current line
     cursorlineopt = "both";   # Highlight the line and the line number of the cursor
